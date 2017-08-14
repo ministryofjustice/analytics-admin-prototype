@@ -1,0 +1,9 @@
+{
+  "quantities": {
+    "NUM_USERS": 100,
+    "NUM_APPS": 100
+  },
+  "urls": {
+    "GITHUB_BASE": "https://github.com/something-something/"
+  }
+}
