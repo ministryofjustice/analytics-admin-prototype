@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Analytics Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Users
+  </h1>
+
+  <table class="list">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Github username</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.username }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}

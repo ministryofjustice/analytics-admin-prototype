@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Analytics Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-xlarge">
+    Apps
+  </h1>
+
+  <table class="list">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Repo URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for app in apps %}
+      <tr>
+        <td>{{ app.id }}</td>
+        <td>{{ app.name }}</td>
+        <td>{{ app.description }}</td>
+        <td>{{ app.repo_url }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}
