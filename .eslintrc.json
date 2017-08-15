@@ -1,0 +1,20 @@
+{
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "$": true,
+    "moj": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "for-direction": 2,
+    "semi": 2,
+    "radix": [2, "always"],
+    "no-undef": 2,
+    "block-scoped-var": 2,
+    "curly": 2,
+    "dot-location": [2, "property"],
+    "dot-notation": 1
+  }
+}
