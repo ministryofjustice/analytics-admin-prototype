@@ -18,7 +18,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Description</th>
-        <th>Repo URL</th>
+        <th>Repo</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +27,7 @@
         <td>{{ app.id }}</td>
         <td>{{ app.name }}</td>
         <td>{{ app.description }}</td>
-        <td>{{ app.repo_url }}</td>
+        <td><a href="{{ app.repo_url }}">Github</a></td>
       </tr>
       {% endfor %}
     </tbody>
