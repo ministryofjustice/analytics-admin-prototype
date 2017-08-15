@@ -11,6 +11,12 @@ router.get('/', function (req, res) {
 
 // add your routes here
 
+// signout route
+router.get('/signout', function (req, res) {
+  req.session.destroy();
+  res.redirect('/');
+});
+
 // users
 router.get('/users/list', function (req, res) {
   res.render('users/list', {

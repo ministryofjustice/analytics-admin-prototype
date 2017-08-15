@@ -20,10 +20,9 @@
             {% if serviceName %} {{ serviceName }} {% endif %}
           {% endblock %}
         </a>
-        <ul id="proposition-links">
-          <li><a href="/users/list">Users</a></li>
-          <li><a href="/apps/list">Apps</a></li>
-        </ul>
+
+        {% include "includes/proposition-links.html" %}
+
       </nav>
     </div>
   </div>

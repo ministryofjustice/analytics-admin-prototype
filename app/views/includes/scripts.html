@@ -9,3 +9,15 @@
 {% if useAutoStoreData %}
   <script src="/public/javascripts/auto-store-data.js"></script>
 {% endif %}
+
+
+
+<!-- project specific -->
+<!-- load and init() modules based on moj Heisenberg pattern -->
+<script src="/public/javascripts/module-loader.js"></script>
+<!-- modules -->
+<script src="/public/javascripts/modules/login-form.js"></script>
+<!-- initialise -->
+<script type="text/javascript">
+  window.moj.init();
+</script>
