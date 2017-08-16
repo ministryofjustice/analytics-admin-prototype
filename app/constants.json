@@ -1,7 +1,8 @@
 {
   "quantities": {
     "NUM_USERS": 100,
-    "NUM_APPS": 100
+    "NUM_APPS": 100,
+    "NUM_GROUPS": 25
   },
   "urls": {
     "GITHUB_BASE": "https://github.com/something-something/"
