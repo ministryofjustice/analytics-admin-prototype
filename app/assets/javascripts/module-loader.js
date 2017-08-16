@@ -1,6 +1,6 @@
-(function() {
-  'use strict';
+'use strict';
 
+(function() {
   var moj = {
 
     Modules: {},
@@ -10,7 +10,9 @@
     Events: $({}),
 
     init: function() {
-      for (var x in moj.Modules) {
+      var x;
+
+      for (x in moj.Modules) {
         if (typeof moj.Modules[x].init === 'function') {
           moj.Modules[x].init();
         }

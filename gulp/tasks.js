@@ -32,7 +32,8 @@ gulp.task('copy-govuk-modules', [
 
 gulp.task('watch', function (done) {
   runSequence('watch-sass',
-               'watch-assets', done)
+               'watch-assets',
+               'watch-lint', done)
 })
 
 gulp.task('test', function () {

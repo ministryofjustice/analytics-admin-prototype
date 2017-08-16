@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node start.js",
-    "lint": "standard",
+    "lint": "gulp lint",
     "test": "gulp test && npm run lint"
   },
   "dependencies": {
@@ -26,6 +26,7 @@
     "govuk_template_jinja": "0.22.1",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
+    "gulp-eslint": "^4.0.0",
     "gulp-mocha": "^4.3.1",
     "gulp-nodemon": "^2.1.0",
     "gulp-sass": "3.1.0",
@@ -43,15 +44,13 @@
     "serve-favicon": "2.4.2",
     "standard": "^10.0.2",
     "supertest": "^3.0.0",
-    "sync-request": "^4.0.3"
+    "sync-request": "^4.0.3",
+    "faker": "^4.1.0",
+    "mkdirp": "^0.5.1"
   },
   "greenkeeper": {
     "ignore": [
       "nunjucks"
     ]
-  },
-  "devDependencies": {
-    "faker": "^4.1.0",
-    "mkdirp": "^0.5.1"
   }
 }
