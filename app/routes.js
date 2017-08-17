@@ -24,6 +24,9 @@ router.get('/users/list', function (req, res) {
     users: users
   });
 });
+router.get('/users/edit/:index', function (req, res) {
+  res.render('users/edit');
+});
 
 // apps
 router.get('/apps/list', function (req, res) {
