@@ -10,16 +10,14 @@
 
 <main id="content" role="main">
 
-  <h1 class="heading-xlarge">
-    {{ page_title }}
-  </h1>
+  {% include "includes/page_top.html" %}
 
   {% set name = "Bob Example" %}
   {% set email = "bob.example@prototype.gov.uk" %}
   {% set github_username = "bobbo.radix77" %}
   {% set button_text = "Save" %}
   <form action="/users/list">
-    {% include 'users/includes/form.html' %}
+    {% include "users/includes/form.html" %}
   </form>
 
 </main>
