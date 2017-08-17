@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 var faker = require('faker');
 var mkdirp = require('mkdirp');
-var constants = require('./app/constants.json');
+var constants = require('../constants.json');
 
 function init() {
   var users = [];

@@ -9,7 +9,12 @@
   "scripts": {
     "start": "node start.js",
     "lint": "gulp lint",
-    "test": "gulp test && npm run lint"
+    "test": "gulp test && npm run lint",
+    "users": "node app/scripts/generate-users.js",
+    "apps": "node app/scripts/generate-apps.js",
+    "groups": "node app/scripts/generate-groups.js",
+
+    "generate-all": "npm run users && npm run apps && npm run groups"
   },
   "dependencies": {
     "basic-auth": "^1.0.3",
