@@ -10,6 +10,7 @@ var runSequence = require('run-sequence')
 
 gulp.task('default', function (done) {
   runSequence('generate-assets',
+                'lint',
                 'watch',
                 'server', done)
 })
