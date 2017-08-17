@@ -1,30 +1,33 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
-var faker = require('faker');
-var mkdirp = require('mkdirp');
-var randomTools = require('../modules/random-tools');
-var stringTools = require('../modules/string-tools');
-var constants = require('../constants.json');
+var fs = require('fs'),
+  faker = require('faker'),
+  mkdirp = require('mkdirp'),
+  randomTools = require('../modules/random-tools'),
+  stringTools = require('../modules/string-tools'),
+  constants = require('../constants.json'),
+  init,
+  makeApp,
+  writeFile;
 
-function init() {
-  var apps = [];
+init = function() {
+  var apps = [],
+    x;
 
-  for(var x = 0; x < constants.quantities.NUM_APPS; x += 1) {
+  for (x = 0; x < constants.quantities.NUM_APPS; x += 1) {
     apps.push(makeApp(x));
   }
 
   // console.log(apps);
   writeFile(apps);
-}
+};
 
-function makeApp(x) {
-  var id = x + 1;
-  var name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' '));
-  var description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : '');
-  var slug = name.toLowerCase().replace(/ /gi, '-');
-  var repo_url = constants.urls.GITHUB_BASE + slug;
+makeApp = function (x) {
+  var id = x + 1,
+    name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' ')),
+    description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : ''),
+    slug = name.toLowerCase().replace(/ /gi, '-'),
+    repo_url = constants.urls.GITHUB_BASE + slug;
 
   return {
     id: id,
@@ -33,13 +36,11 @@ function makeApp(x) {
     slug: slug,
     repo_url: repo_url
   };
-}
+};
 
-function writeFile(data) {
+writeFile = function (data) {
   mkdirp('./app/assets/data/');
   fs.writeFile('./app/assets/data/dummy-apps.json', JSON.stringify(data, null, 2), 'utf-8');
-}
-
-
+};
 
 init();
