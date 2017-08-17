@@ -5,6 +5,9 @@ var randomTools = {
     var item = array[Math.floor(Math.random() * array.length)];
 
     return item;
+  },
+  percentageChance: function(percentage) {
+    return (Math.floor(Math.random() > (percentage / 100)) ? false : true);
   }
 };
 
