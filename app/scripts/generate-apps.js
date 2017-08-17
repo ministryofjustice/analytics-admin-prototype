@@ -1,7 +1,10 @@
+'use strict';
+
 var path = require('path');
 var fs = require('fs');
 var faker = require('faker');
 var mkdirp = require('mkdirp');
+var randomTools = require('../modules/random-tools');
 var stringTools = require('../modules/string-tools');
 var constants = require('../constants.json');
 
@@ -19,7 +22,7 @@ function init() {
 function makeApp(x) {
   var id = x + 1;
   var name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' '));
-  var description = faker.lorem.sentences();
+  var description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : '');
   var slug = name.toLowerCase().replace(/ /gi, '-');
   var repo_url = constants.urls.GITHUB_BASE + slug;
 
