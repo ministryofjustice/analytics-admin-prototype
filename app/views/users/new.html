@@ -10,12 +10,10 @@
 
 <main id="content" role="main">
 
-  <h1 class="heading-xlarge">
-    {{ page_title }}
-  </h1>
+  {% include "includes/page_top.html" %}
 
   <form action="/users/list">
-    {% include 'users/includes/form.html' %}
+    {% include "users/includes/form.html" %}
   </form>
 
 </main>
