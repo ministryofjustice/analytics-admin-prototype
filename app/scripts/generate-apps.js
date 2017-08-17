@@ -2,8 +2,8 @@ var path = require('path');
 var fs = require('fs');
 var faker = require('faker');
 var mkdirp = require('mkdirp');
-var stringTools = require('./app/modules/string-tools');
-var constants = require('./app/constants.json');
+var stringTools = require('../modules/string-tools');
+var constants = require('../constants.json');
 
 function init() {
   var apps = [];

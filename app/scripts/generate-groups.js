@@ -2,9 +2,9 @@ var path = require('path');
 var fs = require('fs');
 var faker = require('faker');
 var mkdirp = require('mkdirp');
-var stringTools = require('./app/modules/string-tools');
-var randomTools = require('./app/modules/random-tools');
-var constants = require('./app/constants.json');
+var stringTools = require('../modules/string-tools');
+var randomTools = require('../modules/random-tools');
+var constants = require('../constants.json');
 
 var groupSuffixes = ["Group", "Team", "Project", "Service", "Product"];
 
@@ -15,7 +15,7 @@ function init() {
     groups.push(makeGroup(x));
   }
 
-  console.log(groups);
+  // console.log(groups);
   writeFile(groups);
 }
 
