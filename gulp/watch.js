@@ -18,5 +18,5 @@ gulp.task('watch-assets', function () {
 })
 
 gulp.task('watch-lint', function () {
-  return gulp.watch([config.paths.assets + 'javascripts/**', '.eslintrc.json'], {cwd: './'}, ['lint']);
+  return gulp.watch([config.paths.assets + 'javascripts/**', config.paths.app + 'modules/**', config.paths.app + 'scripts/**', '.eslintrc.json'], {cwd: './'}, ['lint']);
 });

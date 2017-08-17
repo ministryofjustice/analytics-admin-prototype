@@ -1,3 +1,5 @@
+'use strict';
+
 var randomTools = {
   pickFromArray: function(array) {
     var item = array[Math.floor(Math.random() * array.length)];
