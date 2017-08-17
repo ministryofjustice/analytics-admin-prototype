@@ -34,6 +34,9 @@ router.get('/apps/list', function (req, res) {
     apps: apps
   });
 });
+router.get('/apps/edit/:index', function (req, res) {
+  res.render('apps/edit');
+});
 
 // groups
 router.get('/groups/list', function (req, res) {

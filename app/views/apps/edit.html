@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% set page_title = "Edit app" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/page_top.html" %}
+
+  {% set name = "PQ Text Analysis Tool" %}
+  {% set description = "Impedit vel assumenda aut vel facilis. Alias distinctio rerum iure voluptas veritatis quibusdam. Aspernatur placeat repellendus unde." %}
+  {% set slug = "pq-text-analysis-tool" %}
+  {% set button_text = "Save" %}
+  <form action="/apps/list">
+    {% include "apps/includes/form.html" %}
+  </form>
+
+</main>
+
+{% endblock %}

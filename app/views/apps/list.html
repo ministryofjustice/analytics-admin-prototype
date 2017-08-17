@@ -19,6 +19,7 @@
         <th>Name</th>
         <th>Description</th>
         <th>Repo</th>
+        <td>&nbsp;</td>
       </tr>
     </thead>
     <tbody>
@@ -28,6 +29,7 @@
         <td>{{ app.name }}</td>
         <td>{{ app.description }}</td>
         <td><a href="{{ app.repo_url }}">Github</a></td>
+        <td><a href="/apps/edit/{{ app.id }}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>

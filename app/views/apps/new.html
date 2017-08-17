@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% set page_title = "Add app" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/page_top.html" %}
+
+  <form action="/apps/list">
+    {% include "apps/includes/form.html" %}
+  </form>
+
+</main>
+
+{% endblock %}
