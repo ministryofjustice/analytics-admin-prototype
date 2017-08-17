@@ -1,7 +1,9 @@
 {% extends "layout.html" %}
 
+{% set page_title = "Sign in" %}
+
 {% block page_title %}
-  Analytics Admin Prototype
+  {{ page_title }} | Analytics Admin Prototype
 {% endblock %}
 
 {% block content %}
@@ -11,10 +13,8 @@
     <div class="column-two-thirds">
 
       <h1 class="heading-xlarge">
-        Analytics Admin Prototype
+        {{ page_title }}
       </h1>
-
-      <h2 class="heading-large">Sign in</h2>
 
       <form id="login" action="home" method="post">
         <div class="form-group">
