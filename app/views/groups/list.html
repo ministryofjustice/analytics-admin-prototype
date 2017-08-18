@@ -12,11 +12,14 @@
 
   {% include "includes/page_top.html" %}
 
+  <p><a href="/groups/new" class="button right">Add new group</a></p>
+
   <table class="list">
     <thead>
       <tr>
         <th>ID</th>
         <th>Name</th>
+        <td>&nbsp;</td>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +27,7 @@
       <tr>
         <td>{{ group.id }}</td>
         <td>{{ group.name }}</td>
+        <td><a href="/groups/edit/{{ group.id }}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>

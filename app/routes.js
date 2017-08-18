@@ -44,6 +44,9 @@ router.get('/groups/list', function (req, res) {
     groups: groups
   });
 });
+router.get('/groups/edit/:index', function (req, res) {
+  res.render('groups/edit');
+});
 
 
 module.exports = router;

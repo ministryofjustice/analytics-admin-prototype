@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% set page_title = "Edit group" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% include "includes/page_top.html" %}
+
+  {% set name = "PQ Text Analysis Team" %}
+  {% set button_text = "Save" %}
+  <form action="/groups/list">
+    {% include "groups/includes/form.html" %}
+  </form>
+
+</main>
+
+{% endblock %}
