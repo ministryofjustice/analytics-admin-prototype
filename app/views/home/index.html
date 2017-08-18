@@ -14,6 +14,8 @@
     Analytics Admin Prototype
   </h1>
 
+  {# super-admin only #}
+  {% if data['user_type'] == 'super-admin' %}
   <div class="grid-row">
 
     <div class="column-one-third">
@@ -47,6 +49,21 @@
     </div>
 
   </div>
+  {% endif %}
+  {# end super-admin only #}
+
+  {# team-admin only #}
+  {% if data['user_type'] == 'team-admin' %}
+  <p>team admin</p>
+  {% endif %}
+  {# end team-admin only #}
+
+  {# team-member only #}
+  {% if data['user_type'] == 'team-member' %}
+  <p>team member</p>
+  {% endif %}
+  {# end team-member only #}
+
 </main>
 
 {% endblock %}
