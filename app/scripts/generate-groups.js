@@ -5,6 +5,7 @@ var fs = require('fs'),
   mkdirp = require('mkdirp'),
   stringTools = require('../modules/string-tools'),
   randomTools = require('../modules/random-tools'),
+  groupTools = require('../modules/group-tools'),
   constants = require('../constants.json'),
   groupSuffixes = ["Group", "Team", "Project", "Service", "Product"],
   init,
@@ -26,11 +27,15 @@ init = function () {
 
 makeGroup = function (x) {
   var id = x + 1,
-    name = stringTools.titleCase([faker.name.jobArea(), faker.commerce.productAdjective(), faker.name.jobDescriptor(), pickGroupSuffix()].join(' '));
+    name = stringTools.titleCase([faker.name.jobArea(), faker.commerce.productAdjective(), faker.name.jobDescriptor(), pickGroupSuffix()].join(' ')),
+    members = groupTools.addMembers(),
+    apps = groupTools.addApps();
 
   return {
     id: id,
-    name: name
+    name: name,
+    members: members,
+    apps: apps
   };
 };
 

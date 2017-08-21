@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% set page_title = group.name %}
+
+{% block page_title %}
+  {{ page_title }} | Groups | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Groups', url: '/groups/list'}, {name: group.name}] %}
+  {% include "includes/page_top.html" %}
+
+  <div class="grid-row">
+
+    <div class="column-one-third">
+      <h2 class="heading-medium">Members</h2>
+      {% if members.length %}
+      <ul class="list list-bullet">
+        {% for member in members %}
+        <li><a href="/users/show/{{ member.id }}">{{ member.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No members</p>
+      {% endif %}
+    </div>
+
+    <div class="column-one-third">
+      <h2 class="heading-medium">Apps</h2>
+      {% if apps.length %}
+      <ul class="list list-bullet">
+        {% for app in apps %}
+        <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No apps</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

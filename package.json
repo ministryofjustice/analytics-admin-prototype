@@ -13,7 +13,6 @@
     "users": "node app/scripts/generate-users.js",
     "apps": "node app/scripts/generate-apps.js",
     "groups": "node app/scripts/generate-groups.js",
-
     "generate-all": "npm run users && npm run apps && npm run groups"
   },
   "dependencies": {
@@ -26,6 +25,7 @@
     "express": "4.15.2",
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",
+    "faker": "^4.1.0",
     "govuk-elements-sass": "3.0.1",
     "govuk_frontend_toolkit": "7.0.0",
     "govuk_template_jinja": "0.22.1",
@@ -37,8 +37,10 @@
     "gulp-sass": "3.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.7",
+    "lodash": "^4.17.4",
     "marked": "^0.3.6",
     "minimist": "1.2.0",
+    "mkdirp": "^0.5.1",
     "notifications-node-client": "^3.0.0",
     "nunjucks": "^2.5.2",
     "portscanner": "^2.1.1",
@@ -49,9 +51,7 @@
     "serve-favicon": "2.4.2",
     "standard": "^10.0.2",
     "supertest": "^3.0.0",
-    "sync-request": "^4.0.3",
-    "faker": "^4.1.0",
-    "mkdirp": "^0.5.1"
+    "sync-request": "^4.0.3"
   },
   "greenkeeper": {
     "ignore": [

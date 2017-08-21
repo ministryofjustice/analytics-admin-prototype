@@ -1,5 +1,14 @@
 <ul class="breadcrumbs">
   <li><a href="/home">Home</a></li>
+  {% if crumbs.length %}
+    {% for crumb in crumbs %}
+      {% if crumb.url %}
+      <li><a href="{{ crumb.url }}">{{ crumb.name }}</a></li>
+      {% else %}
+      <li>{{ crumb.name }}</li>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
 </ul>
 
 <h1 class="heading-xlarge">
