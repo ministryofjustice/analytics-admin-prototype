@@ -2,7 +2,9 @@
   "quantities": {
     "NUM_USERS": 100,
     "NUM_APPS": 100,
-    "NUM_GROUPS": 25
+    "NUM_GROUPS": 25,
+    "MAX_GROUP_MEMBERS": 15,
+    "MAX_GROUP_APPS": 10
   },
   "urls": {
     "GITHUB_BASE": "https://github.com/something-something/"

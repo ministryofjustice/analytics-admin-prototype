@@ -21,15 +21,14 @@ init = function () {
 };
 
 makeUser = function (x) {
-  var id = x + 1;
-  var firstName = faker.name.firstName();
-  var lastName = faker.name.lastName();
-  var name = [firstName, lastName].join(' ');
-  var email = [firstName, lastName].join('.').toLowerCase() + '@prototype.gov.uk';
-  var username = [firstName, lastName].join('-').toLowerCase() + Math.floor(Math.random() * 1000).toString().replace(/ /gi, '');
+  var firstName = faker.name.firstName(),
+    lastName = faker.name.lastName(),
+    name = [firstName, lastName].join(' '),
+    email = [firstName, lastName].join('.').toLowerCase() + '@prototype.gov.uk',
+    username = [firstName, lastName].join('-').toLowerCase() + Math.floor(Math.random() * 1000).toString().replace(/ /gi, '');
 
   return {
-    id: id,
+    id: x,
     name: name,
     email: email,
     username: username

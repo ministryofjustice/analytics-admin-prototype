@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var groupTools = require('./modules/group-tools.js');
 
 var users = require('./assets/data/dummy-users.json');
 var apps = require('./assets/data/dummy-apps.json');
@@ -46,6 +47,17 @@ router.get('/groups/list', function (req, res) {
 });
 router.get('/groups/edit/:index', function (req, res) {
   res.render('groups/edit');
+});
+router.get('/groups/show/:index', function (req, res) {
+  var group = groupTools.getGroup(req.params.index),
+    members = groupTools.getGroupMembers(req.params.index),
+    apps = groupTools.getGroupApps(req.params.index);
+
+  res.render('groups/show', {
+    group: group,
+    members: members,
+    apps: apps
+  });
 });
 
 

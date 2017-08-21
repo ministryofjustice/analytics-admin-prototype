@@ -23,14 +23,13 @@ init = function() {
 };
 
 makeApp = function (x) {
-  var id = x + 1,
-    name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' ')),
+  var name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' ')),
     description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : ''),
     slug = name.toLowerCase().replace(/ /gi, '-'),
     repo_url = constants.urls.GITHUB_BASE + slug;
 
   return {
-    id: id,
+    id: x,
     name: name,
     description: description,
     slug: slug,
