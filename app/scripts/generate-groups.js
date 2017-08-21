@@ -26,13 +26,12 @@ init = function () {
 };
 
 makeGroup = function (x) {
-  var id = x + 1,
-    name = stringTools.titleCase([faker.name.jobArea(), faker.commerce.productAdjective(), faker.name.jobDescriptor(), pickGroupSuffix()].join(' ')),
+  var name = stringTools.titleCase([faker.name.jobArea(), faker.commerce.productAdjective(), faker.name.jobDescriptor(), pickGroupSuffix()].join(' ')),
     members = groupTools.addMembers(),
     apps = groupTools.addApps();
 
   return {
-    id: id,
+    id: x,
     name: name,
     members: members,
     apps: apps
