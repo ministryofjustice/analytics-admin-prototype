@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% set page_title = app.name %}
+
+{% block page_title %}
+  {{ page_title }} | Groups | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Apps', url: '/apps/list'}, {name: app.name}] %}
+  {% include "includes/page_top.html" %}
+
+  <div class="grid-row">
+
+    <div class="column-one-half ">
+      <h2 class="heading-medium">Groups with access</h2>
+      {% if appGroups.length %}
+      <ul class="list list-bullet">
+        {% for group in appGroups %}
+        <li><a href="/groups/show/{{ group.id }}">{{ group.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No groups with access to this app</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-half">
+      <p><a class="button" href="#">Grant access to a team</a></p>
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}
