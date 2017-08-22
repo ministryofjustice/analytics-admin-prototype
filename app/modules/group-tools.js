@@ -2,6 +2,7 @@
 var _ = require('lodash'),
   constants = require('../constants.json'),
   arrayTools = require('../modules/array-tools.js'),
+  userTools = require('../modules/user-tools.js'),
   groups = require('../assets/data/dummy-groups.json'),
   users = require('../assets/data/dummy-users.json'),
   apps = require('../assets/data/dummy-apps.json');
@@ -44,7 +45,7 @@ var groupTools = {
       member;
 
     for (x = 0; x < group.members.length; x += 1) {
-      member = _.find(users, {'id': parseInt(group.members[x], 10)});
+      member = userTools.getUser(group.members[x]);
       groupMembers.push(member);
     }
 
