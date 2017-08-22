@@ -1,6 +1,6 @@
 <div class="form-group">
   <label for="name" class="form-label">Name</label>
-  <input class="form-control" type="text" id="name" name="name" value="{{ name }}">
+  <input class="form-control" type="text" id="name" name="name" value="{{ app.name }}">
 </div>
 
 <div class="form-group">
@@ -8,7 +8,7 @@
     Description
     <span class="form-hint">Optional</span>
   </label>
-  <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ description }}</textarea>
+  <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{ app.description }}</textarea>
 </div>
 
 <div class="form-group">
@@ -16,7 +16,7 @@
     Github repo url
     <span class="form-hint">e.g. https://github.com/something-org/lorem-fantastic-app</span>
   </label>
-  <input class="form-control" type="text" id="repo_url" name="repo_url" value="{{ repo_url }}">
+  <input class="form-control" type="text" id="repo_url" name="repo_url" value="{{ app.repo_url }}">
 </div>
 
 <div class="form-group">

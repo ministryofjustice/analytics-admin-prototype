@@ -25,13 +25,13 @@ makeUser = function (x) {
     lastName = faker.name.lastName(),
     name = [firstName, lastName].join(' '),
     email = [firstName, lastName].join('.').toLowerCase() + '@prototype.gov.uk',
-    username = [firstName, lastName].join('-').toLowerCase() + Math.floor(Math.random() * 1000).toString().replace(/ /gi, '');
+    github_username = [firstName, lastName].join('-').toLowerCase() + Math.floor(Math.random() * 1000).toString().replace(/ /gi, '');
 
   return {
     id: x,
     name: name,
     email: email,
-    username: username
+    github_username: github_username
   };
 };
 

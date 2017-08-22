@@ -26,7 +26,7 @@ makeApp = function (x) {
   var name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' ')),
     description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : ''),
     slug = name.toLowerCase().replace(/ /gi, '-'),
-    repo_url = constants.urls.GITHUB_BASE + slug;
+    repo_url = constants.urls.GITHUB_ORG_BASE + slug;
 
   return {
     id: x,

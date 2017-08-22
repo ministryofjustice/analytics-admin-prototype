@@ -12,8 +12,11 @@
 
   {% set crumbs = [{name: page_title}] %}
   {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
 
-  <p><a href="/apps/new" class="button right">Add new app</a></p>
+  <p class="clearfix"><a href="/apps/new" class="button button-secondary right">Add new app</a></p>
 
   <table class="list">
     <thead>
@@ -29,10 +32,10 @@
       {% for app in apps %}
       <tr>
         <td>{{ app.id }}</td>
-        <td>{{ app.name }}</td>
+        <td><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></td>
         <td>{{ app.description }}</td>
         <td><a href="{{ app.repo_url }}">Github</a></td>
-        <td><a href="/apps/edit/{{ app.id }}">Edit</a></td>
+        <td><a class="button button-secondary right" href="/apps/edit/{{ app.id }}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>
