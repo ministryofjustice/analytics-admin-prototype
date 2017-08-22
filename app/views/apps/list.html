@@ -29,7 +29,7 @@
       {% for app in apps %}
       <tr>
         <td>{{ app.id }}</td>
-        <td>{{ app.name }}</td>
+        <td><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></td>
         <td>{{ app.description }}</td>
         <td><a href="{{ app.repo_url }}">Github</a></td>
         <td><a href="/apps/edit/{{ app.id }}">Edit</a></td>

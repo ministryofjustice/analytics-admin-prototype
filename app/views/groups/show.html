@@ -15,7 +15,7 @@
 
   <div class="grid-row">
 
-    <div class="column-one-third">
+    <div class="column-one-half ">
       <h2 class="heading-medium">Members</h2>
       {% if members.length %}
       <ul class="list list-bullet">
@@ -28,7 +28,7 @@
       {% endif %}
     </div>
 
-    <div class="column-one-third">
+    <div class="column-one-half ">
       <h2 class="heading-medium">Apps</h2>
       {% if apps.length %}
       <ul class="list list-bullet">
@@ -39,6 +39,18 @@
       {% else %}
       <p>No apps</p>
       {% endif %}
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-half">
+      <p><a class="button" href="#">Add member to team</a></p>
+    </div>
+
+    <div class="column-one-half">
+      <p><a class="button" href="#">Add app to team</a></p>
     </div>
 
   </div>
