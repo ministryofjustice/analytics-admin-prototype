@@ -4,7 +4,6 @@ var _ = require('lodash'),
   arrayTools = require('../modules/array-tools.js'),
   userTools = require('../modules/user-tools.js'),
   groups = require('../assets/data/dummy-groups.json'),
-  users = require('../assets/data/dummy-users.json'),
   apps = require('../assets/data/dummy-apps.json');
 
 var groupTools = {

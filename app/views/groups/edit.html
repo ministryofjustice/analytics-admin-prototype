@@ -10,13 +10,45 @@
 
 <main id="content" role="main">
 
+  {% set crumbs = [{name: 'Groups', url: '/groups/list'}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
 
-  {% set name = "PQ Text Analysis Team" %}
-  {% set button_text = "Save" %}
-  <form action="/groups/list">
-    {% include "groups/includes/form.html" %}
-  </form>
+      {% set button_text = "Save" %}
+      <form action="/groups/list">
+        {% include "groups/includes/form.html" %}
+      </form>
+
+      <hr>
+
+      <h2 class="heading-medium">Current members</h2>
+      {% if members.length %}
+        <ul class="list list-bullet">
+          {% for member in members %}
+            <li><a href="/users/show/{{ member.id }}">{{ member.name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No current members</p>
+      {% endif %}
+
+      <form action="/groups/edit/{{ group.id }}">
+        <div class="form-group">
+          <label class="form-label" for="add-member">Add member</label>
+          <select class="form-control" id="add-member" name="add-member">
+            <option value="">Select member</option>
+            {% for user in users %}
+              <option id="{{ user.id }}">{{ user.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <input type="submit" class="button" value="Add">
+        </div>
+      </form>
+
 
 </main>
 

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var groupTools = require('./modules/group-tools.js');
 var appTools = require('./modules/app-tools.js');
+var userTools = require('./modules/user-tools.js');
 
 var users = require('./assets/data/dummy-users.json');
 var apps = require('./assets/data/dummy-apps.json');
@@ -27,7 +28,20 @@ router.get('/users/list', function (req, res) {
   });
 });
 router.get('/users/edit/:index', function (req, res) {
-  res.render('users/edit');
+  var user = userTools.getUser(req.params.index);
+
+  res.render('users/edit', {
+    user: user
+  });
+});
+router.get('/users/show/:index', function (req, res) {
+  var user = userTools.getUser(req.params.index),
+    userGroups = userTools.getUserGroups(req.params.index);
+
+  res.render('users/show', {
+    user: user,
+    userGroups: userGroups
+  });
 });
 
 // apps
@@ -37,7 +51,11 @@ router.get('/apps/list', function (req, res) {
   });
 });
 router.get('/apps/edit/:index', function (req, res) {
-  res.render('apps/edit');
+  var app = appTools.getApp(req.params.index);
+
+  res.render('apps/edit', {
+    app: app
+  });
 });
 router.get('/apps/show/:index', function (req, res) {
   var app = appTools.getApp(req.params.index),
@@ -56,7 +74,14 @@ router.get('/groups/list', function (req, res) {
   });
 });
 router.get('/groups/edit/:index', function (req, res) {
-  res.render('groups/edit');
+  var group = groupTools.getGroup(req.params.index),
+    members = groupTools.getGroupMembers(req.params.index);
+
+  res.render('groups/edit', {
+    group: group,
+    members: members,
+    users: users
+  });
 });
 router.get('/groups/show/:index', function (req, res) {
   var group = groupTools.getGroup(req.params.index),

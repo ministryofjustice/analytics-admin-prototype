@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 
 {% set page_title = "Home" %}
+{% set user_type = data['user_type'] | default('super-admin') %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype
@@ -10,19 +11,19 @@
 
 <main id="content" role="main">
 
-  <h1 class="heading-xlarge">
+  <h1 class="heading-large">
     Analytics Admin Prototype
   </h1>
 
   {# super-admin only #}
-  {% if data['user_type'] == 'super-admin' %}
+  {% if user_type == 'super-admin' %}
   <div class="grid-row">
 
     <div class="column-one-third">
 
       <h2 class="heading-large">Users</h2>
       <ul>
-        <li><a href="/users/new">Add</a></li>
+        <li><a href="/users/new">New</a></li>
         <li><a href="/users/list">List</a></li>
       </ul>
 
@@ -32,7 +33,7 @@
 
       <h2 class="heading-large">Apps</h2>
       <ul>
-        <li><a href="/apps/new">Add</a></li>
+        <li><a href="/apps/new">New</a></li>
         <li><a href="/apps/list">List</a></li>
       </ul>
 
@@ -42,7 +43,7 @@
 
       <h2 class="heading-large">Groups</h2>
       <ul>
-        <li><a href="/groups/new">Add</a></li>
+        <li><a href="/groups/new">New</a></li>
         <li><a href="/groups/list">List</a></li>
       </ul>
 

@@ -7,6 +7,7 @@
     "MAX_GROUP_APPS": 10
   },
   "urls": {
-    "GITHUB_BASE": "https://github.com/something-something/"
+    "GITHUB_BASE": "https://github.com/",
+    "GITHUB_ORG_BASE": "https://github.com/something-something/"
   }
 }

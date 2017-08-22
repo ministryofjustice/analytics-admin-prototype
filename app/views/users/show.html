@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% set page_title = user.name %}
+
+{% block page_title %}
+  {{ page_title }} | Users | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Users', url: '/users/list'}, {name: user.name}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    User: {{ page_title }}
+  </h1>
+
+  <p class="clearfix"><a href="/users/edit/{{ user.id }}" class="button button-secondary right">Edit user</a></p>
+
+  <h2 class="heading-medium">Email</h2>
+  <p>{{ user.email }}</p>
+  <h2 class="heading-medium">Github username</h2>
+  <p><a href="https://github.com/{{ user.github_username }}">{{ user.github_username }}</a></p>
+
+  <div class="grid-row">
+
+    <div class="column-one-half ">
+      <h2 class="heading-medium">Group memberships</h2>
+      {% if userGroups.length %}
+      <ul class="list list-bullet">
+        {% for group in userGroups %}
+        <li><a href="/groups/show/{{ group.id }}">{{ group.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>User is not a member of any groups</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-half">
+      <p><a class="button" href="#">Grant access to a team</a></p>
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

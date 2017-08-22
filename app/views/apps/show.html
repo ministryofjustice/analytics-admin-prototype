@@ -3,7 +3,7 @@
 {% set page_title = app.name %}
 
 {% block page_title %}
-  {{ page_title }} | Groups | Analytics Admin Prototype
+  {{ page_title }} | Apps | Analytics Admin Prototype
 {% endblock %}
 
 {% block content %}
@@ -12,6 +12,20 @@
 
   {% set crumbs = [{name: 'Apps', url: '/apps/list'}, {name: app.name}] %}
   {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    App: {{ page_title }}
+  </h1>
+
+  <p class="clearfix"><a href="/apps/edit/{{ app.id }}" class="button button-secondary right">Edit app</a></p>
+
+  <h2 class="heading-medium">Description</h2>
+  {% if app.description %}
+  <p>{{ app.description }}</p>
+  {% else %}
+  <p><em>None</em></p>
+  {% endif %}
+  <h2 class="heading-medium">Repo URL</h2>
+  <p><a href="{{ app.repo_url }}">{{ app.repo_url }}</a></p>
 
   <div class="grid-row">
 

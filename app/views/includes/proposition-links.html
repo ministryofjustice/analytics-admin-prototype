@@ -1,6 +1,8 @@
-{% if data['user_type'] %}
+{% set user_type = data['user_type'] %}
+
+{% if user_type %}
 <ul id="proposition-links">
-  <li><a href="#">Signed in as {{ data['user_type'] }}</a></li>
+  <li><a href="#">Signed in as {{ user_type }}</a></li>
   <li><a href="/signout">Sign out</a></li>
 </ul>
 {% endif %}
