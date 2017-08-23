@@ -40,7 +40,7 @@
       <form action="/groups/edit/{{ group.id }}">
         <div class="form-group">
           <label class="form-label" for="add-member">Add member</label>
-          <select class="form-control" id="add-member" name="add-member">
+          <select class="form-control form-control-3-4" id="add-member" name="add-member">
             <option value="">Select member</option>
             {% for user in usersNotInGroup %}
               <option id="{{ user.id }}">{{ user.name }}</option>
@@ -48,7 +48,7 @@
           </select>
         </div>
         <div class="form-group">
-          <input type="submit" class="button" value="Add">
+          <input type="submit" class="button-secondary" value="Add">
         </div>
       </form>
     </div>
@@ -68,7 +68,7 @@
       <form action="/groups/edit/{{ group.id }}">
         <div class="form-group">
           <label class="form-label" for="add-app">Add app</label>
-          <select class="form-control" id="add-app" name="add-app">
+          <select class="form-control form-control-3-4" id="add-app" name="add-app">
             <option value="">Select app</option>
             {% for app in appsNotAvailableToGroup %}
               <option id="{{ app.id }}">{{ app.name }}</option>
@@ -76,7 +76,7 @@
           </select>
         </div>
         <div class="form-group">
-          <input type="submit" class="button" value="Add">
+          <input type="submit" class="button-secondary" value="Add">
         </div>
       </form>
     </div>
