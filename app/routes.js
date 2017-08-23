@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('lodash');
 var groupTools = require('./modules/group-tools.js');
 var appTools = require('./modules/app-tools.js');
 var userTools = require('./modules/user-tools.js');
@@ -75,12 +76,15 @@ router.get('/groups/list', function (req, res) {
 });
 router.get('/groups/edit/:index', function (req, res) {
   var group = groupTools.getGroup(req.params.index),
-    members = groupTools.getGroupMembers(req.params.index);
+    members = groupTools.getGroupMembers(req.params.index),
+    groupApps = groupTools.getGroupApps(req.params.index);
 
   res.render('groups/edit', {
     group: group,
     members: members,
-    users: users
+    usersNotInGroup: _.difference(users, members),
+    groupApps: groupApps,
+    appsNotAvailableToGroup: _.difference(apps, groupApps)
   });
 });
 router.get('/groups/show/:index', function (req, res) {
