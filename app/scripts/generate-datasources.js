@@ -10,15 +10,15 @@ var fs = require('fs'),
   writeFile;
 
 init = function() {
-  var dataSources = [],
+  var datasources = [],
     x;
 
   for (x = 0; x < constants.quantities.NUM_DATA_SOURCES; x += 1) {
-    dataSources.push(makeDataSource(x));
+    datasources.push(makeDataSource(x));
   }
 
-  // console.log(dataSources);
-  writeFile(dataSources);
+  // console.log(datasources);
+  writeFile(datasources);
 };
 
 makeDataSource = function (x) {
@@ -34,7 +34,7 @@ makeDataSource = function (x) {
 
 writeFile = function (data) {
   mkdirp('./app/assets/data/');
-  fs.writeFile('./app/assets/data/dummy-data-sources.json', JSON.stringify(data, null, 2), 'utf-8');
+  fs.writeFile('./app/assets/data/dummy-datasources.json', JSON.stringify(data, null, 2), 'utf-8');
 };
 
 init();

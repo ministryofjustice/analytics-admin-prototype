@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% set page_title = "New data source" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Data sources', url: '/datasources/list'}, {name: page_title}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <form action="/datasources/list">
+    {% include "datasources/includes/form.html" %}
+  </form>
+
+</main>
+
+{% endblock %}

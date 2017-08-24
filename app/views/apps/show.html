@@ -29,8 +29,9 @@
 
   <div class="grid-row">
 
-    <div class="column-one-half ">
-      <h2 class="heading-medium">Groups with access</h2>
+    <div class="column-two-thirds ">
+
+      <h2 class="heading-medium">Groups with access to this app</h2>
       {% if appGroups.length %}
       <ul class="list list-bullet">
         {% for group in appGroups %}
@@ -40,14 +41,19 @@
       {% else %}
       <p>No groups with access to this app</p>
       {% endif %}
-    </div>
+      <p><a class="button button-secondary" href="#">Grant a group access to this app</a></p>
 
-  </div>
-
-  <div class="grid-row">
-
-    <div class="column-one-half">
-      <p><a class="button button-secondary" href="#">Grant access to a team</a></p>
+      <h2 class="heading-medium">Data sources this app can access</h2>
+      {% if appDataSources.length %}
+      <ul class="list list-bullet">
+        {% for datasource in appDataSources %}
+        <li><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No datasources available to this app</p>
+      {% endif %}
+      <p><a class="button button-secondary" href="#">Grant this app access to a data source</a></p>
     </div>
 
   </div>
