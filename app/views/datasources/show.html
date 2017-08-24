@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set page_title = datasource.bucket_name %}
+
+{% block page_title %}
+  {{ page_title }} | Data sources | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Data sources', url: '/datasources/list'}, {name: datasource.bucket_name}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    Data source: {{ page_title }}
+  </h1>
+
+  <a href="/datasources/edit/{{ datasource.id }}" class="button button-secondary right">Edit data source</a>
+
+  <h2 class="heading-medium">Bucket URL</h2>
+  <p><a href="{{ datasource.bucket_url }}">{{ datasource.bucket_url }}</a></p>
+
+  <div class="grid-row">
+
+    <div class="column-one-half ">
+      <h2 class="heading-medium">Apps with access to this data source</h2>
+      {% if datasourceApps.length %}
+      <ul class="list list-bullet">
+        {% for app in datasourceApps %}
+        <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No apps with access to this data source</p>
+      {% endif %}
+    </div>
+
+  </div>
+
+  <div class="grid-row">
+
+    <div class="column-one-half">
+      <p><a class="button button-secondary" href="#">Grant an app access to this data source</a></p>
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

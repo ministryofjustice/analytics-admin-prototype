@@ -4,10 +4,12 @@ var _ = require('lodash');
 var groupTools = require('./modules/group-tools.js');
 var appTools = require('./modules/app-tools.js');
 var userTools = require('./modules/user-tools.js');
+var datasourceTools = require('./modules/datasource-tools.js');
 
 var users = require('./assets/data/dummy-users.json');
 var apps = require('./assets/data/dummy-apps.json');
 var groups = require('./assets/data/dummy-groups.json');
+var datasources = require('./assets/data/dummy-datasources.json');
 
 // Route index page
 router.get('/', function (req, res) {
@@ -60,11 +62,13 @@ router.get('/apps/edit/:index', function (req, res) {
 });
 router.get('/apps/show/:index', function (req, res) {
   var app = appTools.getApp(req.params.index),
-    appGroups = appTools.getAppGroups(req.params.index);
+    appGroups = appTools.getAppGroups(req.params.index),
+    appDataSources = appTools.getAppDatasources(req.params.index);
 
   res.render('apps/show', {
     app: app,
-    appGroups: appGroups
+    appGroups: appGroups,
+    appDataSources: appDataSources
   });
 });
 
@@ -96,6 +100,29 @@ router.get('/groups/show/:index', function (req, res) {
     group: group,
     members: members,
     apps: apps
+  });
+});
+
+// datasources
+router.get('/datasources/list', function (req, res) {
+  res.render('datasources/list', {
+    datasources: datasources
+  });
+});
+router.get('/datasources/edit/:index', function (req, res) {
+  var datasource = datasourceTools.getDatasource(req.params.index);
+
+  res.render('datasources/edit', {
+    datasource: datasource
+  });
+});
+router.get('/datasources/show/:index', function (req, res) {
+  var datasource = datasourceTools.getDatasource(req.params.index),
+    datasourceApps = datasourceTools.getDatasourceApps(req.params.index);
+
+  res.render('datasources/show', {
+    datasource: datasource,
+    datasourceApps: datasourceApps
   });
 });
 

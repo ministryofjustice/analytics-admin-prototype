@@ -5,6 +5,7 @@ var fs = require('fs'),
   mkdirp = require('mkdirp'),
   randomTools = require('../modules/random-tools'),
   stringTools = require('../modules/string-tools'),
+  appTools = require('../modules/app-tools'),
   constants = require('../constants.json'),
   init,
   makeApp,
@@ -26,14 +27,16 @@ makeApp = function (x) {
   var name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' ')),
     description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : ''),
     slug = name.toLowerCase().replace(/ /gi, '-'),
-    repo_url = constants.urls.GITHUB_ORG_BASE + slug;
+    repo_url = constants.urls.GITHUB_ORG_BASE + slug,
+    datasources = appTools.addDatasources();
 
   return {
     id: x,
     name: name,
     description: description,
     slug: slug,
-    repo_url: repo_url
+    repo_url: repo_url,
+    datasources: datasources
   };
 };
 
