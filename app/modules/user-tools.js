@@ -19,7 +19,11 @@ var userTools = {
       group = groups[x];
       for (y = 0; y < group.members.length; y += 1) {
         if (group.members[y].id === parseInt(id, 10)) {
-          userGroups.push(group);
+          userGroups.push({
+            id: group.id,
+            name: group.name,
+            memberRole: group.members[y].role
+          });
         }
       }
     }

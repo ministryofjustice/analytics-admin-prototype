@@ -35,7 +35,7 @@
                 <td>
                   <a href="/users/show/{{ member.id }}">{{ member.name }}</a>
                   {% if member.role %}
-                    <em>({{ grouproles[member.role].name }})</em>
+                    <em>({{ grouproles[member.role].role | capitalize }})</em>
                   {% endif %}
                 </td>
                 <td><a class="button button-secondary right" href="#">Remove</a></td>

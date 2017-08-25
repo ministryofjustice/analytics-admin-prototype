@@ -30,7 +30,12 @@
       {% if userGroups.length %}
       <ul class="list list-bullet">
         {% for group in userGroups %}
-        <li><a href="/groups/show/{{ group.id }}">{{ group.name }}</a></li>
+        <li>
+          <a href="/groups/show/{{ group.id }}">{{ group.name }}</a>
+          {% if group.memberRole %}
+            <em>({{ grouproles[group.memberRole].role | capitalize }})</em>
+          {% endif %}
+        </li>
         {% endfor %}
       </ul>
       {% else %}
