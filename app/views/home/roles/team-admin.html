@@ -23,15 +23,13 @@
 
   {# team-admin only #}
   {% if data['user_type'] == 'team-admin' %}
-  <p>team admin</p>
-  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
+    {% include 'home/roles/team-admin.html' %}
   {% endif %}
   {# end team-admin only #}
 
   {# team-member only #}
   {% if data['user_type'] == 'team-member' %}
-  <p>team member</p>
-  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
+    {% include 'home/roles/team-member.html' %}
   {% endif %}
   {# end team-member only #}
 

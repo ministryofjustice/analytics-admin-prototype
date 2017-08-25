@@ -9,6 +9,7 @@ var datasourceTools = require('./modules/datasource-tools.js');
 var users = require('./assets/data/dummy-users.json');
 var apps = require('./assets/data/dummy-apps.json');
 var groups = require('./assets/data/dummy-groups.json');
+var grouproles = require('./assets/data/group-roles.json');
 var datasources = require('./assets/data/dummy-datasources.json');
 
 // Route index page
@@ -86,6 +87,7 @@ router.get('/groups/edit/:index', function (req, res) {
   res.render('groups/edit', {
     group: group,
     members: members,
+    grouproles: grouproles,
     usersNotInGroup: _.difference(users, members),
     groupApps: groupApps,
     appsNotAvailableToGroup: _.difference(apps, groupApps)
@@ -99,7 +101,8 @@ router.get('/groups/show/:index', function (req, res) {
   res.render('groups/show', {
     group: group,
     members: members,
-    apps: apps
+    apps: apps,
+    grouproles: grouproles
   });
 });
 

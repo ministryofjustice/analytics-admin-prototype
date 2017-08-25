@@ -1,6 +1,7 @@
 'use strict';
 var _ = require('lodash'),
   constants = require('../constants.json'),
+  randomTools = require('../modules/random-tools.js'),
   arrayTools = require('../modules/array-tools.js'),
   userTools = require('../modules/user-tools.js'),
   groups = require('../assets/data/dummy-groups.json'),
@@ -13,10 +14,16 @@ var groupTools = {
       numMembers = Math.floor(Math.random() * constants.quantities.MAX_GROUP_MEMBERS) + 1;
 
     for (x = 0; x < numMembers; x += 1) {
-      groupMembers.push(Math.floor(Math.random() * constants.quantities.NUM_USERS));
+      groupMembers.push({
+        id: randomTools.getRandom(constants.quantities.NUM_USERS),
+        role: (randomTools.percentageChance(7) ? 1 : 0)
+      });
     }
 
-    groupMembers = _.uniq(arrayTools.sort(groupMembers));
+    groupMembers = _.uniqBy(groupMembers, 'id');
+    groupMembers = _.sortBy(groupMembers, 'id');
+
+    groupMembers[0].role = 1;
 
     return groupMembers;
   },
@@ -44,7 +51,8 @@ var groupTools = {
       member;
 
     for (x = 0; x < group.members.length; x += 1) {
-      member = userTools.getUser(group.members[x]);
+      member = userTools.getUser(group.members[x].id);
+      member.role = group.members[x].role;
       groupMembers.push(member);
     }
 

@@ -26,16 +26,26 @@
   <div class="grid-row">
 
     <div class="column-one-half">
-      <h2 class="heading-medium">Current members</h2>
-      {% if members.length %}
-        <ul class="list list-bullet">
-          {% for member in members %}
-            <li><a href="/users/show/{{ member.id }}">{{ member.name }}</a></li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p>No current members</p>
-      {% endif %}
+      <div class="form-group">
+        <h2 class="heading-medium">Current members</h2>
+        {% if members.length %}
+          <table>
+            {% for member in members %}
+              <tr>
+                <td>
+                  <a href="/users/show/{{ member.id }}">{{ member.name }}</a>
+                  {% if member.role %}
+                    <em>({{ grouproles[member.role].name }})</em>
+                  {% endif %}
+                </td>
+                <td><a class="button button-secondary right" href="#">Remove</a></td>
+              </tr>
+            {% endfor %}
+          </table>
+        {% else %}
+          <p>No current members</p>
+        {% endif %}
+      </div>
 
       <form action="/groups/edit/{{ group.id }}">
         <div class="form-group">
@@ -48,22 +58,27 @@
           </select>
         </div>
         <div class="form-group">
-          <input type="submit" class="button-secondary" value="Add">
+          <input type="submit" class="button button-secondary" value="Add">
         </div>
       </form>
     </div>
 
     <div class="column-one-half">
-      <h2 class="heading-medium">Current apps</h2>
-      {% if groupApps.length %}
-        <ul class="list list-bullet">
-          {% for app in groupApps %}
-            <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
-          {% endfor %}
-        </ul>
-      {% else %}
-        <p>No current apps</p>
-      {% endif %}
+      <div class="form-group">
+        <h2 class="heading-medium">Current apps</h2>
+        {% if groupApps.length %}
+          <table>
+            {% for app in groupApps %}
+              <tr>
+                <td><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></td>
+                <td><a class="button button-secondary right" href="#">Remove</a></td>
+              </tr>
+            {% endfor %}
+          </table>
+        {% else %}
+          <p>No current apps</p>
+        {% endif %}
+      </div>
 
       <form action="/groups/edit/{{ group.id }}">
         <div class="form-group">
@@ -76,7 +91,7 @@
           </select>
         </div>
         <div class="form-group">
-          <input type="submit" class="button-secondary" value="Add">
+          <input type="submit" class="button button-secondary" value="Add">
         </div>
       </form>
     </div>

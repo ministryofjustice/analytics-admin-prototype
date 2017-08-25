@@ -18,7 +18,7 @@ var userTools = {
     for (x = 0; x < constants.quantities.NUM_GROUPS; x += 1) {
       group = groups[x];
       for (y = 0; y < group.members.length; y += 1) {
-        if (group.members[y] === parseInt(id, 10)) {
+        if (group.members[y].id === parseInt(id, 10)) {
           userGroups.push(group);
         }
       }
