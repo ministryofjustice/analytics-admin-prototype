@@ -44,7 +44,8 @@ router.get('/users/show/:index', function (req, res) {
 
   res.render('users/show', {
     user: user,
-    userGroups: userGroups
+    userGroups: userGroups,
+    grouproles: grouproles
   });
 });
 
