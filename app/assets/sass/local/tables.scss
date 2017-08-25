@@ -1,5 +1,10 @@
-table.list {
-  tr {
-    vertical-align: top;
+table {
+  th, td {
+    @include core-16;
+  }
+  &.list {
+    tr {
+      vertical-align: top;
+    }
   }
 }

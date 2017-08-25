@@ -8,6 +8,9 @@ var randomTools = {
   },
   percentageChance: function(percentage) {
     return (Math.floor(Math.random() > (percentage / 100)) ? false : true);
+  },
+  getRandom: function(range) {
+    return Math.floor(Math.random() * range);
   }
 };
 

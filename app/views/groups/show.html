@@ -25,7 +25,12 @@
       {% if members.length %}
       <ul class="list list-bullet">
         {% for member in members %}
-        <li><a href="/users/show/{{ member.id }}">{{ member.name }}</a></li>
+        <li>
+          <a href="/users/show/{{ member.id }}">{{ member.name }}</a>
+          {% if member.role %}
+            <em>({{ grouproles[member.role].name }})</em>
+          {% endif %}
+        </li>
         {% endfor %}
       </ul>
       {% else %}

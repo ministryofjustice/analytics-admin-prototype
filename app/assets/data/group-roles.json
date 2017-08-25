@@ -1,0 +1,12 @@
+[
+  {
+    "id": 0,
+    "name": "Group member",
+    "role": "member"
+  },
+  {
+    "id": 1,
+    "name": "Group maintainer",
+    "role": "maintainer"
+  }
+]
