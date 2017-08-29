@@ -8,7 +8,7 @@ var _ = require('lodash'),
   apps = require('../assets/data/dummy-apps.json');
 
 var groupTools = {
-  addMembers: function() {
+  addMembers: function() { // add members to newly generated group
     var x,
       groupMembers = [],
       numMembers = Math.floor(Math.random() * constants.quantities.MAX_GROUP_MEMBERS) + 1;
@@ -22,12 +22,11 @@ var groupTools = {
 
     groupMembers = _.uniqBy(groupMembers, 'id');
     groupMembers = _.sortBy(groupMembers, 'id');
-
     groupMembers[0].role = 1;
 
     return groupMembers;
   },
-  addApps: function() {
+  addApps: function() { // add apps to newly generated group
     var x,
       groupApps = [],
       numApps = Math.floor(Math.random() * constants.quantities.MAX_GROUP_APPS) + 1;
@@ -39,6 +38,39 @@ var groupTools = {
     groupApps = _.uniq(arrayTools.sort(groupApps));
 
     return groupApps;
+  },
+  newMember: function(groupId, memberId) { // add member to group in memory only
+    var self = this,
+      group = self.getGroup(groupId),
+      groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
+      members = group.members;
+
+    members.push({
+      id: memberId,
+      role: 0
+    });
+    members = _.sortBy(members, 'id');
+    groups[groupIndex].members = members;
+
+    return true;
+  },
+  toggleAdminRole: function(groupId, memberId) {
+    var self = this,
+      group = self.getGroup(groupId),
+      groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
+      members = group.members,
+      member = _.find(members, {'id': parseInt(memberId, 10)}),
+      memberIndex = _.findIndex(members, {'id': parseInt(memberId, 10)}),
+      numAdmins = _.filter(members, {'role': 1}).length,
+      newRole = Math.abs(parseInt(member.role, 10) - 1);
+
+    if (newRole === 0 && numAdmins <= 1) {
+      return false; // can't have no admins in group
+    }
+
+    groups[groupIndex].members[memberIndex].role = newRole;
+
+    return true;
   },
   getGroup: function(id) {
     return _.find(groups, {'id': parseInt(id, 10)});

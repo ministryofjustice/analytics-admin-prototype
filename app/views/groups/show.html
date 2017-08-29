@@ -16,7 +16,7 @@
     Group: {{ page_title }}
   </h1>
 
-  <a href="/groups/edit/{{ group.id }}" class="button button-secondary right">Edit group</a>
+  <a href="/groups/edit/{{ group.id }}" class="button button-secondary">Edit group</a>
 
   <div class="grid-row">
 
@@ -36,19 +36,21 @@
       {% else %}
       <p>No members</p>
       {% endif %}
+      <a href="/groups/edit-members/{{ group.id }}" class="button button-secondary">Edit members</a>
     </div>
 
     <div class="column-one-half ">
       <h2 class="heading-medium">Apps</h2>
       {% if apps.length %}
       <ul class="list list-bullet">
-        {% for app in apps %}
+        {% for app in groupApps %}
         <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
         {% endfor %}
       </ul>
       {% else %}
       <p>No apps</p>
       {% endif %}
+      <a href="/groups/edit-apps/{{ group.id }}" class="button button-secondary">Edit apps</a>
     </div>
 
   </div>

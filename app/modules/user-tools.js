@@ -14,7 +14,7 @@ var userTools = {
       y,
       group,
       userGroups = [];
-
+console.log('doing get user groups for user ' + id);
     for (x = 0; x < constants.quantities.NUM_GROUPS; x += 1) {
       group = groups[x];
       for (y = 0; y < group.members.length; y += 1) {
@@ -27,6 +27,7 @@ var userTools = {
         }
       }
     }
+console.log('usergroups count: ' + userGroups.length);
 
     return userGroups;
   }
