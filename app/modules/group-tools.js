@@ -46,7 +46,7 @@ var groupTools = {
       members = group.members;
 
     members.push({
-      id: memberId,
+      id: parseInt(memberId, 10),
       role: 0
     });
     members = _.sortBy(members, 'id');
