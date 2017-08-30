@@ -41,7 +41,7 @@
 
     <div class="column-one-half ">
       <h2 class="heading-medium">Apps</h2>
-      {% if apps.length %}
+      {% if groupApps.length %}
       <ul class="list list-bullet">
         {% for app in groupApps %}
         <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>

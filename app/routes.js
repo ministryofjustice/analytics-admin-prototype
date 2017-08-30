@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var _ = require('lodash');
+var constants = require('./constants.json');
 var groupTools = require('./modules/group-tools.js');
 var appTools = require('./modules/app-tools.js');
 var userTools = require('./modules/user-tools.js');
@@ -9,7 +10,6 @@ var datasourceTools = require('./modules/datasource-tools.js');
 var users = require('./assets/data/dummy-users.json');
 var apps = require('./assets/data/dummy-apps.json');
 var groups = require('./assets/data/dummy-groups.json');
-var grouproles = require('./assets/data/group-roles.json');
 var datasources = require('./assets/data/dummy-datasources.json');
 
 // Route index page
@@ -45,7 +45,7 @@ router.get('/users/show/:index', function (req, res) {
   res.render('users/show', {
     user: user,
     userGroups: userGroups,
-    grouproles: grouproles
+    grouproles: constants.GROUP_ROLES
   });
 });
 
@@ -94,7 +94,7 @@ router.get('/groups/edit-members/:index', function (req, res) {
   res.render('groups/edit-members', {
     group: group,
     members: members,
-    grouproles: grouproles,
+    grouproles: constants.GROUP_ROLES,
     usersNotInGroup: _.difference(users, members)
   });
 });
@@ -105,11 +105,20 @@ router.get('/groups/add-member/:index', function (req, res) {
     console.log('add member failed');
   }
 });
+router.get('/groups/remove-member/:groupId/:memberId', function (req, res) {
+  if(groupTools.deleteMember(req.params.groupId, req.params.memberId)) {
+    res.redirect('/groups/edit-members/' + req.params.groupId);
+  } else {
+    console.log('remove member failed - group must contain one or more members, one or more of whom must be admins');
+    res.send('Remove member failed - group must contain one or more members, one or more of whom must be admins');
+  }
+});
 router.get('/groups/toggle-admin-role/:groupId/:memberId', function (req, res) {
   if(groupTools.toggleAdminRole(req.params.groupId, req.params.memberId)) {
     res.redirect('/groups/edit-members/' + req.params.groupId);
   } else {
     console.log('toggle member admin role failed');
+    res.send('Groups must contain at least one admin');
   }
 });
 router.get('/groups/edit-apps/:index', function (req, res) {
@@ -125,13 +134,13 @@ router.get('/groups/edit-apps/:index', function (req, res) {
 router.get('/groups/show/:index', function (req, res) {
   var group = groupTools.getGroup(req.params.index),
     members = groupTools.getGroupMembers(req.params.index),
-    apps = groupTools.getGroupApps(req.params.index);
+    groupApps = groupTools.getGroupApps(req.params.index);
 
   res.render('groups/show', {
     group: group,
     members: members,
-    apps: apps,
-    grouproles: grouproles
+    groupApps: groupApps,
+    grouproles: constants.GROUP_ROLES
   });
 });
 

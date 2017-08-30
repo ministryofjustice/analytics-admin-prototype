@@ -54,6 +54,24 @@ var groupTools = {
 
     return true;
   },
+  deleteMember: function(groupId, memberId) {
+    var self = this,
+      group = self.getGroup(groupId),
+      groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
+      members = group.members,
+      member = _.find(members, {'id': parseInt(memberId, 10)}),
+      memberIndex = _.findIndex(members, {'id': parseInt(memberId, 10)}),
+      numAdmins = _.filter(members, {'role': 1}).length;
+
+    if (memberIndex === -1 || members.length === 1 || (numAdmins === 1 && member.role === 1)) {
+      return false; // got to have at least one admin member
+    }
+
+    _.remove(members, {'id': parseInt(memberId, 10)});
+    groups[groupIndex].members = members;
+
+    return true;
+  },
   toggleAdminRole: function(groupId, memberId) {
     var self = this,
       group = self.getGroup(groupId),

@@ -47,7 +47,7 @@
                   Grant
                   {% endif %}
                 admin role</a>
-                <a class="button button-secondary" href="#">Remove from group</a>
+                <a class="button button-secondary" href="/groups/remove-member/{{ group.id }}/{{ member.id }}">Remove from group</a>
               </td>
             </tr>
           {% endfor %}
