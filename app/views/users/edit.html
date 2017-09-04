@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set page_title = "Edit user" %}
+{% set page_title = "Edit user: " + user.name %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype
@@ -17,7 +17,7 @@
   </h1>
 
   {% set button_text = "Save" %}
-  <form action="/users/list">
+  <form action="/users/update/{{ user.id }}" method="post">
     {% include "users/includes/form.html" %}
   </form>
 

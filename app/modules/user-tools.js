@@ -29,6 +29,15 @@ var userTools = {
     }
 
     return userGroups;
+  },
+  updateUser: function(userId, userObj) {
+    var userIndex = _.findIndex(users, {'id': parseInt(userId, 10)});
+
+    users[userIndex].name = userObj.name;
+    users[userIndex].email = userObj.email;
+    users[userIndex].github_username = userObj.github_username;
+
+    return true;
   }
 };
 

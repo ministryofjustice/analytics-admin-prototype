@@ -48,6 +48,14 @@ router.get('/users/show/:index', function (req, res) {
     grouproles: constants.GROUP_ROLES
   });
 });
+router.post('/users/update/:userId', function (req, res) {
+  if(userTools.updateUser(req.params.userId, req.body)) {
+    res.redirect('/users/show/' + req.params.userId);
+  } else {
+    console.log('update user failed');
+    res.send('update user failed');
+  }
+});
 
 // apps
 router.get('/apps/list', function (req, res) {
