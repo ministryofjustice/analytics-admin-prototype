@@ -131,6 +131,22 @@ router.get('/groups/edit-apps/:index', function (req, res) {
     appsNotAvailableToGroup: _.difference(apps, groupApps)
   });
 });
+router.get('/groups/add-app/:index', function (req, res) {
+  if(groupTools.newApp(req.params.index, req.query['add-app'])) {
+    res.redirect('/groups/edit-apps/' + req.params.index);
+  } else {
+    console.log('add app failed');
+  }
+});
+router.get('/groups/remove-app/:groupId/:appId', function (req, res) {
+  if(groupTools.deleteApp(req.params.groupId, req.params.appId)) {
+    res.redirect('/groups/edit-apps/' + req.params.groupId);
+  } else {
+    console.log('remove app failed');
+    res.send('Remove app failed');
+  }
+});
+
 router.get('/groups/show/:index', function (req, res) {
   var group = groupTools.getGroup(req.params.index),
     members = groupTools.getGroupMembers(req.params.index),

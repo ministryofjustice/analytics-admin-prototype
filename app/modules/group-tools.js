@@ -54,7 +54,7 @@ var groupTools = {
 
     return true;
   },
-  deleteMember: function(groupId, memberId) {
+  deleteMember: function(groupId, memberId) { // remove member from group in memory
     var self = this,
       group = self.getGroup(groupId),
       groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
@@ -90,6 +90,30 @@ var groupTools = {
 
     return true;
   },
+  newApp: function(groupId, appId) { // add app to group in memory only
+    var self = this,
+      group = self.getGroup(groupId),
+      groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
+      apps = group.apps;
+
+    apps.push(parseInt(appId, 10));
+    apps = _.sortBy(apps, 'id');
+    groups[groupIndex].apps = apps;
+
+    return true;
+  },
+  deleteApp: function(groupId, appId) { // remove app from group in memory
+    var self = this,
+      group = self.getGroup(groupId),
+      groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
+      apps = group.apps;
+
+    _.pull(apps, parseInt(appId, 10));
+    groups[groupIndex].apps = apps;
+
+    return true;
+  },
+
   getGroup: function(id) {
     return _.find(groups, {'id': parseInt(id, 10)});
   },
