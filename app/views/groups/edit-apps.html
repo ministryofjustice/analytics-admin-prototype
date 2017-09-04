@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% set page_title = "Edit group apps" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Groups', url: '/groups/list'}, {name: group.name, url: '/groups/show/' + group.id}, {name: page_title}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <div class="form-group">
+    {% if groupApps.length %}
+      <table>
+        {% for app in groupApps %}
+          <tr>
+            <td><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></td>
+            <td><a class="button button-secondary right" href="/groups/remove-app/{{ group.id }}/{{ app.id }}">Remove</a></td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No current apps</p>
+    {% endif %}
+  </div>
+
+  <form action="/groups/add-app/{{ group.id }}">
+    <div class="form-group">
+      <label class="form-label" for="add-app">Add app</label>
+      <select class="form-control form-control-3-4" id="add-app" name="add-app">
+        <option value="">Select app</option>
+        {% for app in appsNotAvailableToGroup %}
+          <option value="{{ app.id }}">{{ app.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+</main>
+
+{% endblock %}

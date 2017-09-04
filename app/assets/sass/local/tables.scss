@@ -2,6 +2,12 @@ table {
   th, td {
     @include core-16;
   }
+  th {
+    font-weight: bold;
+  }
+  .align-right {
+    text-align: right;
+  }
   &.list {
     tr {
       vertical-align: top;

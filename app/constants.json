@@ -10,5 +10,15 @@
   "urls": {
     "GITHUB_BASE": "https://github.com/",
     "GITHUB_ORG_BASE": "https://github.com/something-something/"
-  }
+  },
+  "GROUP_ROLES": [
+    {
+      "id": 0,
+      "role": "member"
+    },
+    {
+      "id": 1,
+      "role": "admin"
+    }
+  ]
 }
