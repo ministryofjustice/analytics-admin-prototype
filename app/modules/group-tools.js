@@ -145,6 +145,13 @@ var groupTools = {
     }
 
     return groupApps;
+  },
+  updateGroup: function(groupId, groupObj) {
+    var groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)});
+
+    groups[groupIndex].name = groupObj.name;
+
+    return true;
   }
 };
 
