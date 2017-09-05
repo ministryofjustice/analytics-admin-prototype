@@ -54,6 +54,15 @@ var appTools = {
     }
 
     return appDatasources;
+  },
+  updateApp: function(appId, appObj) {
+    var appIndex = _.findIndex(apps, {'id': parseInt(appId, 10)});
+
+    apps[appIndex].name = appObj.name;
+    apps[appIndex].description = appObj.description;
+    apps[appIndex].repo_url = appObj.repo_url;
+
+    return true;
   }
 };
 

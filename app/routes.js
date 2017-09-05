@@ -70,6 +70,14 @@ router.get('/apps/edit/:index', function (req, res) {
     app: app
   });
 });
+router.post('/apps/update/:appId', function (req, res) {
+  if(appTools.updateApp(req.params.appId, req.body)) {
+    res.redirect('/apps/show/' + req.params.appId);
+  } else {
+    console.log('update app failed');
+    res.send('update app failed');
+  }
+});
 router.get('/apps/show/:index', function (req, res) {
   var app = appTools.getApp(req.params.index),
     appGroups = appTools.getAppGroups(req.params.index),

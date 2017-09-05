@@ -17,7 +17,7 @@
   </h1>
 
   {% set button_text = "Save" %}
-  <form action="/apps/list">
+  <form action="/apps/update/{{ app.id }}" method="post">
     {% include "apps/includes/form.html" %}
   </form>
 
