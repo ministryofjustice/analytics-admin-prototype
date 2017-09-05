@@ -5,12 +5,16 @@ table {
   th {
     font-weight: bold;
   }
-  .align-right {
-    text-align: right;
-  }
   &.list {
     tr {
       vertical-align: top;
+    }
+  }
+
+  tr {
+    th:last-child,
+    td:last-child {
+      padding-right: 0;
     }
   }
 }
