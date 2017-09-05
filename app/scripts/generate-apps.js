@@ -34,7 +34,7 @@ makeApp = function (x) {
     id: x,
     name: name,
     description: description,
-    slug: slug,
+    // slug: slug,
     repo_url: repo_url,
     datasources: datasources
   };
