@@ -16,7 +16,8 @@
     {{ page_title }}
   </h1>
 
-  <form action="/datasources/list">
+  {% set button_text = "Save" %}
+  <form action="/datasources/update/{{ datasource.id }}" method="post">
     {% include "datasources/includes/form.html" %}
   </form>
 
