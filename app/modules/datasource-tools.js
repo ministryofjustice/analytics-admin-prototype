@@ -18,6 +18,14 @@ var datasourceTools = {
     }
 
     return datasourceApps;
+  },
+  updateDatasource: function(datasourceId, datasourceObj) {
+    var datasourceIndex = _.findIndex(datasources, {'id': parseInt(datasourceId, 10)});
+
+    datasources[datasourceIndex].bucket_name = datasourceObj.bucket_name;
+    datasources[datasourceIndex].bucket_url = datasourceObj.bucket_url;
+
+    return true;
   }
 };
 
