@@ -95,6 +95,14 @@ router.get('/groups/edit/:index', function (req, res) {
     group: group
   });
 });
+router.post('/groups/update/:groupId', function (req, res) {
+  if(groupTools.updateGroup(req.params.groupId, req.body)) {
+    res.redirect('/groups/show/' + req.params.groupId);
+  } else {
+    console.log('update group failed');
+    res.send('update group failed');
+  }
+});
 router.get('/groups/edit-members/:index', function (req, res) {
   var group = groupTools.getGroup(req.params.index),
     members = groupTools.getGroupMembers(req.params.index);
