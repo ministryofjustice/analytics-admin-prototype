@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set page_title = "Edit user: " + user.name %}
+{% set page_title = "Edit user" %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype
@@ -10,7 +10,7 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Users', url: '/users/list'}, {name: page_title}] %}
+  {% set crumbs = [{name: 'Users', url: '/users/list'}, {name: user.name, url: '/users/show/' + user.id}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}

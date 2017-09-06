@@ -10,7 +10,7 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Apps', url: '/apps/list'}, {name: page_title}] %}
+  {% set crumbs = [{name: 'Apps', url: '/apps/list'}, {name: app.name, url: '/apps/show/' + app.id}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}

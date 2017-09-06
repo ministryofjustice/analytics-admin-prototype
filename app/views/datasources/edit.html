@@ -10,7 +10,7 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Data sources', url: '/datasources/list'}, {name: page_title}] %}
+  {% set crumbs = [{name: 'Data sources', url: '/datasources/list'}, {name: datasource.bucket_name, url: '/datasources/show/' + datasource.id}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}
