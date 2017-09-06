@@ -16,7 +16,10 @@
     {{ page_title }}
   </h1>
 
-  <p class="clearfix"><a href="/users/new" class="button button-secondary right">Add new user</a></p>
+  <p class="clearfix align-right">
+    <a href="/users/new" class="button button-secondary">Add new user</a>
+  </p>
+  <p>{{ users.length }} users</p>
 
   <table class="list">
     <thead>
@@ -35,7 +38,10 @@
         <td><a href="/users/show/{{ user.id }}">{{ user.name }}</a></td>
         <td>{{ user.email }}</td>
         <td>{{ user.github_username }}</td>
-        <td><a class="button button-secondary right" href="/users/edit/{{ user.id }}">Edit</a></td>
+        <td class="align-right">
+          <a class="button button-secondary" href="/users/edit/{{ user.id }}">Edit</a>
+          <a class="button button-secondary js-confirm" href="/users/delete/{{ user.id }}">Delete</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

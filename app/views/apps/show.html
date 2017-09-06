@@ -16,7 +16,9 @@
     App: {{ page_title }}
   </h1>
 
-  <p class="clearfix"><a href="/apps/edit/{{ app.id }}" class="button button-secondary right">Edit app</a></p>
+  <p class="clearfix align-right">
+    <a href="/apps/edit/{{ app.id }}" class="button button-secondary">Edit app</a>
+  </p>
 
   <h2 class="heading-medium">Description</h2>
   {% if app.description %}

@@ -16,7 +16,10 @@
     User: {{ page_title }}
   </h1>
 
-  <p class="clearfix"><a href="/users/edit/{{ user.id }}" class="button button-secondary right">Edit user</a></p>
+  <p class="clearfix align-right">
+    <a href="/users/edit/{{ user.id }}" class="button button-secondary">Edit user</a>
+    <a class="button button-secondary js-confirm" href="/users/delete/{{ user.id }}">Delete user</a>
+  </p>
 
   <h2 class="heading-medium">Email</h2>
   <p>{{ user.email }}</p>

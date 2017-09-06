@@ -38,6 +38,47 @@ var userTools = {
     users[userIndex].github_username = userObj.github_username;
 
     return true;
+  },
+  addUser: function(userObj) {
+    var newId = parseInt(users[users.length - 1].id, 10) + 1;
+
+    users.push({
+      id: newId,
+      name: userObj.name,
+      email: userObj.email,
+      github_username: userObj.github_username
+    });
+
+    return true;
+  },
+  deleteUser: function(userId) {
+    var self = this,
+      userGroups = self.getUserGroups(userId),
+      x,
+      group,
+      groupIndex,
+      numAdmins,
+      members;
+
+    for (x = 0; x < userGroups.length; x += 1) {
+      group = _.find(groups, {'id': parseInt(userGroups[x].id, 10)});
+      numAdmins = _.filter(group.members, {'role': 1}).length;
+      if (numAdmins === 1 && parseInt(userGroups[x].memberRole, 10) === 1) {
+        return false;
+      }
+    }
+
+    _.remove(users, {'id': parseInt(userId, 10)});
+
+    for (x = 0; x < userGroups.length; x += 1) {
+      group = _.find(groups, {'id': parseInt(userGroups[x].id, 10)});
+      groupIndex = _.findIndex(groups, {'id': parseInt(userGroups[x].id, 10)});
+      members = group.members;
+      _.remove(members, {'id': parseInt(userId, 10)});
+      groups[groupIndex].members = members;
+    }
+
+    return true;
   }
 };
 
