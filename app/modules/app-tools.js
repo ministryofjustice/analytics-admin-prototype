@@ -96,8 +96,7 @@ var appTools = {
     return true;
   },
   removeAppDatasource: function(appId, datasourceId) {
-    var datasourceId = parseInt(datasourceId, 10),
-      app = _.find(apps, {'id': parseInt(appId, 10)}),
+    var app = _.find(apps, {'id': parseInt(appId, 10)}),
       appIndex = _.findIndex(datasources, {'id': parseInt(appId, 10)}),
       appDatasources = app.datasources;
 
