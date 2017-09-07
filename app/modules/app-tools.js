@@ -63,6 +63,81 @@ var appTools = {
     apps[appIndex].repo_url = appObj.repo_url;
 
     return true;
+  },
+  addAppGroup: function(appId, formData) {
+    var groupId = parseInt(formData['add-group'], 10),
+      group = _.find(groups, {'id': parseInt(groupId, 10)}),
+      groupApps = group.apps;
+
+    groupApps.push(parseInt(appId, 10));
+    group.apps = arrayTools.sort(groupApps);
+
+    return true;
+  },
+  removeAppGroup: function(appId, groupId) {
+    var group = _.find(groups, {'id': parseInt(groupId, 10)}),
+      groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)}),
+      groupApps = group.apps;
+
+    _.pull(groupApps, parseInt(appId, 10));
+    groups[groupIndex].apps = groupApps;
+
+    return true;
+  },
+  addAppDatasource: function(appId, formData) {
+    var datasourceId = parseInt(formData['add-datasource'], 10),
+      app = _.find(apps, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(datasources, {'id': parseInt(appId, 10)}),
+      appDatasources = app.datasources;
+
+    appDatasources.push(parseInt(datasourceId, 10));
+    apps[appIndex].datasources = arrayTools.sort(appDatasources);
+
+    return true;
+  },
+  removeAppDatasource: function(appId, datasourceId) {
+    var datasourceId = parseInt(datasourceId, 10),
+      app = _.find(apps, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(datasources, {'id': parseInt(appId, 10)}),
+      appDatasources = app.datasources;
+
+    _.pull(appDatasources, parseInt(datasourceId, 10));
+    apps[appIndex].datasources = appDatasources;
+
+    return true;
+  },
+  addApp: function(appObj) {
+    var newId = parseInt(apps[apps.length - 1].id, 10) + 1;
+
+    apps.push({
+      id: newId,
+      name: appObj.name,
+      description: appObj.description,
+      repo_url: appObj.repo_url,
+      datasources: []
+    });
+
+    return true;
+  },
+  deleteApp: function(appId) {
+    var self = this,
+      appGroups = self.getAppGroups(appId),
+      x,
+      group,
+      groupIndex,
+      groupApps;
+
+    _.remove(apps, {'id': parseInt(appId, 10)});
+
+    for (x = 0; x < appGroups.length; x += 1) {
+      group = _.find(groups, {'id': parseInt(appGroups[x].id, 10)});
+      groupIndex = _.findIndex(groups, {'id': parseInt(appGroups[x].id, 10)});
+      groupApps = group.apps;
+      _.pull(groupApps, parseInt(appId, 10));
+      groups[groupIndex].apps = groupApps;
+    }
+
+    return true;
   }
 };
 

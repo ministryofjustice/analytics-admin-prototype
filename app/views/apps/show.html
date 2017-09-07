@@ -43,19 +43,19 @@
       {% else %}
       <p>No groups with access to this app</p>
       {% endif %}
-      <p><a class="button button-secondary" href="#">Grant a group access to this app</a></p>
+      <p><a class="button button-secondary" href="/apps/edit-groups/{{ app.id }}">Edit groups with access to this app</a></p>
 
       <h2 class="heading-medium">Data sources this app can access</h2>
-      {% if appDataSources.length %}
+      {% if appDatasources.length %}
       <ul class="list list-bullet">
-        {% for datasource in appDataSources %}
+        {% for datasource in appDatasources %}
         <li><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
         {% endfor %}
       </ul>
       {% else %}
       <p>No datasources available to this app</p>
       {% endif %}
-      <p><a class="button button-secondary" href="#">Grant this app access to a data source</a></p>
+      <p><a class="button button-secondary" href="/apps/edit-datasources/{{ app.id }}">Edit data sources this app can access</a></p>
     </div>
 
   </div>
