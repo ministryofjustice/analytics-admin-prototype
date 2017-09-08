@@ -113,7 +113,7 @@ var userTools = {
     });
 
     members = _.orderBy(members, 'id');
-    groups[groupIndex].members = members
+    groups[groupIndex].members = members;
 
     return true;
   }

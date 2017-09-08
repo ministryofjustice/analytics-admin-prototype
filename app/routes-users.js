@@ -52,10 +52,9 @@ module.exports = function(router, _, constants, users, groups, userTools) {
     if(userTools.addUserToGroup(req.params.userId, req.body)) {
       res.redirect('/users/show/' + req.params.userId);
     } else {
-      console.log('delete user failed');
-      res.send('delete user failed - that user may be the only admin in a group');
+      console.log('add user to group failed');
+      res.send('add user to group failed');
     }
-
   });
 
 }
