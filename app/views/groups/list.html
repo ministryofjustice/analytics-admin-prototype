@@ -34,7 +34,10 @@
       <tr>
         <td>{{ group.id }}</td>
         <td><a href="/groups/show/{{ group.id }}">{{ group.name }}</a></td>
-        <td><a class="button button-secondary right" href="/groups/edit/{{ group.id }}">Edit</a></td>
+        <td class="align-right no-wrap">
+          <a class="button button-secondary" href="/groups/edit/{{ group.id }}">Edit</a>
+          <a class="button button-secondary js-confirm" href="/groups/delete/{{ group.id }}">Delete</a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

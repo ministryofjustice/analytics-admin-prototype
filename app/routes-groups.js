@@ -86,7 +86,6 @@ module.exports = function(router, _, constants, groups, users, apps, groupTools)
       res.send('Remove app failed');
     }
   });
-
   router.get('/groups/show/:index', function (req, res) {
     var group = groupTools.getGroup(req.params.index),
       members = groupTools.getGroupMembers(req.params.index),
@@ -98,5 +97,13 @@ module.exports = function(router, _, constants, groups, users, apps, groupTools)
       groupApps: groupApps,
       grouproles: constants.GROUP_ROLES
     });
+  });
+  router.get('/groups/delete/:groupId', function (req, res) {
+    if(groupTools.deleteGroup(req.params.groupId)) {
+      res.redirect('/groups/list');
+    } else {
+      console.log('delete group failed');
+      res.send('delete group failed');
+    }
   });
 }

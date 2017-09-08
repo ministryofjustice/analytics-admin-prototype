@@ -161,6 +161,11 @@ var groupTools = {
     });
 
     return true;
+  },
+  deleteGroup: function(groupId) {
+    _.remove(groups, {'id': parseInt(groupId, 10)});
+
+    return true;
   }
 };
 
