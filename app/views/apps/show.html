@@ -32,7 +32,7 @@
 
   <div class="grid-row">
 
-    <div class="column-two-thirds ">
+    <div class="column-half ">
 
       <h2 class="heading-medium">Groups with access to this app</h2>
       {% if appGroups.length %}
@@ -45,6 +45,10 @@
       <p>No groups with access to this app</p>
       {% endif %}
       <p><a class="button button-secondary" href="/apps/edit-groups/{{ app.id }}">Edit groups with access to this app</a></p>
+
+    </div>
+
+    <div class="column-half">
 
       <h2 class="heading-medium">Data sources this app can access</h2>
       {% if appDatasources.length %}
