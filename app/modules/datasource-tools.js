@@ -44,7 +44,7 @@ var datasourceTools = {
       x;
 
     for (x = 0; x < apps.length; x += 1) {
-      if (!apps[x].datasources.includes(datasourceId)) {
+      if (!apps[x].datasources.includes(parseInt(datasourceId, 10))) {
         appsWithoutDatasource.push({
           id: apps[x].id,
           name: apps[x].name
