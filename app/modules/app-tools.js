@@ -55,12 +55,12 @@ var appTools = {
 
     return appDatasources;
   },
-  updateApp: function(appId, appObj) {
+  updateApp: function(appId, formData) {
     var appIndex = _.findIndex(apps, {'id': parseInt(appId, 10)});
 
-    apps[appIndex].name = appObj.name;
-    apps[appIndex].description = appObj.description;
-    apps[appIndex].repo_url = appObj.repo_url;
+    apps[appIndex].name = formData.name;
+    apps[appIndex].description = formData.description;
+    apps[appIndex].repo_url = formData.repo_url;
 
     return true;
   },
@@ -105,14 +105,14 @@ var appTools = {
 
     return true;
   },
-  addApp: function(appObj) {
+  newApp: function(formData) {
     var newId = parseInt(apps[apps.length - 1].id, 10) + 1;
 
     apps.push({
       id: newId,
-      name: appObj.name,
-      description: appObj.description,
-      repo_url: appObj.repo_url,
+      name: formData.name,
+      description: formData.description,
+      repo_url: formData.repo_url,
       datasources: []
     });
 

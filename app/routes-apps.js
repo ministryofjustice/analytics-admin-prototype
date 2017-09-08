@@ -73,11 +73,11 @@ module.exports = function(router, _, constants, apps, groups, datasources, appTo
     }
   });
   router.post('/apps/add', function (req, res) {
-    if(appTools.addApp(req.body)) {
+    if(appTools.newApp(req.body)) {
       res.redirect('/apps/list');
     } else {
-      console.log('update app failed');
-      res.send('update app failed');
+      console.log('add app failed');
+      res.send('add app failed');
     }
   });
   router.get('/apps/show/:index', function (req, res) {

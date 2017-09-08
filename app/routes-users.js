@@ -31,7 +31,7 @@ module.exports = function(router, constants, users, userTools) {
     }
   });
   router.post('/users/add', function (req, res) {
-    if(userTools.addUser(req.body)) {
+    if(userTools.newUser(req.body)) {
       res.redirect('/users/list');
     } else {
       console.log('update user failed');
