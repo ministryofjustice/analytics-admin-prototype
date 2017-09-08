@@ -24,7 +24,7 @@ router.get('/signout', function (req, res) {
 });
 
 // users
-require('./routes-users.js') (router, constants, users, userTools);
+require('./routes-users.js') (router, _, constants, users, groups, userTools);
 
 // apps
 require('./routes-apps.js') (router, _, constants, apps, groups, datasources, appTools);

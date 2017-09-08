@@ -1,7 +1,6 @@
 'use strict';
 
 var _ = require('lodash'),
-  constants = require('../constants.json'),
   groups = require('../assets/data/dummy-groups.json'),
   users = require('../assets/data/dummy-users.json');
 
@@ -15,7 +14,7 @@ var userTools = {
       group,
       userGroups = [];
 
-    for (x = 0; x < constants.quantities.NUM_GROUPS; x += 1) {
+    for (x = 0; x < groups.length; x += 1) {
       group = groups[x];
       for (y = 0; y < group.members.length; y += 1) {
         if (group.members[y].id === parseInt(id, 10)) {
@@ -29,6 +28,28 @@ var userTools = {
     }
 
     return userGroups;
+  },
+  checkGroupForUser: function(userId, group) {
+    if (_.find(group.members, {'id': parseInt(userId, 10)})) {
+      return true;
+    }
+    return false;
+  },
+  getGroupsWithoutUser: function(userId) { // that's a horrid function name
+    var self = this,
+      groupsWithoutUser = [],
+      x;
+
+    for (x = 0; x < groups.length; x += 1) {
+      if (!self.checkGroupForUser(userId, groups[x])) {
+        groupsWithoutUser.push({
+          id: groups[x].id,
+          name: groups[x].name
+        });
+      }
+    }
+
+    return groupsWithoutUser;
   },
   updateUser: function(userId, formData) {
     var userIndex = _.findIndex(users, {'id': parseInt(userId, 10)});
@@ -77,6 +98,22 @@ var userTools = {
       _.remove(members, {'id': parseInt(userId, 10)});
       groups[groupIndex].members = members;
     }
+
+    return true;
+  },
+  addUserToGroup: function(userId, formData) {
+    var groupId = parseInt(formData['add-user-to-group'], 10),
+      group = _.find(groups, {'id': groupId}),
+      groupIndex = _.findIndex(groups, {'id': groupId}),
+      members = group.members;
+
+    members.push({
+      id: parseInt(userId, 10),
+      role: 0
+    });
+
+    members = _.orderBy(members, 'id');
+    groups[groupIndex].members = members
 
     return true;
   }

@@ -1,4 +1,4 @@
-module.exports = function(router, constants, users, userTools) {
+module.exports = function(router, _, constants, users, groups, userTools) {
   // users
   router.get('/users/list', function (req, res) {
     res.render('users/list', {
@@ -12,14 +12,16 @@ module.exports = function(router, constants, users, userTools) {
       user: user
     });
   });
-  router.get('/users/show/:index', function (req, res) {
-    var user = userTools.getUser(req.params.index),
-      userGroups = userTools.getUserGroups(req.params.index);
+  router.get('/users/show/:userId', function (req, res) {
+    var user = userTools.getUser(req.params.userId),
+      userGroups = userTools.getUserGroups(req.params.userId),
+      groupsWithoutUser = userTools.getGroupsWithoutUser(req.params.userId);
 
     res.render('users/show', {
       user: user,
       userGroups: userGroups,
-      grouproles: constants.GROUP_ROLES
+      grouproles: constants.GROUP_ROLES,
+      groupsWithoutUser: groupsWithoutUser
     });
   });
   router.post('/users/update/:userId', function (req, res) {
@@ -45,6 +47,15 @@ module.exports = function(router, constants, users, userTools) {
       console.log('delete user failed');
       res.send('delete user failed - that user may be the only admin in a group');
     }
+  });
+  router.post('/users/add-user-to-group/:userId', function (req, res) {
+    if(userTools.addUserToGroup(req.params.userId, req.body)) {
+      res.redirect('/users/show/' + req.params.userId);
+    } else {
+      console.log('delete user failed');
+      res.send('delete user failed - that user may be the only admin in a group');
+    }
+
   });
 
 }
