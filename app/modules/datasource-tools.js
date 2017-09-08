@@ -65,6 +65,26 @@ var datasourceTools = {
     apps[appIndex].datasources = datasources;
 
     return true;
+  },
+  deleteDatasource: function(datasourceId) {
+    var self = this,
+      datasourceApps = self.getDatasourceApps(datasourceId),
+      x,
+      app,
+      appIndex,
+      appDatasources;
+
+    _.remove(datasources, {'id': parseInt(datasourceId, 10)});
+
+    for (x = 0; x < datasourceApps.length; x += 1) {
+      app = _.find(apps, {'id': parseInt(datasourceApps[x].id, 10)});
+      appIndex = _.findIndex(apps, {'id': parseInt(datasourceApps[x].id, 10)});
+      appDatasources = app.datasources;
+      _.pull(appDatasources, parseInt(datasourceId, 10));
+      apps[appIndex].datasources = appDatasources;
+    }
+
+    return true;
   }
 };
 
