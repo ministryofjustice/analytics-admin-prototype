@@ -18,6 +18,7 @@
 
   <div class="form-group">
     {% if groupApps.length %}
+      <p>{{ groupApps.length }} app(s) accessible by this group</p>
       <table>
         {% for app in groupApps %}
           <tr>
