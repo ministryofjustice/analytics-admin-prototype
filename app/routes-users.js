@@ -1,5 +1,4 @@
 module.exports = function(router, _, constants, users, groups, userTools) {
-  // users
   router.get('/users/list', function (req, res) {
     res.render('users/list', {
       users: users

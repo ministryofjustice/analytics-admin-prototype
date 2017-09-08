@@ -1,6 +1,5 @@
 module.exports = function(router, _, constants, apps, groups, datasources, appTools) {
   router.get('/apps/list', function (req, res) {
-    console.log(apps);
     res.render('apps/list', {
       apps: apps
     });
