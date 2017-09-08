@@ -19,6 +19,14 @@ module.exports = function(router, constants, datasources, datasourceTools) {
       res.send('update datasource failed');
     }
   });
+  router.post('/datasources/add', function (req, res) {
+    if(datasourceTools.newDatasource(req.body)) {
+      res.redirect('/datasources/list');
+    } else {
+      console.log('add datasource failed');
+      res.send('add datasource failed');
+    }
+  });
   router.get('/datasources/show/:index', function (req, res) {
     var datasource = datasourceTools.getDatasource(req.params.index),
       datasourceApps = datasourceTools.getDatasourceApps(req.params.index);

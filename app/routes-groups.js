@@ -19,6 +19,14 @@ module.exports = function(router, _, constants, groups, users, apps, groupTools)
       res.send('update group failed');
     }
   });
+  router.post('/groups/add', function (req, res) {
+    if(groupTools.newGroup(req.body)) {
+      res.redirect('/groups/list');
+    } else {
+      console.log('add group failed');
+      res.send('add group failed');
+    }
+  });
   router.get('/groups/edit-members/:index', function (req, res) {
     var group = groupTools.getGroup(req.params.index),
       members = groupTools.getGroupMembers(req.params.index);

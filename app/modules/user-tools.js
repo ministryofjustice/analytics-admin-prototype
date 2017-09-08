@@ -30,23 +30,23 @@ var userTools = {
 
     return userGroups;
   },
-  updateUser: function(userId, userObj) {
+  updateUser: function(userId, formData) {
     var userIndex = _.findIndex(users, {'id': parseInt(userId, 10)});
 
-    users[userIndex].name = userObj.name;
-    users[userIndex].email = userObj.email;
-    users[userIndex].github_username = userObj.github_username;
+    users[userIndex].name = formData.name;
+    users[userIndex].email = formData.email;
+    users[userIndex].github_username = formData.github_username;
 
     return true;
   },
-  addUser: function(userObj) {
+  newUser: function(formData) {
     var newId = parseInt(users[users.length - 1].id, 10) + 1;
 
     users.push({
       id: newId,
-      name: userObj.name,
-      email: userObj.email,
-      github_username: userObj.github_username
+      name: formData.name,
+      email: formData.email,
+      github_username: formData.github_username
     });
 
     return true;

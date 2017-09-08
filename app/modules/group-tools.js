@@ -113,7 +113,6 @@ var groupTools = {
 
     return true;
   },
-
   getGroup: function(id) {
     return _.find(groups, {'id': parseInt(id, 10)});
   },
@@ -150,6 +149,16 @@ var groupTools = {
     var groupIndex = _.findIndex(groups, {'id': parseInt(groupId, 10)});
 
     groups[groupIndex].name = groupObj.name;
+
+    return true;
+  },
+  newGroup: function(formData) {
+    var newId = parseInt(groups[groups.length - 1].id, 10) + 1;
+
+    groups.push({
+      id: newId,
+      name: formData.name
+    });
 
     return true;
   }
