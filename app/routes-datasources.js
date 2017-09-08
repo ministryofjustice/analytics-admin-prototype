@@ -46,4 +46,12 @@ module.exports = function(router, constants, datasources, datasourceTools) {
       res.send('add datasource to app failed');
     }
   });
+  router.get('/datasources/delete/:datasourceId', function (req, res) {
+    if(datasourceTools.deleteDatasource(req.params.datasourceId)) {
+      res.redirect('/datasources/list');
+    } else {
+      console.log('delete datasource failed');
+      res.send('delete datasource failed');
+    }
+  });
 }
