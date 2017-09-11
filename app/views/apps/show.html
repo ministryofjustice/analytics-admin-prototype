@@ -50,7 +50,7 @@
 
     <div class="column-half">
 
-      <h2 class="heading-medium">Data sources this app can access</h2>
+      <h2 class="heading-medium">App data sources available to this app</h2>
       {% if appDatasources.length %}
       <ul class="list list-bullet">
         {% for datasource in appDatasources %}
@@ -58,9 +58,9 @@
         {% endfor %}
       </ul>
       {% else %}
-      <p>No datasources available to this app</p>
+      <p>No app data sources available to this app</p>
       {% endif %}
-      <p><a class="button button-secondary" href="/apps/edit-datasources/{{ app.id }}">Edit data sources this app can access</a></p>
+      <p><a class="button button-secondary" href="/apps/edit-datasources/{{ app.id }}">Edit app data sources available to this app</a></p>
     </div>
 
   </div>
