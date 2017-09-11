@@ -21,19 +21,11 @@
   {% endif %}
   {# end super-admin only #}
 
-  {# team-admin only #}
-  {% if data['user_type'] == 'team-admin' %}
-  <p>team admin</p>
-  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
+  {# regular-user only #}
+  {% if data['user_type'] == 'regular-user' %}
+    {% include 'home/roles/regular-user.html' %}
   {% endif %}
   {# end team-admin only #}
-
-  {# team-member only #}
-  {% if data['user_type'] == 'team-member' %}
-  <p>team member</p>
-  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
-  {% endif %}
-  {# end team-member only #}
 
 </main>
 
