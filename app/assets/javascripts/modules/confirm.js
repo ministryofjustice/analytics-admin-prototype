@@ -1,6 +1,6 @@
 'use strict';
 
-moj.Modules.loginForm = {
+moj.Modules.jsConfirm = {
   confirmClass: 'js-confirm',
 
   init: function() {
