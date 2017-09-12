@@ -17,7 +17,7 @@
   </h1>
 
   <p class="clearfix align-right">
-    <a href="/datasources/new" class="button button-secondary">Add new app data source</a>
+    <a href="/admin/datasources/new" class="button button-secondary">Add new app data source</a>
   </p>
   <p>{{ datasources.length }} app data sources</p>
   <p><em>For prototyping purposes all data sources are assumed to be S3 buckets</em></p>
@@ -34,10 +34,10 @@
       {% for datasource in datasources %}
       <tr>
         <td>{{ datasource.id }}</td>
-        <td><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></td>
+        <td><a href="/admin/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></td>
         <td class="align-right no-wrap">
-          <a class="button button-secondary" href="/datasources/edit/{{ datasource.id }}">Edit</a>
-          <a class="button button-secondary js-confirm" href="/datasources/delete/{{ datasource.id }}">Delete</a>
+          <a class="button button-secondary" href="/admin/datasources/edit/{{ datasource.id }}">Edit</a>
+          <a class="button button-secondary js-confirm" href="/admin/datasources/delete/{{ datasource.id }}">Delete</a>
         </td>
       </tr>
       {% endfor %}

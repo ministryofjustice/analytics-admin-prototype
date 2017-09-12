@@ -17,7 +17,7 @@
   </h1>
 
   <p class="clearfix align-right">
-    <a href="/groups/new" class="button button-secondary">Add new group</a>
+    <a href="/admin/groups/new" class="button button-secondary">Add new group</a>
   </p>
   <p>{{ groups.length }} groups</p>
 
@@ -33,10 +33,10 @@
       {% for group in groups %}
       <tr>
         <td>{{ group.id }}</td>
-        <td><a href="/groups/show/{{ group.id }}">{{ group.name }}</a></td>
+        <td><a href="/admin/groups/show/{{ group.id }}">{{ group.name }}</a></td>
         <td class="align-right no-wrap">
-          <a class="button button-secondary" href="/groups/edit/{{ group.id }}">Edit</a>
-          <a class="button button-secondary js-confirm" href="/groups/delete/{{ group.id }}">Delete</a>
+          <a class="button button-secondary" href="/admin/groups/edit/{{ group.id }}">Edit</a>
+          <a class="button button-secondary js-confirm" href="/admin/groups/delete/{{ group.id }}">Delete</a>
         </td>
       </tr>
       {% endfor %}

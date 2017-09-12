@@ -10,15 +10,15 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'App data sources', url: '/datasources/list'}, {name: datasource.bucket_name}] %}
+  {% set crumbs = [{name: 'App data sources', url: '/admin/datasources/list'}, {name: datasource.bucket_name}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     App data source: {{ page_title }}
   </h1>
 
   <p class="clearfix align-right">
-    <a href="/datasources/edit/{{ datasource.id }}" class="button button-secondary">Edit app data source</a>
-    <a class="button button-secondary js-confirm" href="/datasources/delete/{{ datasource.id }}">Delete app data source</a>
+    <a href="/admin/datasources/edit/{{ datasource.id }}" class="button button-secondary">Edit app data source</a>
+    <a class="button button-secondary js-confirm" href="/admin/datasources/delete/{{ datasource.id }}">Delete app data source</a>
   </p>
 
   <h2 class="heading-medium">Bucket URL</h2>
@@ -28,14 +28,14 @@
   {% if datasourceApps.length %}
   <ul class="list list-bullet">
     {% for app in datasourceApps %}
-    <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+    <li><a href="/admin/apps/show/{{ app.id }}">{{ app.name }}</a></li>
     {% endfor %}
   </ul>
   {% else %}
   <p>No apps with access to this app data source</p>
   {% endif %}
 
-  <form action="/datasources/add-datasource-to-app/{{ datasource.id }}" method="post">
+  <form action="/admin/datasources/add-datasource-to-app/{{ datasource.id }}" method="post">
     <div class="form-group">
       <label class="form-label" for="add-datasource-to-app">Grant an app access to this app data source</label>
       <select class="form-control form-control-3-4 no-blank" id="add-datasource-to-app" name="add-datasource-to-app">

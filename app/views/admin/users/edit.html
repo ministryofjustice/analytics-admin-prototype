@@ -10,7 +10,7 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Users', url: '/users/list'}, {name: user.name, url: '/users/show/' + user.id}, {name: page_title}] %}
+  {% set crumbs = [{name: 'Users', url: '/admin/users/list'}, {name: user.name, url: '/admin/users/show/' + user.id}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}
@@ -21,8 +21,8 @@
   </p>
 
   {% set button_text = "Save" %}
-  <form action="/users/update/{{ user.id }}" method="post">
-    {% include "users/includes/form.html" %}
+  <form action="/admin/users/update/{{ user.id }}" method="post">
+    {% include "admin/users/includes/form.html" %}
   </form>
 
 </main>

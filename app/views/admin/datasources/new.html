@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set page_title = "New group" %}
+{% set page_title = "New app data source" %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype
@@ -10,14 +10,14 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Groups', url: '/groups/list'}, {name: page_title}] %}
+  {% set crumbs = [{name: 'App data sources', url: '/admin/datasources/list'}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}
   </h1>
 
-  <form action="/groups/add" method="post">
-    {% include "groups/includes/form.html" %}
+  <form action="/admin/datasources/add" method="post">
+    {% include "admin/datasources/includes/form.html" %}
   </form>
 
 </main>

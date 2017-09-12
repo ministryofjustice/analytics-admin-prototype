@@ -17,7 +17,7 @@
   </h1>
 
   <p class="clearfix align-right">
-    <a href="/users/new" class="button button-secondary">Add new user</a>
+    <a href="/admin/users/new" class="button button-secondary">Add new user</a>
   </p>
   <p>{{ users.length }} users</p>
 
@@ -35,12 +35,12 @@
       {% for user in users %}
       <tr>
         <td>{{ user.id }}</td>
-        <td><a href="/users/show/{{ user.id }}">{{ user.name }}</a></td>
+        <td><a href="/admin/users/show/{{ user.id }}">{{ user.name }}</a></td>
         <td>{{ user.email }}</td>
         <td>{{ user.github_username }}</td>
         <td class="align-right">
-          <a class="button button-secondary" href="/users/edit/{{ user.id }}">Edit</a>
-          <a class="button button-secondary js-confirm" href="/users/delete/{{ user.id }}">Delete</a>
+          <a class="button button-secondary" href="/admin/users/edit/{{ user.id }}">Edit</a>
+          <a class="button button-secondary js-confirm" href="/admin/users/delete/{{ user.id }}">Delete</a>
         </td>
       </tr>
       {% endfor %}

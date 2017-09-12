@@ -10,7 +10,7 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Apps', url: '/apps/list'}, {name: app.name, url: '/apps/show/' + app.id}, {name: page_title}] %}
+  {% set crumbs = [{name: 'Apps', url: '/admin/apps/list'}, {name: app.name, url: '/admin/apps/show/' + app.id}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}
@@ -30,10 +30,10 @@
           {% for group in appGroups %}
             <tr>
               <td>
-                <a href="/groups/show/{{ group.id }}">{{ group.name }}</a>
+                <a href="/admin/groups/show/{{ group.id }}">{{ group.name }}</a>
               </td>
               <td class="align-right">
-                <a class="button button-secondary" href="/apps/remove-group/{{ app.id }}/{{ group.id }}">Revoke access to app</a>
+                <a class="button button-secondary" href="/admin/apps/remove-group/{{ app.id }}/{{ group.id }}">Revoke access to app</a>
               </td>
             </tr>
           {% endfor %}
@@ -44,7 +44,7 @@
     {% endif %}
   </div>
 
-  <form action= "/apps/add-group/{{ app.id }}" method="post">
+  <form action="/admin/apps/add-group/{{ app.id }}" method="post">
     <div class="form-group">
       <label class="form-label" for="add-group">Grant a group access to this app</label>
       <select class="form-control form-control-3-4 no-blank" id="add-group" name="add-group">

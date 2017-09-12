@@ -10,7 +10,7 @@
 
 <main id="content" role="main">
 
-  {% set crumbs = [{name: 'Groups', url: '/groups/list'}, {name: group.name, url: '/groups/show/' + group.id}, {name: page_title}] %}
+  {% set crumbs = [{name: 'Groups', url: '/admin/groups/list'}, {name: group.name, url: '/admin/groups/show/' + group.id}, {name: page_title}] %}
   {% include "includes/page_top.html" %}
   <h1 class="heading-large">
     {{ page_title }}
@@ -22,8 +22,8 @@
       <table>
         {% for app in groupApps %}
           <tr>
-            <td><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></td>
-            <td><a class="button button-secondary right" href="/groups/remove-app/{{ group.id }}/{{ app.id }}">Remove</a></td>
+            <td><a href="/admin/apps/show/{{ app.id }}">{{ app.name }}</a></td>
+            <td><a class="button button-secondary right" href="/admin/groups/remove-app/{{ group.id }}/{{ app.id }}">Remove</a></td>
           </tr>
         {% endfor %}
       </table>
@@ -32,7 +32,7 @@
     {% endif %}
   </div>
 
-  <form action="/groups/add-app/{{ group.id }}">
+  <form action="/admin/groups/add-app/{{ group.id }}">
     <div class="form-group">
       <label class="form-label" for="add-app">Add app</label>
       <select class="form-control form-control-3-4" id="add-app" name="add-app">
