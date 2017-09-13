@@ -21,7 +21,12 @@ router.get('/', function (req, res) {
 
 // signin route
 router.post('/signin', function (req, res) {
-  res.redirect(req.body.homepage);
+  var homepage = req.body.homepage;
+
+  if(req.body.user_type === 'regular-user') {
+    homepage += '/' + req.body.user_id;
+  }
+  res.redirect(homepage);
 });
 // signout route
 router.get('/signout', function (req, res) {
@@ -41,6 +46,10 @@ require('./routes-admin-apps.js') (router, _, constants, apps, groups, datasourc
 require('./routes-admin-groups.js') (router, _, constants, groups, users, apps, groupTools);
 // datasources
 require('./routes-admin-datasources.js') (router, constants, datasources, datasourceTools);
+
+// user routes
+// homepage
+require('./routes-user-home.js') (router, users, apps, groups, datasources);
 
 
 module.exports = router;

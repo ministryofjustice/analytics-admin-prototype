@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% set page_title = "Home" %}
-{% set user = data['username'] | default('super-admin') %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype
@@ -15,7 +14,7 @@
     Analytics Admin Prototype
   </h1>
 
-  <p>regular user</p>
+  <p>regular user: {{ user_name }}</p>
   <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
 
 </main>

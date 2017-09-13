@@ -19,7 +19,7 @@ moj.Modules.loginForm = {
       $('#homepage').val($el.data('homepage'));
 
       if (newUserType === 'super-admin') {
-        $('#username').val(newUserType + self.emailSuffix);
+        $('#user_email').val(newUserType + self.emailSuffix);
         $('#user_id').val('-1');
       } else {
         self.populateRegularUser();
@@ -32,11 +32,12 @@ moj.Modules.loginForm = {
   },
 
   getRegularUser: function() {
-    var regularUser = {};
-
-    regularUser.id = $('#user-select').val();
-    regularUser.email = $('#user-select').find('option:selected').data('useremail');
-
+    var regularUser = {
+      id: $('#user-select').val(),
+      email: $('#user-select').find('option:selected').data('useremail'),
+      name: $('#user-select').find('option:selected').text()
+    };
+console.log(regularUser);
     return regularUser;
   },
 
@@ -44,7 +45,8 @@ moj.Modules.loginForm = {
     var self = this,
       regularUser = self.getRegularUser();
 
-    $('#username').val(regularUser.email);
+    $('#user_email').val(regularUser.email);
     $('#user_id').val(regularUser.id);
+    $('#user_name').val(regularUser.name);
   }
 };

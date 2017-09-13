@@ -18,12 +18,13 @@
 
       <form id="login" action="signin" method="post">
         <div class="form-group">
-          <label class="form-label" for="username">Username:</label>
-          <input class="form-control" type="text" name="username" id="username" value="super-admin@prototype.gov.uk">
+          <label class="form-label" for="user_email">Email address:</label>
+          <input class="form-control" type="text" name="user_email" id="user_email" value="super-admin@prototype.gov.uk">
         </div>
 
         <input type="hidden" id="user_type" name="user_type" value="super-admin">
         <input type="hidden" id="user_id" name="user_id" value="-1">
+        <input type="hidden" id="user_name" name="user_name" value="Super Admin">
         <input type="hidden" id="homepage" name="homepage" value="admin/home">
 
         <input type="submit" class="button" value="Sign in">
@@ -51,7 +52,7 @@
         <div class="form-group js-hidden" id="selectUser">
           <select id="user-select">
             {% for user in users %}
-              <option id="{{ user.id }}" data-useremail="{{ user.email }}">{{ user.name }}</option>
+              <option value="{{ user.id }}" data-useremail="{{ user.email }}">{{ user.name }}</option>
             {% endfor %}
           </select>
         </div>
