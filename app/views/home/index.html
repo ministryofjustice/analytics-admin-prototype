@@ -15,17 +15,8 @@
     Analytics Admin Prototype
   </h1>
 
-  {# super-admin only #}
-  {% if user_type == 'super-admin' %}
-    {% include 'home/roles/super-admin.html' %}
-  {% endif %}
-  {# end super-admin only #}
-
-  {# regular-user only #}
-  {% if data['user_type'] == 'regular-user' %}
-    {% include 'home/roles/regular-user.html' %}
-  {% endif %}
-  {# end team-admin only #}
+  <p>regular user</p>
+  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
 
 </main>
 

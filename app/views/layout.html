@@ -1,4 +1,8 @@
 {% extends "govuk_template.html" %}
+{% set homeUrl = "/home" %}
+{% if admin == 'true' %}
+  {% set homeUrl = "/admin/home" %}
+{% endif %}
 
 {% block head %}
   {% include "includes/head.html" %}
@@ -14,7 +18,7 @@
     <div class="content">
       <a href="#proposition-links" class="js-header-toggle menu">Menu</a>
       <nav id="proposition-menu">
-        <a href="/home" id="proposition-name">
+        <a href="{{ homeUrl }}" id="proposition-name">
           {# Set serviceName in config.js. Use a block to override on a page. #}
           {% block service_name %}
             {% if serviceName %} {{ serviceName }} {% endif %}

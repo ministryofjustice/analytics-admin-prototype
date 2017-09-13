@@ -12,8 +12,11 @@ moj.Modules.loginForm = {
     var self = this;
 
     $('[name=' + self.radioName + ']').on('change', function(e) {
-      var newUserType = $(e.target).val();
+      var $el = $(e.target),
+        newUserType = $el.val();
+
       $('#user_type').val(newUserType);
+      $('#homepage').val($el.data('homepage'));
       $('#username').val(newUserType + self.emailSuffix);
     });
   }

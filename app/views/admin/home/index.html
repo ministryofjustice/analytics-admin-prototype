@@ -1,0 +1,78 @@
+{% set admin = 'true' %}
+{% extends "layout.html" %}
+
+{% set page_title = "Home" %}
+{% set user_type = data['user_type'] | default('super-admin') %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-large">
+    Analytics Admin Prototype
+  </h1>
+
+  <div class="grid-row">
+
+    <div class="column-one-quarter">
+
+      <h2 class="heading-large">
+        Users
+        <span class="category-count">({{ users.length }})</span>
+      </h2>
+      <ul>
+        <li><a href="/admin/users/new">New</a></li>
+        <li><a href="/admin/users/list">List</a></li>
+      </ul>
+
+    </div>
+
+    <div class="column-one-quarter">
+
+      <h2 class="heading-large">
+        Apps
+        <span class="category-count">({{ apps.length }})</span>
+      </h2>
+      <ul>
+        <li><a href="/admin/apps/new">New</a></li>
+        <li><a href="/admin/apps/list">List</a></li>
+      </ul>
+
+    </div>
+
+    <div class="column-one-quarter">
+
+      <h2 class="heading-large">
+        Groups
+        <span class="category-count">({{ groups.length }})</span>
+      </h2>
+      <ul>
+        <li><a href="/admin/groups/new">New</a></li>
+        <li><a href="/admin/groups/list">List</a></li>
+      </ul>
+
+    </div>
+
+    <div class="column-one-quarter">
+
+      <h2 class="heading-large">
+        App data sources
+        <span class="category-count">({{ datasources.length }})</span>
+      </h2>
+      <ul>
+        <li><a href="/admin/datasources/new">New</a></li>
+        <li><a href="/admin/datasources/list">List</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+
+
+</main>
+
+{% endblock %}
