@@ -37,7 +37,7 @@ moj.Modules.loginForm = {
       email: $('#user-select').find('option:selected').data('useremail'),
       name: $('#user-select').find('option:selected').text()
     };
-console.log(regularUser);
+
     return regularUser;
   },
 
