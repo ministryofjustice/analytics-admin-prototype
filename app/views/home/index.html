@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% set page_title = "Home" %}
-{% set user_type = data['user_type'] | default('super-admin') %}
+{% set user = data['username'] | default('super-admin') %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype

@@ -14,7 +14,9 @@ var datasources = require('./assets/data/dummy-datasources.json');
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index');
+  res.render('index', {
+    users: users
+  });
 });
 
 // signin route
