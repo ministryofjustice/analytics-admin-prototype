@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 
 {% set page_title = "Home" %}
-{% set user_type = data['user_type'] | default('super-admin') %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Admin Prototype
@@ -15,25 +14,8 @@
     Analytics Admin Prototype
   </h1>
 
-  {# super-admin only #}
-  {% if user_type == 'super-admin' %}
-    {% include 'home/roles/super-admin.html' %}
-  {% endif %}
-  {# end super-admin only #}
-
-  {# team-admin only #}
-  {% if data['user_type'] == 'team-admin' %}
-  <p>team admin</p>
+  <p>regular user: {{ user_name }}</p>
   <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
-  {% endif %}
-  {# end team-admin only #}
-
-  {# team-member only #}
-  {% if data['user_type'] == 'team-member' %}
-  <p>team member</p>
-  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
-  {% endif %}
-  {# end team-member only #}
 
 </main>
 

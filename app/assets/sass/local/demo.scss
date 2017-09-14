@@ -1,6 +1,11 @@
 .demo {
   background: $yellow-25;
   padding: 1em;
+  @include core-24;
+
+  input, textarea, select, button {
+    @include core-19;
+  }
 
   * {
     font-family: serif !important;

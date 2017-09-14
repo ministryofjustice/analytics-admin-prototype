@@ -1,0 +1,64 @@
+{% set admin = 'true' %}
+{% extends "layout.html" %}
+
+{% set page_title = group.name %}
+
+{% block page_title %}
+  {{ page_title }} | Groups | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Groups', url: '/admin/groups/list'}, {name: group.name}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    Group: {{ page_title }}
+  </h1>
+
+  <p class="clearfix align-right">
+    <a href="/admin/groups/edit/{{ group.id }}" class="button button-secondary">Edit group</a>
+    <a class="button button-secondary js-confirm" href="/admin/groups/delete/{{ group.id }}">Delete group</a>
+  </p>
+
+  <div class="grid-row">
+
+    <div class="column-one-half ">
+      <h2 class="heading-medium">Members</h2>
+      {% if members.length %}
+      <ul class="list list-bullet">
+        {% for member in members %}
+        <li>
+          <a href="/users/show/{{ member.id }}">{{ member.name }}</a>
+          {% if member.role %}
+            <em>({{ grouproles[member.role].role | capitalize }})</em>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No members</p>
+      {% endif %}
+      <a href="/admin/groups/edit-members/{{ group.id }}" class="button button-secondary">Edit members</a>
+    </div>
+
+    <div class="column-one-half ">
+      <h2 class="heading-medium">Apps</h2>
+      {% if groupApps.length %}
+      <ul class="list list-bullet">
+        {% for app in groupApps %}
+        <li><a href="/admin/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No apps</p>
+      {% endif %}
+      <a href="/admin/groups/edit-apps/{{ group.id }}" class="button button-secondary">Edit apps</a>
+    </div>
+
+  </div>
+
+</main>
+
+{% endblock %}

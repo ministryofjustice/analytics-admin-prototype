@@ -16,13 +16,16 @@
         {{ page_title }}
       </h1>
 
-      <form id="login" action="home" method="post">
+      <form id="login" action="signin" method="post">
         <div class="form-group">
-          <label class="form-label" for="username">Username:</label>
-          <input class="form-control" type="text" name="username" id="username" value="super-admin@prototype.gov.uk">
+          <label class="form-label" for="user_email">Email address:</label>
+          <input class="form-control" type="text" name="user_email" id="user_email" value="super-admin@prototype.gov.uk">
         </div>
 
         <input type="hidden" id="user_type" name="user_type" value="super-admin">
+        <input type="hidden" id="user_id" name="user_id" value="-1">
+        <input type="hidden" id="user_name" name="user_name" value="Super Admin">
+        <input type="hidden" id="homepage" name="homepage" value="admin/home">
 
         <input type="submit" class="button" value="Sign in">
       </form>
@@ -31,23 +34,29 @@
 
     <div class="column-one-third">
 
-      <div class="demo">
+      <div class="demo clearfix">
 
         <h2 class="heading-medium">Simulate sign in as:</h2>
-        <fieldset class="user-type">
-          <div class="multiple-choice">
-            <input type="radio" id="select-user-type_super-admin" name="select-user-type" value="super-admin" checked>
-            <label for="select-user-type_super-admin">Super admin</label>
-          </div>
-          <div class="multiple-choice">
-            <input type="radio" id="select-user-type_team-admin" name="select-user-type" value="team-admin">
-            <label for="select-user-type_team-admin">Team admin</label>
-          </div>
-          <div class="multiple-choice">
-            <input type="radio" id="select-user-type_team-member" name="select-user-type" value="team-member">
-            <label for="select-user-type_team-member">Team member</label>
-          </div>
-        </fieldset>
+        <div class="form-group">
+          <fieldset class="user-type">
+            <div class="multiple-choice">
+              <input type="radio" id="select-user-type_super-admin" name="select-user-type" value="super-admin" data-homepage="admin/home" checked>
+              <label for="select-user-type_super-admin">Super admin</label>
+            </div>
+            <div class="multiple-choice" data-target="selectUser">
+              <input type="radio" id="select-user-type_regular-user" name="select-user-type" value="regular-user" data-homepage="home">
+              <label for="select-user-type_regular-user">Regular user</label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="form-group js-hidden" id="selectUser">
+          <select id="user-select">
+            {% for user in users %}
+              <option value="{{ user.id }}" data-useremail="{{ user.email }}">{{ user.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
 
       </div>
 

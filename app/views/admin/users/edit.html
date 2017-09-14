@@ -1,0 +1,31 @@
+{% set admin = 'true' %}
+{% extends "layout.html" %}
+
+{% set page_title = "Edit user" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Users', url: '/admin/users/list'}, {name: user.name, url: '/admin/users/show/' + user.id}, {name: page_title}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <p class="clearfix align-right">
+    <a class="button button-secondary js-confirm" href="/users/delete/{{ user.id }}">Delete user</a>
+  </p>
+
+  {% set button_text = "Save" %}
+  <form action="/admin/users/update/{{ user.id }}" method="post">
+    {% include "admin/users/includes/form.html" %}
+  </form>
+
+</main>
+
+{% endblock %}

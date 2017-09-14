@@ -1,0 +1,53 @@
+{% set admin = 'true' %}
+{% extends "layout.html" %}
+
+{% set page_title = "Users" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: page_title}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <p class="clearfix align-right">
+    <a href="/admin/users/new" class="button button-secondary">Add new user</a>
+  </p>
+  <p>{{ users.length }} users</p>
+
+  <table class="list">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Github username</th>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+        <td><a href="/admin/users/show/{{ user.id }}">{{ user.name }}</a></td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.github_username }}</td>
+        <td class="align-right">
+          <a class="button button-secondary" href="/admin/users/edit/{{ user.id }}">Edit</a>
+          <a class="button button-secondary js-confirm" href="/admin/users/delete/{{ user.id }}">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</main>
+
+{% endblock %}

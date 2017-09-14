@@ -14,26 +14,42 @@ var datasources = require('./assets/data/dummy-datasources.json');
 
 // Route index page
 router.get('/', function (req, res) {
-  res.render('index');
+  res.render('index', {
+    users: users
+  });
 });
 
+// signin route
+router.post('/signin', function (req, res) {
+  var homepage = req.body.homepage;
+
+  if(req.body.user_type === 'regular-user') {
+    homepage += '/' + req.body.user_id;
+  }
+  res.redirect(homepage);
+});
 // signout route
 router.get('/signout', function (req, res) {
   req.session.destroy();
   res.redirect('/');
 });
 
+
+// admin routes
+// homepage
+require('./routes-admin-home.js') (router, users, apps, groups, datasources);
 // users
-require('./routes-users.js') (router, _, constants, users, groups, userTools);
-
+require('./routes-admin-users.js') (router, _, constants, users, groups, userTools);
 // apps
-require('./routes-apps.js') (router, _, constants, apps, groups, datasources, appTools);
-
+require('./routes-admin-apps.js') (router, _, constants, apps, groups, datasources, appTools);
 // groups
-require('./routes-groups.js') (router, _, constants, groups, users, apps, groupTools);
-
+require('./routes-admin-groups.js') (router, _, constants, groups, users, apps, groupTools);
 // datasources
-require('./routes-datasources.js') (router, constants, datasources, datasourceTools);
+require('./routes-admin-datasources.js') (router, constants, datasources, datasourceTools);
+
+// user routes
+// homepage
+require('./routes-user-home.js') (router, users, apps, groups, datasources);
 
 
 module.exports = router;

@@ -11,7 +11,7 @@ var groupTools = {
   addMembers: function() { // add members to newly generated group
     var x,
       groupMembers = [],
-      numMembers = Math.floor(Math.random() * constants.quantities.MAX_GROUP_MEMBERS) + 1;
+      numMembers = Math.floor(Math.random() * constants.quantities.MAX_GROUP_MEMBERS) + 2; // each group has at least 2 members
 
     for (x = 0; x < numMembers; x += 1) {
       groupMembers.push({
@@ -22,7 +22,8 @@ var groupTools = {
 
     groupMembers = _.uniqBy(groupMembers, 'id');
     groupMembers = _.sortBy(groupMembers, 'id');
-    groupMembers[0].role = 1;
+    groupMembers[0].role = 1; // first member is admin
+    groupMembers[1].role = 0; // second member is not admin
 
     return groupMembers;
   },

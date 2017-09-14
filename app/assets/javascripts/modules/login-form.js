@@ -12,9 +12,41 @@ moj.Modules.loginForm = {
     var self = this;
 
     $('[name=' + self.radioName + ']').on('change', function(e) {
-      var newUserType = $(e.target).val();
+      var $el = $(e.target),
+        newUserType = $el.val();
+
       $('#user_type').val(newUserType);
-      $('#username').val(newUserType + self.emailSuffix);
+      $('#homepage').val($el.data('homepage'));
+
+      if (newUserType === 'super-admin') {
+        $('#user_email').val(newUserType + self.emailSuffix);
+        $('#user_id').val('-1');
+      } else {
+        self.populateRegularUser();
+      }
     });
+
+    $('#user-select').on('change', function() {
+      self.populateRegularUser();
+    });
+  },
+
+  getRegularUser: function() {
+    var regularUser = {
+      id: $('#user-select').val(),
+      email: $('#user-select').find('option:selected').data('useremail'),
+      name: $('#user-select').find('option:selected').text()
+    };
+
+    return regularUser;
+  },
+
+  populateRegularUser: function() {
+    var self = this,
+      regularUser = self.getRegularUser();
+
+    $('#user_email').val(regularUser.email);
+    $('#user_id').val(regularUser.id);
+    $('#user_name').val(regularUser.name);
   }
 };

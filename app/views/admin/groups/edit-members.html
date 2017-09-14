@@ -1,0 +1,80 @@
+{% set admin = 'true' %}
+{% extends "layout.html" %}
+
+{% set page_title = "Edit group members" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Admin Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'Groups', url: '/admin/groups/list'}, {name: group.name, url: '/admin/groups/show/' + group.id}, {name: page_title}] %}
+  {% include "includes/page_top.html" %}
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <div class="form-group">
+    {% if members.length %}
+      <p>{{ members.length }} member(s) in this group</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Admin</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for member in members %}
+            <tr>
+              <td>
+                <a href="/users/show/{{ member.id }}">{{ member.name }}</a>
+              </td>
+              <td>
+                {% if member.role %}
+                  <strong>Yes</strong>
+                {% else %}
+                  No
+                {% endif %}
+              </td>
+              <td class="align-right">
+                <a href="/admin/groups/toggle-admin-role/{{ group.id }}/{{ member.id }}" class="button button-secondary">
+                  {% if member.role %}
+                    Remove
+                  {% else %}
+                  Grant
+                  {% endif %}
+                admin role</a>
+                <a class="button button-secondary" href="/admin/groups/remove-member/{{ group.id }}/{{ member.id }}">Remove from group</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No current members</p>
+    {% endif %}
+  </div>
+
+  <form action="/admin/groups/add-member/{{ group.id }}" method="get">
+    <div class="form-group">
+      <label class="form-label" for="add-member">Add member</label>
+      <select class="form-control form-control-3-4 no-blank" id="add-member" name="add-member">
+        <option value="">Select member</option>
+        {% for user in usersNotInGroup %}
+          <option value="{{ user.id }}">{{ user.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+</main>
+
+{% endblock %}
