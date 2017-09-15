@@ -2,14 +2,12 @@ var express = require('express');
 var router = express.Router();
 var _ = require('lodash');
 var constants = require('./constants.json');
-var groupTools = require('./modules/group-tools.js');
 var appTools = require('./modules/app-tools.js');
 var userTools = require('./modules/user-tools.js');
 var datasourceTools = require('./modules/datasource-tools.js');
 
 var users = require('./assets/data/dummy-users.json');
 var apps = require('./assets/data/dummy-apps.json');
-var groups = require('./assets/data/dummy-groups.json');
 var datasources = require('./assets/data/dummy-datasources.json');
 
 // Route index page
@@ -37,19 +35,17 @@ router.get('/signout', function (req, res) {
 
 // admin routes
 // homepage
-require('./routes-admin-home.js') (router, users, apps, groups, datasources);
+require('./routes-admin-home.js') (router, users, apps, datasources);
 // users
-require('./routes-admin-users.js') (router, _, constants, users, groups, userTools);
+require('./routes-admin-users.js') (router, _, constants, users, userTools);
 // apps
-require('./routes-admin-apps.js') (router, _, constants, apps, groups, datasources, appTools);
-// groups
-require('./routes-admin-groups.js') (router, _, constants, groups, users, apps, groupTools);
+require('./routes-admin-apps.js') (router, _, constants, apps, datasources, appTools);
 // datasources
 require('./routes-admin-datasources.js') (router, constants, datasources, datasourceTools);
 
 // user routes
 // homepage
-require('./routes-user-home.js') (router, users, apps, groups, datasources);
+require('./routes-user-home.js') (router, users, apps, datasources);
 
 
 module.exports = router;

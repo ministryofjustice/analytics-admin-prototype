@@ -1,4 +1,4 @@
-module.exports = function(router, _, constants, apps, groups, datasources, appTools) {
+module.exports = function(router, _, constants, apps, datasources, appTools) {
   router.get('/admin/apps/list', function (req, res) {
     res.render('admin/apps/list', {
       apps: apps
@@ -10,32 +10,6 @@ module.exports = function(router, _, constants, apps, groups, datasources, appTo
     res.render('admin/apps/edit', {
       app: app
     });
-  });
-  router.get('/admin/apps/edit-groups/:index', function (req, res) {
-    var app = appTools.getApp(req.params.index),
-      appGroups = appTools.getAppGroups(req.params.index);
-
-    res.render('admin/apps/edit-groups', {
-      app: app,
-      appGroups: appGroups,
-      groupsNotGrantedAccessToApp: _.difference(groups, appGroups)
-    });
-  });
-  router.post('/admin/apps/add-group/:appId', function (req, res) {
-    if(appTools.addAppGroup(req.params.appId, req.body)) {
-      res.redirect('/admin/apps/edit-groups/' + req.params.appId);
-    } else {
-      console.log('add app group failed');
-      res.send('add app group failed');
-    }
-  });
-  router.get('/admin/apps/remove-group/:appId/:groupId', function (req, res) {
-    if(appTools.removeAppGroup(req.params.appId, req.params.groupId)) {
-      res.redirect('/admin/apps/edit-groups/' + req.params.appId);
-    } else {
-      console.log('remove app group failed');
-      res.send('remove app group failed');
-    }
   });
   router.get('/admin/apps/edit-datasources/:index', function (req, res) {
     var app = appTools.getApp(req.params.index),
@@ -81,12 +55,10 @@ module.exports = function(router, _, constants, apps, groups, datasources, appTo
   });
   router.get('/admin/apps/show/:index', function (req, res) {
     var app = appTools.getApp(req.params.index),
-      appGroups = appTools.getAppGroups(req.params.index),
       appDatasources = appTools.getAppDatasources(req.params.index);
 
     res.render('admin/apps/show', {
       app: app,
-      appGroups: appGroups,
       appDatasources: appDatasources
     });
   });

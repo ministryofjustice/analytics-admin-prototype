@@ -4,10 +4,16 @@ var fs = require('fs'),
   faker = require('faker'),
   mkdirp = require('mkdirp'),
   stringTools = require('../modules/string-tools'),
+  randomTools = require('../modules/random-tools'),
   constants = require('../constants.json'),
   init,
   makeDataSource,
-  writeFile;
+  writeFile,
+  bucketNameParts = {
+    envs: ['alpha', 'beta', 'dev', 'prod'],
+    teams: ['laa', 'laa-mi', 'moj', 'moj-analytics', 'test', 'digital-test', 'crest'],
+    suffixes: ['team', 'source', 'scratch', 'fact', 'filtered']
+  };
 
 init = function() {
   var datasources = [],
@@ -17,18 +23,26 @@ init = function() {
     datasources.push(makeDataSource(x));
   }
 
-  // console.log(datasources);
+  console.log(datasources);
   writeFile(datasources);
 };
 
 makeDataSource = function (x) {
-  var bucket_name = stringTools.titleCase([faker.company.bs(), faker.company.bsNoun()].join(' ')),
-    bucket_url = 'http://s3-eu-west-1.amazonaws.com/' + bucket_name.toLowerCase().replace(/ /gi, '_');
+  var bucketParts = [],
+    bucket_name;
+
+  bucketParts.push(randomTools.pickFromArray(bucketNameParts.envs));
+  bucketParts.push(randomTools.pickFromArray(bucketNameParts.teams));
+  if(randomTools.percentageChance(25)) {
+    bucketParts.push(faker.hacker.adjective().replace(/ /i, '-'));
+  }
+  bucketParts.push(randomTools.pickFromArray(bucketNameParts.suffixes));
+
+  bucket_name = bucketParts.join('-').toLowerCase();
 
   return {
     id: x,
-    bucket_name: bucket_name,
-    bucket_url: bucket_url
+    bucket_name: bucket_name
   };
 };
 
