@@ -1,4 +1,5 @@
 'use strict';
+
 var _ = require('lodash'),
   constants = require('../constants.json'),
   arrayTools = require('../modules/array-tools.js'),
@@ -42,7 +43,7 @@ var appTools = {
 
     apps[appIndex].name = formData.name;
     apps[appIndex].description = formData.description;
-    apps[appIndex].repo_url = formData.repo_url;
+    apps[appIndex].repoUrl = formData.repoUrl;
 
     return true;
   },
@@ -74,7 +75,7 @@ var appTools = {
       id: newId,
       name: formData.name,
       description: formData.description,
-      repo_url: formData.repo_url,
+      repoUrl: formData.repoUrl,
       datasources: []
     });
 
