@@ -3,7 +3,6 @@
 var fs = require('fs'),
   faker = require('faker'),
   mkdirp = require('mkdirp'),
-  stringTools = require('../modules/string-tools'),
   randomTools = require('../modules/random-tools'),
   constants = require('../constants.json'),
   init,
@@ -23,7 +22,7 @@ init = function() {
     datasources.push(makeDataSource(x));
   }
 
-  console.log(datasources);
+  // console.log(datasources);
   writeFile(datasources);
 };
 
@@ -33,7 +32,7 @@ makeDataSource = function (x) {
 
   bucketParts.push(randomTools.pickFromArray(bucketNameParts.envs));
   bucketParts.push(randomTools.pickFromArray(bucketNameParts.teams));
-  if(randomTools.percentageChance(25)) {
+  if (randomTools.percentageChance(25)) {
     bucketParts.push(faker.hacker.adjective().replace(/ /i, '-'));
   }
   bucketParts.push(randomTools.pickFromArray(bucketNameParts.suffixes));
