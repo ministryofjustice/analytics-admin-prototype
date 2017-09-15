@@ -12,10 +12,12 @@ module.exports = function(router, _, constants, users, userTools) {
     });
   });
   router.get('/admin/users/show/:userId', function (req, res) {
-    var user = userTools.getUser(req.params.userId);
+    var user = userTools.getUser(req.params.userId),
+      userApps = userTools.getUserApps(req.params.userId);
 
     res.render('admin/users/show', {
-      user: user
+      user: user,
+      userApps: userApps
     });
   });
   router.post('/admin/users/update/:userId', function (req, res) {
