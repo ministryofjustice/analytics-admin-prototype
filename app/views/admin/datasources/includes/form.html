@@ -4,13 +4,5 @@
 </div>
 
 <div class="form-group">
-  <label for="bucket_url" class="form-label">
-    Bucket url
-    <span class="form-hint">e.g. http://s3-eu-west-1.amazonaws.com/your_data_source</span>
-  </label>
-  <input class="form-control" type="text" id="bucket_url" name="bucket_url" value="{{ datasource.bucket_url }}">
-</div>
-
-<div class="form-group">
   <input type="submit" class="button" value="{{ button_text if button_text else 'Add' }}">
 </div>

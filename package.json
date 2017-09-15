@@ -12,9 +12,8 @@
     "test": "gulp test && npm run lint",
     "users": "node app/scripts/generate-users.js",
     "apps": "node app/scripts/generate-apps.js",
-    "groups": "node app/scripts/generate-groups.js",
     "datasources": "node app/scripts/generate-datasources.js",
-    "generate-all": "npm run users && npm run apps && npm run groups && npm run datasources"
+    "generate-all": "npm run users && npm run apps && npm run datasources"
   },
   "dependencies": {
     "basic-auth": "^1.0.3",

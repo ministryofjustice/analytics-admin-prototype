@@ -1,11 +1,8 @@
 {
   "quantities": {
-    "NUM_USERS": 100,
-    "NUM_APPS": 100,
-    "NUM_DATA_SOURCES": 200,
-    "NUM_GROUPS": 25,
-    "MAX_GROUP_MEMBERS": 15,
-    "MAX_GROUP_APPS": 10
+    "NUM_USERS": 40,
+    "NUM_APPS": 30,
+    "NUM_DATA_SOURCES": 25
   },
   "urls": {
     "GITHUB_BASE": "https://github.com/",

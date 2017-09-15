@@ -27,37 +27,6 @@
   <h2 class="heading-medium">Github username</h2>
   <p><a href="https://github.com/{{ user.github_username }}">{{ user.github_username }}</a></p>
 
-  <h2 class="heading-medium">Group memberships</h2>
-  {% if userGroups.length %}
-  <ul class="list list-bullet">
-    {% for group in userGroups %}
-    <li>
-      <a href="/admin/groups/show/{{ group.id }}">{{ group.name }}</a>
-      {% if group.memberRole %}
-        <em>({{ grouproles[group.memberRole].role | capitalize }})</em>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-  {% else %}
-  <p>User is not a member of any groups</p>
-  {% endif %}
-
-  <form action="/admin/users/add-user-to-group/{{ user.id }}" method="post">
-    <div class="form-group">
-      <label class="form-label" for="add-user-to-group">Add user to a group</label>
-      <select class="form-control form-control-3-4 no-blank" id="add-user-to-group" name="add-user-to-group">
-        <option value="">Select group</option>
-        {% for group in groupsWithoutUser %}
-          <option value="{{ group.id }}">{{ group.name }}</option>
-        {% endfor %}
-      </select>
-    </div>
-    <div class="form-group">
-      <input type="submit" class="button button-secondary" value="Add">
-    </div>
-  </form>
-
 </main>
 
 {% endblock %}
