@@ -4,6 +4,7 @@ var _ = require('lodash'),
   constants = require('../constants.json'),
   arrayTools = require('../modules/array-tools.js'),
   apps = require('../assets/data/dummy-apps.json'),
+  users = require('../assets/data/dummy-users.json'),
   datasources = require('../assets/data/dummy-datasources.json');
 
 var appTools = {
@@ -25,6 +26,20 @@ var appTools = {
     }
 
     return datasources;
+  },
+  getAppGroup: function(id) {
+    var self = this,
+      app = self.getApp(id),
+      appGroup = app.appGroup,
+      x,
+      user;
+
+    for (x = 0; x < appGroup.length; x += 1) {
+      user = _.find(users, {'id': parseInt(appGroup[x].id, 10)});
+      appGroup[x].name = user.name;
+    }
+
+    return appGroup;
   },
   getAppDatasources: function(id) {
     var self = this,

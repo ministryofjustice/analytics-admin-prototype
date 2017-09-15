@@ -55,10 +55,12 @@ module.exports = function(router, _, constants, apps, datasources, appTools) {
   });
   router.get('/admin/apps/show/:index', function (req, res) {
     var app = appTools.getApp(req.params.index),
+      appGroup = appTools.getAppGroup(req.params.index),
       appDatasources = appTools.getAppDatasources(req.params.index);
 
     res.render('admin/apps/show', {
       app: app,
+      appGroup: appGroup,
       appDatasources: appDatasources
     });
   });

@@ -24,26 +24,42 @@
 
   <h2 class="heading-medium">Description</h2>
   {% if app.description %}
-  <p>{{ app.description }}</p>
+    <p>{{ app.description }}</p>
   {% else %}
-  <p><em>None</em></p>
+    <p><em>None</em></p>
   {% endif %}
   <h2 class="heading-medium">Repo URL</h2>
-  <p><a href="{{ app.repo_url }}">{{ app.repo_url }}</a></p>
+  <p><a href="{{ app.repoUrl }}">{{ app.repoUrl }}</a></p>
 
   <div class="grid-row">
+
+    <div class="column-half">
+      <h2 class="heading-medium">App group</h2>
+      {% if appGroup.length %}
+        <ul class="list list-bullet">
+          {% for appGroupMember in appGroup %}
+            <li>
+              <a href="/admin/users/show/{{ appGroupMember.id }}">{{ appGroupMember.name }}</a>
+              {% if appGroupMember.role == 0 %}
+                (Admin)
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
 
     <div class="column-half">
 
       <h2 class="heading-medium">App data sources available to this app</h2>
       {% if appDatasources.length %}
-      <ul class="list list-bullet">
-        {% for datasource in appDatasources %}
-        <li><a href="/admin/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
-        {% endfor %}
-      </ul>
+        <ul class="list list-bullet">
+          {% for datasource in appDatasources %}
+            <li><a href="/admin/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
+          {% endfor %}
+        </ul>
       {% else %}
-      <p>No app data sources available to this app</p>
+        <p>No app data sources available to this app</p>
       {% endif %}
       <p><a class="button button-secondary" href="/admin/apps/edit-datasources/{{ app.id }}">Edit app data sources available to this app</a></p>
     </div>
