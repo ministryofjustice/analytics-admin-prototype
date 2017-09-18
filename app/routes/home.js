@@ -4,8 +4,6 @@ module.exports = function(router, userTools) {
       userApps = userTools.getUserApps(req.params.userId),
       userDatasources = userTools.getUserDatasources(req.params.userId);
 
-    console.log(userDatasources);
-
     res.render('home/index', {
       user: user,
       userApps: userApps,
