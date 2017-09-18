@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% set page_title = "App data source: " + datasource.bucket_name %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Platform Control Panel Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <h2 class="medium">Apps with access to this app data source</h2>
+  {% if datasourceApps.length %}
+    <ul class="list list-bullet">
+      {% for app in datasourceApps %}
+        <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
+
+</main>
+
+{% endblock %}
