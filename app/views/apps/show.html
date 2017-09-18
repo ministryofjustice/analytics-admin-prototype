@@ -1,9 +1,9 @@
 {% extends "layout.html" %}
 
-{% set page_title = "Home" %}
+{% set page_title = "App: " + app.name %}
 
 {% block page_title %}
-  {{ page_title }} | Analytics Dashboard
+  {{ page_title }} | Analytics Platform Control Panel Prototype
 {% endblock %}
 
 {% block content %}
@@ -11,10 +11,19 @@
 <main id="content" role="main">
 
   <h1 class="heading-large">
-    Analytics Dashboard
+    {{ page_title }}
   </h1>
 
-  <p>{{ app.name }}</p>
+  <h2 class="heading-medium">App data sources</h2>
+  {% if appDatasources.length %}
+    <ul class="list list-bullet">
+      {% for datasource in appDatasources %}
+        <li><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
 
 </main>
 
