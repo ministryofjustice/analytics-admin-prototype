@@ -11,11 +11,11 @@
   "GROUP_ROLES": [
     {
       "id": 0,
-      "role": "member"
+      "role": "admin"
     },
     {
       "id": 1,
-      "role": "admin"
+      "role": "member"
     }
   ]
 }

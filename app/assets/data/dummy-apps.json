@@ -1,276 +1,488 @@
 [
   {
     "id": 0,
-    "name": "Reduced Bypassing Card",
-    "description": "",
-    "repo_url": "https://github.com/something-something/reduced-bypassing-card",
+    "name": "Multi-channelled Backing Up Card",
+    "description": "At iste voluptas quibusdam architecto vitae. Amet expedita rerum dolore voluptas in perspiciatis rerum. Ut ipsum consequatur qui saepe repudiandae molestiae voluptatem. Vero nulla quo libero consequuntur voluptatem amet vel ut.",
+    "slug": "multi-channelled-backing-up-card",
+    "repoUrl": "https://github.com/something-something/multi-channelled-backing-up-card",
     "datasources": [
-      10
+      3,
+      20
+    ],
+    "appGroup": [
+      {
+        "id": 9,
+        "role": 0
+      }
     ]
   },
   {
     "id": 1,
-    "name": "Decentralized Indexing Matrix",
-    "description": "Fugit et ducimus aperiam rem qui accusamus. Voluptatum dolor unde recusandae eos quia sapiente quidem blanditiis neque.",
-    "repo_url": "https://github.com/something-something/decentralized-indexing-matrix",
+    "name": "Customizable Copying Program",
+    "description": "",
+    "slug": "customizable-copying-program",
+    "repoUrl": "https://github.com/something-something/customizable-copying-program",
     "datasources": [
-      24
+      15,
+      17
+    ],
+    "appGroup": [
+      {
+        "id": 21,
+        "role": 0
+      }
     ]
   },
   {
     "id": 2,
-    "name": "Self-enabling Bypassing Driver",
-    "description": "",
-    "repo_url": "https://github.com/something-something/self-enabling-bypassing-driver",
+    "name": "Synergized Hacking Capacitor",
+    "description": "Consequatur doloremque voluptatibus. Sunt qui veniam tempora qui soluta pariatur minima et porro. Tenetur ipsa ut. Qui minima consectetur sed veritatis cum sunt. Sed modi maiores odit quo.",
+    "slug": "synergized-hacking-capacitor",
+    "repoUrl": "https://github.com/something-something/synergized-hacking-capacitor",
     "datasources": [
-      24
+      21,
+      23
+    ],
+    "appGroup": [
+      {
+        "id": 9,
+        "role": 0
+      }
     ]
   },
   {
     "id": 3,
-    "name": "Switchable Overriding Sensor",
-    "description": "",
-    "repo_url": "https://github.com/something-something/switchable-overriding-sensor",
-    "datasources": []
+    "name": "Extended Backing Up Hard Drive",
+    "description": "Molestiae quos nihil eligendi. Dicta optio ipsum quia hic et sed. Ex nam nemo qui praesentium iure nihil. Ex quae autem qui veniam voluptas.",
+    "slug": "extended-backing-up-hard-drive",
+    "repoUrl": "https://github.com/something-something/extended-backing-up-hard-drive",
+    "datasources": [
+      21
+    ],
+    "appGroup": [
+      {
+        "id": 7,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 4,
-    "name": "Ergonomic Synthesizing Bandwidth",
-    "description": "Qui magni facere aspernatur id corporis ex rerum. Dolor dolore similique odio itaque iusto et tenetur iure. Rerum in ipsa sit suscipit vel illum autem sunt. Architecto temporibus velit et adipisci corrupti voluptate debitis enim. Corporis dolor omnis fuga qui asperiores est.",
-    "repo_url": "https://github.com/something-something/ergonomic-synthesizing-bandwidth",
-    "datasources": [
-      1,
-      13
+    "name": "Extended Navigating Transmitter",
+    "description": "Velit ex odit consequatur atque illo exercitationem blanditiis voluptate. Dolor expedita ratione consequuntur temporibus ipsa delectus. Voluptates suscipit voluptas sed consequatur eaque aut. Dolorem aspernatur ut necessitatibus pariatur et officiis maiores.",
+    "slug": "extended-navigating-transmitter",
+    "repoUrl": "https://github.com/something-something/extended-navigating-transmitter",
+    "datasources": [],
+    "appGroup": [
+      {
+        "id": 34,
+        "role": 0
+      }
     ]
   },
   {
     "id": 5,
-    "name": "Integrated Overriding Capacitor",
+    "name": "Proactive Overriding Bus",
     "description": "",
-    "repo_url": "https://github.com/something-something/integrated-overriding-capacitor",
-    "datasources": []
+    "slug": "proactive-overriding-bus",
+    "repoUrl": "https://github.com/something-something/proactive-overriding-bus",
+    "datasources": [
+      13
+    ],
+    "appGroup": [
+      {
+        "id": 20,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 6,
-    "name": "Streamlined Generating Array",
-    "description": "Nihil fugiat minima assumenda dolores qui consequatur quia voluptate. Ullam odio rem ut id omnis optio. Quasi voluptatibus qui. Voluptas aliquam doloremque facere dolorem.",
-    "repo_url": "https://github.com/something-something/streamlined-generating-array",
+    "name": "Secured Hacking Bus",
+    "description": "",
+    "slug": "secured-hacking-bus",
+    "repoUrl": "https://github.com/something-something/secured-hacking-bus",
     "datasources": [
-      14,
-      18
+      1
+    ],
+    "appGroup": [
+      {
+        "id": 5,
+        "role": 0
+      }
     ]
   },
   {
     "id": 7,
-    "name": "Re-engineered Synthesizing Port",
-    "description": "Omnis sequi et ducimus in tempore consequatur nam est enim. Placeat praesentium officia consequatur iure laborum qui dolore sit. Aut rerum quae voluptate nisi ut odio provident.",
-    "repo_url": "https://github.com/something-something/re-engineered-synthesizing-port",
+    "name": "Centralized Transmitting Monitor",
+    "description": "Autem at iusto. Earum consequatur veniam sit earum corrupti voluptatem maxime magnam.",
+    "slug": "centralized-transmitting-monitor",
+    "repoUrl": "https://github.com/something-something/centralized-transmitting-monitor",
     "datasources": [
-      15,
-      18
+      15
+    ],
+    "appGroup": [
+      {
+        "id": 27,
+        "role": 0
+      }
     ]
   },
   {
     "id": 8,
-    "name": "Down-sized Programming Array",
-    "description": "Incidunt id in cum odit. Dolorem numquam corporis consectetur aspernatur.",
-    "repo_url": "https://github.com/something-something/down-sized-programming-array",
+    "name": "Quality-focused Navigating Transmitter",
+    "description": "Nemo molestiae porro minus provident. Dolorem similique et asperiores dolor optio ipsam et laboriosam est. Numquam enim et. Quam quasi vitae non. Fugiat est eos.",
+    "slug": "quality-focused-navigating-transmitter",
+    "repoUrl": "https://github.com/something-something/quality-focused-navigating-transmitter",
     "datasources": [
-      0,
-      23
+      22
+    ],
+    "appGroup": [
+      {
+        "id": 9,
+        "role": 0
+      }
     ]
   },
   {
     "id": 9,
-    "name": "Enterprise-wide Backing Up Driver",
-    "description": "Autem explicabo hic aut sint placeat consequatur laudantium iste soluta. Nihil ut pariatur quas et quod ea exercitationem porro harum. Perspiciatis laudantium culpa vitae placeat iste labore.",
-    "repo_url": "https://github.com/something-something/enterprise-wide-backing-up-driver",
+    "name": "Persistent Connecting Transmitter",
+    "description": "Non ab ipsum non non id. Consequuntur odit delectus cumque alias qui. Error officiis aperiam enim. Illum dolores distinctio et. Eos saepe quia cupiditate perspiciatis porro.",
+    "slug": "persistent-connecting-transmitter",
+    "repoUrl": "https://github.com/something-something/persistent-connecting-transmitter",
     "datasources": [
-      7,
-      8
+      5,
+      21
+    ],
+    "appGroup": [
+      {
+        "id": 0,
+        "role": 0
+      }
     ]
   },
   {
     "id": 10,
-    "name": "Front-line Backing Up Application",
-    "description": "Repudiandae cum quae et aut. Illo ad ex vitae exercitationem neque laudantium quasi consequuntur deserunt. Quo quas quis ut voluptas. Minima ab quia amet illo. Velit et eum vero.",
-    "repo_url": "https://github.com/something-something/front-line-backing-up-application",
+    "name": "Optional Connecting Panel",
+    "description": "",
+    "slug": "optional-connecting-panel",
+    "repoUrl": "https://github.com/something-something/optional-connecting-panel",
     "datasources": [
-      12
+      24
+    ],
+    "appGroup": [
+      {
+        "id": 20,
+        "role": 0
+      }
     ]
   },
   {
     "id": 11,
-    "name": "Synergized Copying Protocol",
-    "description": "Aliquam debitis aut. Consequuntur molestias ut vitae dolorem hic. Sed odio eligendi recusandae. Qui quos natus voluptatibus. Blanditiis ratione quas voluptatem eveniet. Eos quia ullam aliquid et commodi.",
-    "repo_url": "https://github.com/something-something/synergized-copying-protocol",
+    "name": "Multi-lateral Generating Capacitor",
+    "description": "Necessitatibus et eos quis inventore perferendis ut recusandae quia dolorem. Non eum ut eveniet.",
+    "slug": "multi-lateral-generating-capacitor",
+    "repoUrl": "https://github.com/something-something/multi-lateral-generating-capacitor",
     "datasources": [
-      8,
-      18
+      5,
+      15
+    ],
+    "appGroup": [
+      {
+        "id": 13,
+        "role": 0
+      }
     ]
   },
   {
     "id": 12,
-    "name": "Extended Synthesizing Array",
-    "description": "Ea commodi eum dignissimos eius quia. Enim similique fugit alias sed quae deserunt assumenda. Dicta unde ducimus eveniet ex.",
-    "repo_url": "https://github.com/something-something/extended-synthesizing-array",
+    "name": "Advanced Calculating Feed",
+    "description": "Et quidem rem. Minima veniam quo tenetur qui nam non quo id officiis. Ipsum cumque tenetur ratione nobis commodi vero officiis dolor.",
+    "slug": "advanced-calculating-feed",
+    "repoUrl": "https://github.com/something-something/advanced-calculating-feed",
     "datasources": [
-      11
+      5,
+      12
+    ],
+    "appGroup": [
+      {
+        "id": 32,
+        "role": 0
+      }
     ]
   },
   {
     "id": 13,
-    "name": "Upgradable Connecting Hard Drive",
-    "description": "Vitae nesciunt earum voluptatum repellendus beatae facere. Aut consequatur voluptate omnis corrupti ea ea officia. Corporis dignissimos aut omnis.",
-    "repo_url": "https://github.com/something-something/upgradable-connecting-hard-drive",
-    "datasources": [
-      3,
-      20
+    "name": "User-friendly Navigating System",
+    "description": "Aliquid nemo quos quia similique quidem necessitatibus est sapiente. Dolorem cupiditate facilis quae necessitatibus quia. Quo consequatur atque aperiam. Qui libero optio pariatur dolor provident ut quae ipsam consectetur. Id omnis iure distinctio aliquam adipisci id nam. Tenetur beatae dignissimos vitae.",
+    "slug": "user-friendly-navigating-system",
+    "repoUrl": "https://github.com/something-something/user-friendly-navigating-system",
+    "datasources": [],
+    "appGroup": [
+      {
+        "id": 11,
+        "role": 0
+      }
     ]
   },
   {
     "id": 14,
-    "name": "Organized Quantifying Pixel",
-    "description": "Quia et voluptatem blanditiis. Odit qui eum. Et ut sit. Qui ipsam est ullam eius voluptatibus. Nihil commodi dolor. Aliquid repellat sit at suscipit rerum aut reiciendis.",
-    "repo_url": "https://github.com/something-something/organized-quantifying-pixel",
+    "name": "Total Compressing Protocol",
+    "description": "Dolorem et beatae facere nesciunt amet porro nihil eum. Qui ut repellat illum sit fugit excepturi repellendus omnis nostrum.",
+    "slug": "total-compressing-protocol",
+    "repoUrl": "https://github.com/something-something/total-compressing-protocol",
     "datasources": [
-      16
+      6,
+      7
+    ],
+    "appGroup": [
+      {
+        "id": 14,
+        "role": 0
+      }
     ]
   },
   {
     "id": 15,
-    "name": "Up-sized Programming Program",
-    "description": "",
-    "repo_url": "https://github.com/something-something/up-sized-programming-program",
+    "name": "Switchable Programming Program",
+    "description": "Eum cum iste id molestiae adipisci odio dolorum qui. Id ipsam ut. A rerum omnis vel voluptas voluptatum sunt. Eaque reprehenderit maiores voluptatibus incidunt saepe sit nihil consequatur. Aperiam nostrum ut laudantium omnis qui. Sapiente eaque alias in non dolore rerum vel.",
+    "slug": "switchable-programming-program",
+    "repoUrl": "https://github.com/something-something/switchable-programming-program",
     "datasources": [
-      12
+      13
+    ],
+    "appGroup": [
+      {
+        "id": 3,
+        "role": 0
+      }
     ]
   },
   {
     "id": 16,
-    "name": "Customizable Indexing Pixel",
-    "description": "Et exercitationem dignissimos eum. Nostrum minus inventore veritatis quae dolores nihil. Ea eum facilis perspiciatis non quidem.",
-    "repo_url": "https://github.com/something-something/customizable-indexing-pixel",
+    "name": "Organized Navigating Circuit",
+    "description": "Eveniet pariatur beatae. Quia amet dignissimos voluptatem error odit dicta sit cum voluptatem. Et tempore sed quo velit.",
+    "slug": "organized-navigating-circuit",
+    "repoUrl": "https://github.com/something-something/organized-navigating-circuit",
     "datasources": [
-      24
+      1,
+      4
+    ],
+    "appGroup": [
+      {
+        "id": 32,
+        "role": 0
+      }
     ]
   },
   {
     "id": 17,
-    "name": "Balanced Synthesizing Sensor",
-    "description": "Consequatur culpa illum dolore id qui quos assumenda praesentium. Rerum adipisci fugit nesciunt quam adipisci sunt.",
-    "repo_url": "https://github.com/something-something/balanced-synthesizing-sensor",
+    "name": "Visionary Navigating Bandwidth",
+    "description": "Blanditiis officia at corporis dolorum accusamus numquam. Corporis aut ea aut dolorem totam aliquid amet. Quidem laborum incidunt aut quis magnam. Facilis aut quod ab et vitae exercitationem. Similique amet ut quasi.",
+    "slug": "visionary-navigating-bandwidth",
+    "repoUrl": "https://github.com/something-something/visionary-navigating-bandwidth",
     "datasources": [
-      8,
-      20
+      4,
+      23
+    ],
+    "appGroup": [
+      {
+        "id": 13,
+        "role": 0
+      }
     ]
   },
   {
     "id": 18,
-    "name": "Public-key Quantifying Panel",
-    "description": "",
-    "repo_url": "https://github.com/something-something/public-key-quantifying-panel",
+    "name": "Re-engineered Compressing Protocol",
+    "description": "Natus dolorem a distinctio sit quas accusantium non quia tempora. Non molestiae laudantium sit ducimus et quaerat. Aut non magnam quasi illum eum. Inventore magni enim et voluptatem voluptatibus quisquam unde consequatur. Dolor ea reiciendis deleniti sunt sint quo pariatur.",
+    "slug": "re-engineered-compressing-protocol",
+    "repoUrl": "https://github.com/something-something/re-engineered-compressing-protocol",
     "datasources": [
-      12,
-      22
+      13
+    ],
+    "appGroup": [
+      {
+        "id": 27,
+        "role": 0
+      }
     ]
   },
   {
     "id": 19,
-    "name": "Implemented Hacking Hard Drive",
-    "description": "Dolor nesciunt aut autem qui minus dolores velit architecto aut. Nobis quisquam ut voluptas voluptatem laudantium voluptatem et.",
-    "repo_url": "https://github.com/something-something/implemented-hacking-hard-drive",
+    "name": "Pre-emptive Transmitting Panel",
+    "description": "",
+    "slug": "pre-emptive-transmitting-panel",
+    "repoUrl": "https://github.com/something-something/pre-emptive-transmitting-panel",
     "datasources": [
-      5
+      11
+    ],
+    "appGroup": [
+      {
+        "id": 17,
+        "role": 0
+      }
     ]
   },
   {
     "id": 20,
-    "name": "Object-based Calculating Monitor",
-    "description": "Autem aperiam distinctio. Ex culpa numquam quia autem ut provident voluptas et beatae.",
-    "repo_url": "https://github.com/something-something/object-based-calculating-monitor",
+    "name": "Virtual Calculating Alarm",
+    "description": "Voluptas qui vel voluptatum ea. Dolore quia explicabo quisquam quidem. Laudantium occaecati enim eum quia quas aliquid voluptatem iste nobis.",
+    "slug": "virtual-calculating-alarm",
+    "repoUrl": "https://github.com/something-something/virtual-calculating-alarm",
     "datasources": [
-      17
+      1,
+      19
+    ],
+    "appGroup": [
+      {
+        "id": 33,
+        "role": 0
+      }
     ]
   },
   {
     "id": 21,
-    "name": "Focused Compressing Bandwidth",
-    "description": "Aliquam tenetur vero at. Et omnis placeat ut accusamus dolor consequatur voluptatem numquam.",
-    "repo_url": "https://github.com/something-something/focused-compressing-bandwidth",
-    "datasources": []
+    "name": "Advanced Bypassing Application",
+    "description": "",
+    "slug": "advanced-bypassing-application",
+    "repoUrl": "https://github.com/something-something/advanced-bypassing-application",
+    "datasources": [
+      7,
+      15
+    ],
+    "appGroup": [
+      {
+        "id": 21,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 22,
-    "name": "Stand-alone Transmitting Bus",
-    "description": "Consectetur sint in. Culpa voluptas qui nostrum numquam itaque non id. Molestiae rerum aut nihil tenetur excepturi nihil sit temporibus explicabo.",
-    "repo_url": "https://github.com/something-something/stand-alone-transmitting-bus",
+    "name": "Focused Synthesizing Pixel",
+    "description": "Nemo omnis in dignissimos rem voluptatem vero. Odio autem debitis quae rerum quae esse ut et. Sunt quo aspernatur ea repellat. Cupiditate enim velit sit debitis esse quod provident ut et.",
+    "slug": "focused-synthesizing-pixel",
+    "repoUrl": "https://github.com/something-something/focused-synthesizing-pixel",
     "datasources": [
-      22
+      7
+    ],
+    "appGroup": [
+      {
+        "id": 10,
+        "role": 0
+      }
     ]
   },
   {
     "id": 23,
-    "name": "Customer-focused Connecting Transmitter",
-    "description": "Eum molestiae neque natus reprehenderit. Cupiditate in possimus suscipit debitis deserunt saepe maxime aut. Et expedita itaque quisquam eos qui esse sunt ut. Animi sed voluptatum molestiae magni magni.",
-    "repo_url": "https://github.com/something-something/customer-focused-connecting-transmitter",
+    "name": "Mandatory Navigating System",
+    "description": "Quae molestiae et. Dignissimos temporibus praesentium esse non.",
+    "slug": "mandatory-navigating-system",
+    "repoUrl": "https://github.com/something-something/mandatory-navigating-system",
     "datasources": [
-      3,
-      14
+      0,
+      15
+    ],
+    "appGroup": [
+      {
+        "id": 1,
+        "role": 0
+      }
     ]
   },
   {
     "id": 24,
-    "name": "Virtual Hacking Port",
-    "description": "Dignissimos consequuntur at et dolore nihil qui laudantium quam iste. Necessitatibus magni rem. Aut voluptatem quibusdam illo sed cum aut repudiandae. Corrupti doloremque in ut qui.",
-    "repo_url": "https://github.com/something-something/virtual-hacking-port",
-    "datasources": []
+    "name": "Exclusive Compressing Array",
+    "description": "Placeat aperiam aut sunt et. Non iusto vel. Consequuntur qui a dolores aut ipsum aut. Dolor sunt ab ut autem. Inventore rerum saepe et qui placeat aliquid.",
+    "slug": "exclusive-compressing-array",
+    "repoUrl": "https://github.com/something-something/exclusive-compressing-array",
+    "datasources": [
+      7,
+      11
+    ],
+    "appGroup": [
+      {
+        "id": 5,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 25,
-    "name": "Profound Compressing Microchip",
-    "description": "",
-    "repo_url": "https://github.com/something-something/profound-compressing-microchip",
-    "datasources": [
-      18
+    "name": "Upgradable Bypassing Interface",
+    "description": "Nostrum qui sequi molestiae qui ut rerum. At doloremque repellendus vel. Itaque autem ullam perspiciatis quos nihil. Non porro ea non et dolorum pariatur.",
+    "slug": "upgradable-bypassing-interface",
+    "repoUrl": "https://github.com/something-something/upgradable-bypassing-interface",
+    "datasources": [],
+    "appGroup": [
+      {
+        "id": 3,
+        "role": 0
+      }
     ]
   },
   {
     "id": 26,
-    "name": "Open-source Overriding Circuit",
-    "description": "Inventore enim maiores quam dolor enim deleniti quo sed. Pariatur provident atque inventore distinctio sit. Maxime qui nam qui rerum sed. Distinctio eius cumque. Qui possimus facere beatae sint autem voluptatem. Ut dolores rem ea error libero eaque.",
-    "repo_url": "https://github.com/something-something/open-source-overriding-circuit",
+    "name": "Exclusive Overriding Panel",
+    "description": "Hic voluptatem animi. Fugiat quae libero hic quisquam. Id sint placeat ea dolorem voluptates vitae. Nostrum aspernatur molestias maiores et consectetur suscipit qui magnam. Quia tempore eum et ipsum porro vel soluta.",
+    "slug": "exclusive-overriding-panel",
+    "repoUrl": "https://github.com/something-something/exclusive-overriding-panel",
     "datasources": [
-      19
+      8
+    ],
+    "appGroup": [
+      {
+        "id": 28,
+        "role": 0
+      }
     ]
   },
   {
     "id": 27,
-    "name": "Object-based Quantifying Card",
-    "description": "",
-    "repo_url": "https://github.com/something-something/object-based-quantifying-card",
+    "name": "Cross-group Copying Card",
+    "description": "Aspernatur similique qui. Et hic vel facere occaecati eaque reiciendis consequatur. Est omnis hic aspernatur tempora aspernatur dolores modi.",
+    "slug": "cross-group-copying-card",
+    "repoUrl": "https://github.com/something-something/cross-group-copying-card",
     "datasources": [
-      15,
-      23
+      17
+    ],
+    "appGroup": [
+      {
+        "id": 3,
+        "role": 0
+      }
     ]
   },
   {
     "id": 28,
-    "name": "Sharable Calculating Matrix",
-    "description": "Voluptatem numquam ipsum iure aut voluptatem et similique est. Voluptate vel numquam repellendus molestiae quo exercitationem aut sed enim. Vel natus eaque facilis animi qui voluptate nulla. Vero culpa aut molestias porro qui vitae ut et. Earum aspernatur eum necessitatibus quae nam accusamus. Animi sunt perferendis debitis omnis aut dolores.",
-    "repo_url": "https://github.com/something-something/sharable-calculating-matrix",
-    "datasources": [
-      9,
-      19
+    "name": "Ameliorated Transmitting Driver",
+    "description": "Tempore architecto velit pariatur nisi nemo nesciunt et eos ut. Vero sit voluptatum quia corporis exercitationem ea. Consectetur neque ex et quo animi eum.",
+    "slug": "ameliorated-transmitting-driver",
+    "repoUrl": "https://github.com/something-something/ameliorated-transmitting-driver",
+    "datasources": [],
+    "appGroup": [
+      {
+        "id": 30,
+        "role": 0
+      }
     ]
   },
   {
     "id": 29,
-    "name": "Compatible Hacking Bus",
-    "description": "Sed nobis quas mollitia saepe accusantium harum. Et voluptatum necessitatibus dicta harum. Non qui voluptatem fugiat dolores expedita nam. Ipsam omnis nemo totam eius quia. Aut inventore eum doloremque modi.",
-    "repo_url": "https://github.com/something-something/compatible-hacking-bus",
+    "name": "Organic Parsing Circuit",
+    "description": "",
+    "slug": "organic-parsing-circuit",
+    "repoUrl": "https://github.com/something-something/organic-parsing-circuit",
     "datasources": [
-      9
+      1,
+      15
+    ],
+    "appGroup": [
+      {
+        "id": 33,
+        "role": 0
+      }
     ]
   }
 ]

@@ -27,6 +27,22 @@
   <h2 class="heading-medium">Github username</h2>
   <p><a href="https://github.com/{{ user.github_username }}">{{ user.github_username }}</a></p>
 
+  <h2 class="heading-medium">Apps</h2>
+  {% if userApps.length %}
+    <ul class="list list-bullet">
+      {% for userApp in userApps %}
+        <li>
+          <a href="/admin/apps/show/{{ userApp.id }}">{{ userApp.name }}</a>
+          {% if userApp.role == 0 %}
+            (Admin)
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
+
 </main>
 
 {% endblock %}

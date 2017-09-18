@@ -27,16 +27,23 @@ makeApp = function (x) {
   var name = stringTools.titleCase([faker.company.catchPhraseAdjective(), faker.hacker.ingverb(), faker.hacker.noun()].join(' ')),
     description = (randomTools.percentageChance(75) ? faker.lorem.sentences() : ''),
     slug = name.toLowerCase().replace(/ /gi, '-'),
-    repo_url = constants.urls.GITHUB_ORG_BASE + slug,
-    datasources = appTools.addDatasources();
+    repoUrl = constants.urls.GITHUB_ORG_BASE + slug,
+    datasources = appTools.addDatasources(),
+    appGroup = [
+      {
+        id: Math.floor(Math.random() * constants.quantities.NUM_USERS),
+        role: 0
+      }
+    ];
 
   return {
     id: x,
     name: name,
     description: description,
-    // slug: slug,
-    repo_url: repo_url,
-    datasources: datasources
+    slug: slug,
+    repoUrl: repoUrl,
+    datasources: datasources,
+    appGroup: appGroup
   };
 };
 
