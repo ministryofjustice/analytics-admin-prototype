@@ -2,7 +2,8 @@
 
 var _ = require('lodash'),
   users = require('../assets/data/dummy-users.json'),
-  apps = require('../assets/data/dummy-apps.json');
+  apps = require('../assets/data/dummy-apps.json'),
+  datasources = require('../assets/data/dummy-datasources.json');
 
 var userTools = {
   getUser: function(id) {
@@ -28,6 +29,26 @@ var userTools = {
     }
 
     return userApps;
+  },
+  getUserDatasources: function(userId) {
+    var self = this,
+      user = self.getUser(userId),
+      userDatasources = [],
+      x,
+      datasource;
+
+    if (user.userDatasources.length) {
+      for (x = 0; x < user.userDatasources.length; x++) {
+        datasource = _.find(datasources, {'id': parseInt(user.userDatasources[x], 10)});
+
+        userDatasources.push({
+          id: datasource.id,
+          bucket_name: datasource.bucket_name
+        });
+      }
+    }
+
+    return userDatasources;
   },
   updateUser: function(userId, formData) {
     var userIndex = _.findIndex(users, {'id': parseInt(userId, 10)});

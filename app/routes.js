@@ -35,17 +35,22 @@ router.get('/signout', function (req, res) {
 
 // admin routes
 // homepage
-require('./routes-admin-home.js') (router, users, apps, datasources);
+require('./routes/admin/admin-home.js') (router, users, apps, datasources);
 // users
-require('./routes-admin-users.js') (router, _, constants, users, userTools);
+require('./routes/admin/admin-users.js') (router, _, constants, users, userTools);
 // apps
-require('./routes-admin-apps.js') (router, _, constants, apps, datasources, appTools);
+require('./routes/admin/admin-apps.js') (router, _, constants, apps, datasources, appTools);
 // datasources
-require('./routes-admin-datasources.js') (router, constants, datasources, datasourceTools);
+require('./routes/admin/admin-datasources.js') (router, constants, datasources, datasourceTools);
 
 // user routes
 // homepage
-require('./routes-user-home.js') (router, users, apps, datasources);
+require('./routes/home.js') (router, userTools);
+//users
+
+// apps
+require('./routes/apps.js') (router, appTools);
+//datasources
 
 
 module.exports = router;

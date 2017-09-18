@@ -3,6 +3,7 @@
 var fs = require('fs'),
   faker = require('faker'),
   mkdirp = require('mkdirp'),
+  randomTools = require('../modules/random-tools'),
   constants = require('../constants.json'),
   init,
   makeUser,
@@ -25,13 +26,22 @@ makeUser = function (x) {
     lastName = faker.name.lastName(),
     name = [firstName, lastName].join(' '),
     email = [firstName, lastName].join('.').toLowerCase() + '@prototype.gov.uk',
-    github_username = [firstName, lastName].join('-').toLowerCase() + Math.floor(Math.random() * 1000).toString().replace(/ /gi, '');
+    github_username = [firstName, lastName].join('-').toLowerCase() + Math.floor(Math.random() * 1000).toString().replace(/ /gi, ''),
+    userDatasources = [];
+
+  if (randomTools.percentageChance(50)) {
+    userDatasources.push(randomTools.getRandom(constants.quantities.NUM_DATA_SOURCES));
+  }
+  if (randomTools.percentageChance(50)) {
+    userDatasources.push(randomTools.getRandom(constants.quantities.NUM_DATA_SOURCES));
+  }
 
   return {
     id: x,
     name: name,
     email: email,
-    github_username: github_username
+    github_username: github_username,
+    userDatasources: userDatasources
   };
 };
 
