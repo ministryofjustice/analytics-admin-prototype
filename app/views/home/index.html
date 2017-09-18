@@ -3,7 +3,7 @@
 {% set page_title = "Home" %}
 
 {% block page_title %}
-  {{ page_title }} | Analytics Admin Prototype
+  {{ page_title }} | Analytics Dashboard
 {% endblock %}
 
 {% block content %}
@@ -11,11 +11,30 @@
 <main id="content" role="main">
 
   <h1 class="heading-large">
-    Analytics Admin Prototype
+    Analytics Dashboard - {{ user.name }}
   </h1>
 
-  <p>regular user: {{ user_name }}</p>
-  <p>Nothing to see here yet. Prolly best sign out and in again as super-admin.</p>
+  <h2>Your apps</h2>
+  {% if userApps.length %}
+    <ul class="list list-bullet">
+      {% for app in userApps %}
+        <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
+
+  <h2>Your app data sources</h2>
+  {% if userDatasources.length %}
+    <ul class="list list-bullet">
+      {% for datasource in userDatasources %}
+        <li><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
 
 </main>
 
