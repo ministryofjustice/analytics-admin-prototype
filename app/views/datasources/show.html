@@ -25,6 +25,17 @@
     <p>None</p>
   {% endif %}
 
+  <h2 class="medium">Users with access to this app data source</h2>
+  {% if datasourceUsers.length %}
+    <ul class="list list-bullet">
+      {% for user in datasourceUsers %}
+        <li><a href="/users/show/{{ user.id }}">{{ user.name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
+
 </main>
 
 {% endblock %}

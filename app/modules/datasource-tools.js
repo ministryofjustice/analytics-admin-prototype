@@ -2,7 +2,8 @@
 var _ = require('lodash'),
   arrayTools = require('../modules/array-tools.js'),
   datasources = require('../assets/data/dummy-datasources.json'),
-  apps = require('../assets/data/dummy-apps.json');
+  apps = require('../assets/data/dummy-apps.json'),
+  users = require('../assets/data/dummy-users.json');
 
 var datasourceTools = {
   getDatasource: function(id) {
@@ -19,6 +20,18 @@ var datasourceTools = {
     }
 
     return datasourceApps;
+  },
+  getDatasourceUsers: function(id) {
+    var datasourceUsers = [],
+      x;
+
+    for (x = 0; x < users.length; x += 1) {
+      if (users[x].userDatasources.indexOf(parseInt(id, 10)) !== -1) {
+        datasourceUsers.push(users[x]);
+      }
+    }
+
+    return datasourceUsers;
   },
   updateDatasource: function(datasourceId, formData) {
     var datasourceIndex = _.findIndex(datasources, {'id': parseInt(datasourceId, 10)});
