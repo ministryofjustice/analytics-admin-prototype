@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% set page_title = "App: " + app.name %}
+{% set page_title = "Dashboard: " + user.name %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Platform Control Panel Prototype
@@ -14,26 +14,21 @@
     {{ page_title }}
   </h1>
 
-  <h2 class="heading-medium">App users</h2>
-  {% if appGroup.length %}
+  <h2>Your apps</h2>
+  {% if userApps.length %}
     <ul class="list list-bullet">
-      {% for user in appGroup %}
-        <li>
-          <a href="/users/show/{{ user.id }}">{{ user.name }}</a>
-          {% if user.role == 0 %}
-          (Admin)
-          {% endif %}
-        </li>
+      {% for app in userApps %}
+        <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
       {% endfor %}
     </ul>
   {% else %}
     <p>None</p>
   {% endif %}
 
-  <h2 class="heading-medium">App data sources</h2>
-  {% if appDatasources.length %}
+  <h2>Your app data sources</h2>
+  {% if userDatasources.length %}
     <ul class="list list-bullet">
-      {% for datasource in appDatasources %}
+      {% for datasource in userDatasources %}
         <li><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
       {% endfor %}
     </ul>

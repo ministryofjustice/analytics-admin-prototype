@@ -47,7 +47,7 @@ require('./routes/admin/admin-datasources.js') (router, constants, datasources, 
 // homepage
 require('./routes/home.js') (router, userTools);
 //users
-
+require('./routes/users.js') (router, userTools);
 // apps
 require('./routes/apps.js') (router, appTools);
 //datasources
