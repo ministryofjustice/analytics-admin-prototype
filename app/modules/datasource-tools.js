@@ -67,6 +67,21 @@ var datasourceTools = {
 
     return appsWithoutDatasource;
   },
+  getUsersWithoutDatasource: function(datasourceId) {
+    var usersWithoutDatasource = [],
+      x;
+
+    for (x = 0; x < users.length; x += 1) {
+      if (!users[x].userDatasources.includes(parseInt(datasourceId, 10))) {
+        usersWithoutDatasource.push({
+          id: users[x].id,
+          name: users[x].name
+        });
+      }
+    }
+
+    return usersWithoutDatasource;
+  },
   addDatasourceToApp: function(datasourceId, formData) {
     var appId = parseInt(formData['add-datasource-to-app'], 10),
       app = _.find(apps, {'id': appId}),
@@ -76,6 +91,18 @@ var datasourceTools = {
     datasources.push(parseInt(datasourceId, 10));
     datasources = arrayTools.sort(datasources);
     apps[appIndex].datasources = datasources;
+
+    return true;
+  },
+  addDatasourceToUser: function(datasourceId, formData) {
+    var userId = parseInt(formData['add-datasource-to-user'], 10),
+      user = _.find(users, {'id': userId}),
+      userIndex = _.findIndex(users, {'id': userId}),
+      datasources = user.userDatasources;
+
+    datasources.push(parseInt(datasourceId, 10));
+    datasources = arrayTools.sort(datasources);
+    users[userIndex].userDatasources = datasources;
 
     return true;
   },

@@ -22,6 +22,37 @@
     {% include "admin/datasources/includes/form.html" %}
   </form>
 
+  <form action="/admin/datasources/add-datasource-to-app/{{ datasource.id }}" method="post">
+    <div class="form-group">
+      <label class="form-label" for="add-datasource-to-app">Grant an app access to this app data source</label>
+      <select class="form-control no-blank" id="add-datasource-to-app" name="add-datasource-to-app">
+        <option value="">Select app</option>
+        {% for app in appsWithoutDatasource %}
+          <option value="{{ app.id }}">{{ app.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+  <form action="/admin/datasources/add-datasource-to-user/{{ datasource.id }}" method="post">
+    <div class="form-group">
+      <label class="form-label" for="add-datasource-to-user">Grant a user access to this app data source</label>
+      <select class="form-control no-blank" id="add-datasource-to-user" name="add-datasource-to-user">
+        <option value="">Select user</option>
+        {% for user in usersWithoutDatasource %}
+          <option value="{{ user.id }}">{{ user.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+
 </main>
 
 {% endblock %}

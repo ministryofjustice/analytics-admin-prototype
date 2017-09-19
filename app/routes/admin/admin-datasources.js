@@ -4,11 +4,15 @@ module.exports = function(router, constants, datasources, datasourceTools) {
       datasources: datasources
     });
   });
-  router.get('/admin/datasources/edit/:index', function (req, res) {
-    var datasource = datasourceTools.getDatasource(req.params.index);
+  router.get('/admin/datasources/edit/:datasourceId', function (req, res) {
+    var datasource = datasourceTools.getDatasource(req.params.datasourceId),
+      appsWithoutDatasource = datasourceTools.getAppsWithoutDatasource(req.params.datasourceId),
+      usersWithoutDatasource = datasourceTools.getUsersWithoutDatasource(req.params.datasourceId);
 
     res.render('admin/datasources/edit', {
-      datasource: datasource
+      datasource: datasource,
+      appsWithoutDatasource: appsWithoutDatasource,
+      usersWithoutDatasource: usersWithoutDatasource
     });
   });
   router.post('/admin/datasources/update/:datasourceId', function (req, res) {
@@ -30,12 +34,12 @@ module.exports = function(router, constants, datasources, datasourceTools) {
   router.get('/admin/datasources/show/:datasourceId', function (req, res) {
     var datasource = datasourceTools.getDatasource(req.params.datasourceId),
       datasourceApps = datasourceTools.getDatasourceApps(req.params.datasourceId),
-      appsWithoutDatasource = datasourceTools.getAppsWithoutDatasource(req.params.datasourceId);
+      datasourceUsers = datasourceTools.getDatasourceUsers(req.params.datasourceId);
 
     res.render('admin/datasources/show', {
       datasource: datasource,
       datasourceApps: datasourceApps,
-      appsWithoutDatasource: appsWithoutDatasource
+      datasourceUsers: datasourceUsers
     });
   });
   router.post('/admin/datasources/add-datasource-to-app/:datasourceId', function (req, res) {
@@ -44,6 +48,14 @@ module.exports = function(router, constants, datasources, datasourceTools) {
     } else {
       console.log('add datasource to app failed');
       res.send('add datasource to app failed');
+    }
+  });
+  router.post('/admin/datasources/add-datasource-to-user/:datasourceId', function (req, res) {
+    if(datasourceTools.addDatasourceToUser(req.params.datasourceId, req.body)) {
+      res.redirect('/admin/datasources/show/' + req.params.datasourceId);
+    } else {
+      console.log('add datasource to user failed');
+      res.send('add datasource to user failed');
     }
   });
   router.get('/admin/datasources/delete/:datasourceId', function (req, res) {
