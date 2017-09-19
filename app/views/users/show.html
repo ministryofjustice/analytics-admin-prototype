@@ -1,6 +1,8 @@
 {% extends "layout.html" %}
 
-{% set page_title = "Dashboard: " + user.name %}
+{% set page_prefix = "User:" %}
+
+{% set page_title = [page_prefix, user.name] | join(" ") %}
 
 {% block page_title %}
   {{ page_title }} | Analytics Platform Control Panel Prototype
@@ -14,18 +16,23 @@
     {{ page_title }}
   </h1>
 
-  <h2>Your apps</h2>
+  <h2>User's apps</h2>
   {% if userApps.length %}
     <ul class="list list-bullet">
       {% for app in userApps %}
-        <li><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></li>
+        <li>
+          <a href="/apps/show/{{ app.id }}">{{ app.name }}</a>
+          {% if app.role == 0 %}
+          (Admin)
+          {% endif %}
+        </li>
       {% endfor %}
     </ul>
   {% else %}
     <p>None</p>
   {% endif %}
 
-  <h2>Your app data sources</h2>
+  <h2>User's app data sources</h2>
   {% if userDatasources.length %}
     <ul class="list list-bullet">
       {% for datasource in userDatasources %}
