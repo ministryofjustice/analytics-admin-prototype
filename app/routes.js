@@ -39,7 +39,7 @@ require('./routes/admin/admin-home.js') (router, users, apps, datasources);
 // users
 require('./routes/admin/admin-users.js') (router, _, constants, users, userTools);
 // apps
-require('./routes/admin/admin-apps.js') (router, _, constants, apps, datasources, appTools);
+require('./routes/admin/admin-apps.js') (router, _, constants, apps, users, datasources, appTools);
 // datasources
 require('./routes/admin/admin-datasources.js') (router, constants, datasources, datasourceTools);
 

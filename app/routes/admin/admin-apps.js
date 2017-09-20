@@ -1,29 +1,51 @@
-module.exports = function(router, _, constants, apps, datasources, appTools) {
+module.exports = function(router, _, constants, apps, users, datasources, appTools) {
   router.get('/admin/apps/list', function (req, res) {
     res.render('admin/apps/list', {
       apps: apps
     });
   });
   router.get('/admin/apps/edit/:index', function (req, res) {
-    var app = appTools.getApp(req.params.index);
+    var app = appTools.getApp(req.params.index),
+      appDatasources = appTools.getAppDatasources(req.params.index),
+      datasourcesUnavailableToApp = _.difference(datasources, appDatasources),
+      appGroup = appTools.getAppGroup(req.params.index),
+      usersNotInAppGroup = appTools.getUsersNotInAppGroup(req.params.index);
 
     res.render('admin/apps/edit', {
-      app: app
-    });
-  });
-  router.get('/admin/apps/edit-datasources/:index', function (req, res) {
-    var app = appTools.getApp(req.params.index),
-      appDatasources = appTools.getAppDatasources(req.params.index);
-
-    res.render('admin/apps/edit-datasources', {
       app: app,
       appDatasources: appDatasources,
-      datasourcesUnavailableToApp: _.difference(datasources, appDatasources)
+      datasourcesUnavailableToApp: datasourcesUnavailableToApp,
+      appGroup: appGroup,
+      usersNotInAppGroup: usersNotInAppGroup
     });
+  });
+  router.post('/admin/apps/add-user/:appId', function (req, res) {
+    if(appTools.addAppUser(req.params.appId, req.body)) {
+      res.redirect('/admin/apps/edit/' + req.params.appId);
+    } else {
+      console.log('add app user failed');
+      res.send('add app user failed');
+    }
+  });
+  router.get('/admin/apps/remove-user/:appId/:userId', function (req, res) {
+    if(appTools.removeAppUser(req.params.appId, req.params.userId)) {
+      res.redirect('/admin/apps/edit/' + req.params.appId);
+    } else {
+      console.log('remove app user failed');
+      res.send('remove app user failed');
+    }
+  });
+  router.get('/admin/apps/toggle-admin-role/:appId/:userId', function (req, res) {
+    if(appTools.toggleUserAdminRole(req.params.appId, req.params.userId)) {
+      res.redirect('/admin/apps/edit/' + req.params.appId);
+    } else {
+      console.log('toggle user admin role failed');
+      res.send('toggle user admin role failed');
+    }
   });
   router.post('/admin/apps/add-datasource/:appId', function (req, res) {
     if(appTools.addAppDatasource(req.params.appId, req.body)) {
-      res.redirect('/admin/apps/edit-datasources/' + req.params.appId);
+      res.redirect('/admin/apps/edit/' + req.params.appId);
     } else {
       console.log('add app datasource failed');
       res.send('add app datasource failed');
@@ -31,7 +53,7 @@ module.exports = function(router, _, constants, apps, datasources, appTools) {
   });
   router.get('/admin/apps/remove-datasource/:appId/:datasourceId', function (req, res) {
     if(appTools.removeAppDatasource(req.params.appId, req.params.datasourceId)) {
-      res.redirect('/admin/apps/edit-datasources/' + req.params.appId);
+      res.redirect('/admin/apps/edit/' + req.params.appId);
     } else {
       console.log('remove app datasource failed');
       res.send('remove app datasource failed');
