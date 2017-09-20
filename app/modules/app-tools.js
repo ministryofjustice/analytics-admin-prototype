@@ -41,6 +41,24 @@ var appTools = {
 
     return appGroup;
   },
+  getUsersNotInAppGroup: function(id) {
+    var self = this,
+      app = self.getApp(id),
+      appGroup = app.appGroup,
+      x,
+      usersNotInAppGroup = [];
+
+    for (x = 0; x < users.length; x += 1) {
+      if (_.findIndex(appGroup, {'id': users[x].id}) === -1) {
+        usersNotInAppGroup.push({
+          id: users[x].id,
+          name: users[x].name
+        });
+      }
+    }
+
+    return usersNotInAppGroup;
+  },
   getAppDatasources: function(id) {
     var self = this,
       x,
@@ -59,6 +77,43 @@ var appTools = {
     apps[appIndex].name = formData.name;
     apps[appIndex].description = formData.description;
     apps[appIndex].repoUrl = formData.repoUrl;
+
+    return true;
+  },
+  addAppUser: function(appId, formData) {
+    var userId = parseInt(formData['add-user'], 10),
+      app = _.find(apps, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(users, {'id': parseInt(appId, 10)}),
+      appGroup = app.appGroup;
+
+    appGroup.push({
+      id: parseInt(userId, 10),
+      role: 1
+    });
+    apps[appIndex].appGroup = _.sortBy(appGroup, 'id');
+
+    return true;
+  },
+  removeAppUser: function(appId, userId) {
+    var app = _.find(apps, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(users, {'id': parseInt(appId, 10)}),
+      appGroup = app.appGroup;
+
+    appGroup = _.reject(appGroup, {'id': parseInt(userId, 10)});
+    apps[appIndex].appGroup = appGroup;
+
+    return true;
+  },
+  toggleUserAdminRole: function(appId, userId) {
+    var app = _.find(apps, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(users, {'id': parseInt(appId, 10)}),
+      appGroup = app.appGroup,
+      userGroupEntry = _.find(appGroup, {'id': parseInt(userId, 10)}),
+      userGroupEntryIndex = _.findIndex(appGroup, {'id': parseInt(userId, 10)});
+
+    userGroupEntry.role = Math.abs(userGroupEntry.role - 1);
+    appGroup[userGroupEntryIndex] = userGroupEntry;
+    apps[appIndex].appGroup = appGroup;
 
     return true;
   },
