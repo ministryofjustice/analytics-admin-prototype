@@ -2,7 +2,7 @@
 {% set logo_link_title = 'Return to sign in' %}
 {% extends "govuk_template.html" %}
 
-{% set user_id = data['user_id'] %}
+{% set user_id = data['user_id']|int %}
 {% set user_email = data['user_email'] %}
 {% set user_name = data['user_name'] %}
 
