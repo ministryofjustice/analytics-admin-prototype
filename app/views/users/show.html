@@ -52,6 +52,7 @@
                 <td class="align-right">
                   {% if app.role == 0 %}
                     <a class="button button-secondary" href="/apps/manage/{{ app.id }}">Manage app</a>
+                    <a class="button button-secondary js-confirm" href="/apps/delete/{{ app.id }}/{{ user.id }}">Delete app</a>
                   {% endif %}
                 </td>
               {% endif %}

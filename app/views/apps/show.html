@@ -14,6 +14,16 @@
     {{ page_title }}
   </h1>
 
+  <p class="clearfix align-right">
+    <a href="/apps/manage/{{ app.id }}" class="button button-secondary">Manage app</a>
+    <a class="button button-secondary js-confirm" href="/apps/delete/{{ app.id }}/{{ user_id }}">Delete app</a>
+  </p>
+
+  <h2 class="heading-medium">Description</h2>
+  <p>
+    {{ app.description if app.description else "None" }}
+  </p>
+
   <h2 class="heading-medium">App users</h2>
   {% if appGroup.length %}
     <ul class="list list-bullet">
@@ -21,7 +31,7 @@
         <li>
           <a href="/users/show/{{ user.id }}">{{ user.name }}</a>
           {% if user.role == 0 %}
-          (Admin)
+            (Admin)
           {% endif %}
         </li>
       {% endfor %}
