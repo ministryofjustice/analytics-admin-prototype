@@ -4,17 +4,17 @@ module.exports = function(router, userTools) {
       userApps = userTools.getUserApps(req.params.userId),
       userDatasources = userTools.getUserDatasources(req.params.userId),
       data = req.session.data,
-      signedInUserId;
+      signedInUser = false;
 
     if(data && data.user_id) {
-      signedInUserId = parseInt(data.user_id, 10);
+      signedInUser = (parseInt(data.user_id, 10) === parseInt(req.params.userId, 10) ? true : false);
     }
 
     res.render('users/show', {
       user: user,
       userApps: userApps,
       userDatasources: userDatasources,
-      signedInUserId: signedInUserId
+      signedInUser: signedInUser
     });
   });
 }

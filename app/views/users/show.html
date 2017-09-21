@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 
-{% if user.id == signedInUserId %}
+{% if signedInUser %}
   {% set page_prefix = "Dashboard:" %}
   {% set list_prefix = "Your" %}
 {% else %}
@@ -22,21 +22,52 @@
     {{ page_title }}
   </h1>
 
-  <h2>{{ list_prefix }} apps</h2>
-  {% if userApps.length %}
-    <ul class="list list-bullet">
-      {% for app in userApps %}
-        <li>
-          <a href="/apps/show/{{ app.id }}">{{ app.name }}</a>
-          {% if app.role == 0 %}
-          (Admin)
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>None</p>
-  {% endif %}
+  <div class="form-group">
+    <h2>{{ list_prefix }} apps</h2>
+    {% if userApps.length %}
+      <table class="form-group">
+        <thead>
+          <tr>
+            <th>App name</th>
+            <th>Admin</th>
+            {% if signedInUser %}
+              <td>&nbsp;</td>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for app in userApps %}
+            <tr>
+              <td>
+                <a href="/apps/show/{{ app.id }}">{{ app.name }}</a>
+              </td>
+              <td>
+                {% if app.role == 0 %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </td>
+              {% if signedInUser %}
+                <td class="align-right">
+                  {% if app.role == 0 %}
+                    <a class="button button-secondary" href="/apps/manage/{{ app.id }}">Manage app</a>
+                  {% endif %}
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>None</p>
+    {% endif %}
+
+    {% if signedInUser %}
+      <p><a class="button button-secondary" href="/apps/new">Create new app</a></p>
+    {% endif %}
+  </div>
+
 
   <h2>{{ list_prefix }} app data sources</h2>
   {% if userDatasources.length %}
