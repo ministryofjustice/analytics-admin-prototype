@@ -1,6 +1,12 @@
 {% extends "layout.html" %}
 
-{% set page_prefix = "User:" %}
+{% if user.id == signedInUserId %}
+  {% set page_prefix = "Dashboard:" %}
+  {% set list_prefix = "Your" %}
+{% else %}
+  {% set page_prefix = "User:" %}
+  {% set list_prefix = "User's" %}
+{% endif %}
 
 {% set page_title = [page_prefix, user.name] | join(" ") %}
 
@@ -16,7 +22,7 @@
     {{ page_title }}
   </h1>
 
-  <h2>User's apps</h2>
+  <h2>{{ list_prefix }} apps</h2>
   {% if userApps.length %}
     <ul class="list list-bullet">
       {% for app in userApps %}
@@ -32,7 +38,7 @@
     <p>None</p>
   {% endif %}
 
-  <h2>User's app data sources</h2>
+  <h2>{{ list_prefix }} app data sources</h2>
   {% if userDatasources.length %}
     <ul class="list list-bullet">
       {% for datasource in userDatasources %}
