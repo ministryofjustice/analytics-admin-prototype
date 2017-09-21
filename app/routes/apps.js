@@ -41,4 +41,28 @@ module.exports = function(router, _, appTools, datasources) {
       res.send('delete app failed');
     }
   });
+  router.post('/apps/add-user/:appId', function (req, res) {
+    if(appTools.addAppUser(req.params.appId, req.body)) {
+      res.redirect('/apps/manage/' + req.params.appId);
+    } else {
+      console.log('add app user failed');
+      res.send('add app user failed');
+    }
+  });
+  router.get('/apps/remove-user/:appId/:userId', function (req, res) {
+    if(appTools.removeAppUser(req.params.appId, req.params.userId)) {
+      res.redirect('/apps/manage/' + req.params.appId);
+    } else {
+      console.log('remove app user failed');
+      res.send('remove app user failed');
+    }
+  });
+  router.get('/apps/toggle-admin-role/:appId/:userId', function (req, res) {
+    if(appTools.toggleUserAdminRole(req.params.appId, req.params.userId)) {
+      res.redirect('/apps/manage/' + req.params.appId);
+    } else {
+      console.log('toggle user admin role failed');
+      res.send('toggle user admin role failed');
+    }
+  });
 }
