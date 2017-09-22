@@ -49,7 +49,7 @@ require('./routes/home.js') (router, userTools);
 //users
 require('./routes/users.js') (router, userTools);
 // apps
-require('./routes/apps.js') (router, _, appTools, datasources);
+require('./routes/apps.js') (router, _, appTools, datasources, constants);
 //datasources
 require('./routes/datasources.js') (router, datasourceTools);
 

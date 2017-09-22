@@ -46,11 +46,10 @@ var datasourceTools = {
 
     datasources.push({
       id: newId,
-      bucket_name: formData.bucket_name,
-      bucket_url: formData.bucket_url
+      bucket_name: formData.bucket_name
     });
 
-    return true;
+    return newId;
   },
   getAppsWithoutDatasource: function(datasourceId) {
     var appsWithoutDatasource = [],

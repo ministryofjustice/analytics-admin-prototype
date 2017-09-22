@@ -1,0 +1,160 @@
+{% extends "layout.html" %}
+
+{% set page_title = "New app - add datasource" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Platform Control Panel Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <form action="/apps/create" method="post">
+    <div class="form-group">
+
+      <fieldset>
+        <h2 class="heading-medium">Attach a datasource</h2>
+        <p>Attach an existing datasource to your app, or create a new bucket. (This can be done later.)</p>
+        <p>Additional buckets can also be attached once your app is created.</p>
+        <div class="multiple-choice" data-target="new-app-datasource-create-new-source">
+          <input type="radio" id="new-app-datasource-create" name="new-app-datasource" value="create">
+          <label for="new-app-datasource-create">Create a new datasource</label>
+        </div>
+        <div class="panel panel-border-narrow js-hidden" id="new-app-datasource-create-new-source">
+          <p>This can be populated with data later.</p>
+          <label class="form-label" for="new-datasource-name">
+            Datasource (bucket) name
+            <span class="form-hint">60 chars max, only lowercase letters, numbers, periods and hyphens, auto-prefixed with "{{ prefix }}"</span>
+          </label>
+          <input class="form-control" name="new-datasource-name" type="text" id="new-datasource-name" value="{{ prefix }}" data-prefix="{{ prefix }}" pattern="[a-z0-9.-]{1,60}">
+        </div>
+
+        <div class="multiple-choice" data-target="new-app-datasource-existing-source">
+          <input type="radio" id="new-app-datasource-select" name="new-app-datasource" value="select">
+          <label for="new-app-datasource-select">Attach an existing datasource</label>
+        </div>
+        <div class="panel panel-border-narrow js-hidden" id="new-app-datasource-existing-source">
+          <label class="form-label" for="select-existing-datasource">Select datasource</label>
+          <select name="select-existing-datasource" id="select-existing-datasource" class="form-control">
+            <option value="">Select</option>
+            {% for datasource in datasources %}
+              <option value="{{ datasource.id }}">{{ datasource.bucket_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="multiple-choice">
+          <input type="radio" id="new-app-datasource-later" name="new-app-datasource" value="later">
+          <label for="new-app-datasource-later">Do this later</label>
+        </div>
+      </fieldset>
+
+    </div>
+
+    <input type="hidden" id="name" name="name" value="{{ formData.name }}">
+    <input type="hidden" id="description" name="description" value="{{ formData.description }}">
+    <input type="hidden" id="repoUrl" name="repoUrl" value="{{ formData.repoUrl }}">
+    <input type="hidden" id="user_id" name="user_id" value="{{ user_id }}">
+
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Create">
+    </div>
+  </form>
+
+
+<!--   <div class="form-group">
+    <h2 class="heading-medium">App group</h2>
+    {% if appGroup.length %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Admin</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in appGroup %}
+            <tr>
+              <td><a href="/users/show/{{ user.id }}">{{ user.name }}</a></td>
+              <td>{{ "Yes" if user.role == 0 else "No" }}</td>
+              <td class="align-right">
+                <a class="button button-secondary" href="/apps/toggle-admin-role/{{ app.id }}/{{ user.id }}">{{ "Remove" if user.role == 0 else "Grant" }} admin access</a>
+                <a class="button button-secondary" href="/apps/remove-user/{{ app.id }}/{{ user.id}}">Remove user from app group</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No users in this app group</p>
+    {% endif %}
+  </div>
+
+  <form action="/apps/add-user/{{ app.id }}" method="post">
+    <div class="form-group">
+      <label class="form-label" for="add-user">Add a user to this app group</label>
+      <select class="form-control form-control-3-4 no-blank" id="add-user" name="add-user">
+        <option value="">Select user</option>
+        {% for user in usersNotInAppGroup %}
+          <option value="{{ user.id }}">{{ user.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+  <div class="form-group">
+    <h2 class="heading-medium">App data sources</h2>
+    {% if appDatasources.length %}
+      <p>{{ appDatasources.length }} datasource(s) available to this app</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Data source name</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for datasource in appDatasources %}
+            <tr>
+              <td>
+                <a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a>
+              </td>
+              <td class="align-right">
+                <a class="button button-secondary" href="/apps/remove-datasource/{{ app.id }}/{{ datasource.id }}">Revoke app access to this datasource</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No datasources available to this app</p>
+    {% endif %}
+  </div>
+
+  <form action="/apps/add-datasource/{{ app.id }}" method="post">
+    <div class="form-group">
+      <label class="form-label" for="add-datasource">Grant this app access to a datasource</label>
+      <select class="form-control form-control-3-4 no-blank" id="add-datasource" name="add-datasource">
+        <option value="">Select datasource</option>
+        {% for datasource in datasourcesUnavailableToApp %}
+          <option value="{{ datasource.id }}">{{ datasource.bucket_name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+ -->
+</main>
+
+{% endblock %}
