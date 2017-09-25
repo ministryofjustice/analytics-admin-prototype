@@ -17,5 +17,8 @@
       "id": 1,
       "role": "member"
     }
-  ]
+  ],
+  "strings": {
+    "NEW_BUCKET_PREFIX": "dev-"
+  }
 }

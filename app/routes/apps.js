@@ -1,4 +1,4 @@
-module.exports = function(router, _, appTools, datasources) {
+module.exports = function(router, _, appTools, datasources, constants) {
   router.get('/apps/show/:appId', function (req, res) {
     var app = appTools.getApp(req.params.appId),
       appGroup = appTools.getAppGroup(req.params.appId),
@@ -65,4 +65,25 @@ module.exports = function(router, _, appTools, datasources) {
       res.send('toggle user admin role failed');
     }
   });
+  router.post('/apps/new-add-datasource', function (req, res) {
+    var formData = req.body,
+      prefix = constants.strings.NEW_BUCKET_PREFIX;
+
+    res.render('apps/new-add-datasource', {
+      datasources: datasources,
+      formData: formData,
+      prefix: prefix
+    });
+  });
+  router.post('/apps/create', function (req, res) {
+    var formData = req.body;
+
+    if(appTools.createNewApp(formData)) {
+      res.redirect('/users/show/' + formData.user_id);
+    } else {
+      console.log('create new app failed');
+      res.send('create new app failed');
+    }
+  });
 }
+

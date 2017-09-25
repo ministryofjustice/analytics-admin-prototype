@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% set page_title = "Create new app" %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Platform Control Panel Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  {% set button_text = "Next" %}
+  <form action="/apps/new-add-datasource" method="post">
+    {% include "apps/includes/form.html" %}
+  </form>
+
+</main>
+
+{% endblock %}

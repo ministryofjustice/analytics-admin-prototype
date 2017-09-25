@@ -3,6 +3,7 @@
 var _ = require('lodash'),
   constants = require('../constants.json'),
   arrayTools = require('../modules/array-tools.js'),
+  datasourceTools = require('../modules/datasource-tools.js'),
   apps = require('../assets/data/dummy-apps.json'),
   users = require('../assets/data/dummy-users.json'),
   datasources = require('../assets/data/dummy-datasources.json');
@@ -120,7 +121,7 @@ var appTools = {
   addAppDatasource: function(appId, formData) {
     var datasourceId = parseInt(formData['add-datasource'], 10),
       app = _.find(apps, {'id': parseInt(appId, 10)}),
-      appIndex = _.findIndex(datasources, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(apps, {'id': parseInt(appId, 10)}),
       appDatasources = app.datasources;
 
     appDatasources.push(parseInt(datasourceId, 10));
@@ -146,15 +147,55 @@ var appTools = {
       name: formData.name,
       description: formData.description,
       repoUrl: formData.repoUrl,
-      datasources: []
+      datasources: [],
+      appGroup: []
     });
 
-    return true;
+    return newId;
   },
   deleteApp: function(appId) {
     _.remove(apps, {'id': parseInt(appId, 10)});
 
     return true;
+  },
+  createNewApp: function(formData) {
+    var self = this,
+      newId = self.newApp(formData),
+      app,
+      datasource = self.getDatasourceFromFormData(formData);
+
+    app = _.find(apps, {'id': newId});
+    app.appGroup = [
+      {
+        id: parseInt(formData.user_id, 10),
+        role: 0
+      }
+    ];
+    app.datasources = datasource;
+
+    return true;
+  },
+  getDatasourceFromFormData: function(formData) {
+    var newDatasourceId,
+      addToUserObject;
+
+    switch (formData['new-app-datasource']) {
+      case 'create':
+        newDatasourceId = datasourceTools.newDatasource({
+          bucket_name: formData['new-datasource-name']
+        });
+        addToUserObject = {
+          'add-datasource-to-user': parseInt(formData.user_id, 10)
+        };
+
+        datasourceTools.addDatasourceToUser(newDatasourceId, addToUserObject);
+
+        return [newDatasourceId];
+      case 'select':
+        return [formData['select-existing-datasource']];
+      default:
+        return [];
+    }
   }
 };
 
