@@ -43,6 +43,19 @@
     <p>None</p>
   {% endif %}
 
+  <h2 class="heading-medium">Datasources</h2>
+  {% if userDatasources.length %}
+    <ul class="list list-bullet">
+      {% for datasource in userDatasources %}
+        <li>
+          <a href="/admin/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>None</p>
+  {% endif %}
+
 </main>
 
 {% endblock %}

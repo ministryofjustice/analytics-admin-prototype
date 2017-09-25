@@ -22,6 +22,32 @@
     {% include "admin/datasources/includes/form.html" %}
   </form>
 
+  <div class="form-group">
+    <h2 class="heading-medium">Apps with access to this datasource</h2>
+    {% if datasourceApps.length %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for app in datasourceApps %}
+            <tr>
+              <td><a href="/admin/apps/show/{{ app.id }}">{{ app.name }}</a></td>
+              <td class="align-right">
+                <a class="button button-secondary" href="/admin/datasources/remove-app/{{ datasource.id }}/{{ app.id}}">Revoke app access to this datasource</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No apps with access to this datasource</p>
+    {% endif %}
+  </div>
+
   <form action="/admin/datasources/add-datasource-to-app/{{ datasource.id }}" method="post">
     <div class="form-group">
       <label class="form-label" for="add-datasource-to-app">Grant an app access to this app data source</label>
@@ -36,6 +62,32 @@
       <input type="submit" class="button button-secondary" value="Add">
     </div>
   </form>
+
+  <div class="form-group">
+    <h2 class="heading-medium">Users with access to this datasource</h2>
+    {% if datasourceUsers.length %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in datasourceUsers %}
+            <tr>
+              <td><a href="/admin/users/show/{{ user.id }}">{{ user.name }}</a></td>
+              <td class="align-right">
+                <a class="button button-secondary" href="/admin/datasources/remove-user/{{ datasource.id }}/{{ user.id}}">Revoke user access to this datasource</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No users with access to this datasource</p>
+    {% endif %}
+  </div>
 
   <form action="/admin/datasources/add-datasource-to-user/{{ datasource.id }}" method="post">
     <div class="form-group">
