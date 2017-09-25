@@ -76,11 +76,10 @@ module.exports = function(router, _, appTools, datasources, constants) {
     });
   });
   router.post('/apps/create', function (req, res) {
-    var formData = req.body,
-      user_id = req.session.data.user_id;
+    var formData = req.body;
 
-    if(appTools.createNewApp(formData, user_id)) {
-      res.redirect('/users/show/' + user_id);
+    if(appTools.createNewApp(formData)) {
+      res.redirect('/users/show/' + formData.user_id);
     } else {
       console.log('create new app failed');
       res.send('create new app failed');

@@ -158,16 +158,16 @@ var appTools = {
 
     return true;
   },
-  createNewApp: function(formData, user_id) {
+  createNewApp: function(formData) {
     var self = this,
       newId = self.newApp(formData),
       app,
-      datasource = self.getDatasourceFromFormData(formData, user_id);
+      datasource = self.getDatasourceFromFormData(formData);
 
     app = _.find(apps, {'id': newId});
     app.appGroup = [
       {
-        id: parseInt(user_id, 10),
+        id: parseInt(formData.user_id, 10),
         role: 0
       }
     ];
@@ -175,7 +175,7 @@ var appTools = {
 
     return true;
   },
-  getDatasourceFromFormData: function(formData, user_id) {
+  getDatasourceFromFormData: function(formData) {
     var newDatasourceId,
       addToUserObject;
 
@@ -185,7 +185,7 @@ var appTools = {
           bucket_name: formData['new-datasource-name']
         });
         addToUserObject = {
-          'add-datasource-to-user': user_id
+          'add-datasource-to-user': parseInt(formData.user_id, 10)
         };
 
         datasourceTools.addDatasourceToUser(newDatasourceId, addToUserObject);
