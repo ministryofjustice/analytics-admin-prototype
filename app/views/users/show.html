@@ -3,9 +3,11 @@
 {% if signedInUser %}
   {% set page_prefix = "Dashboard:" %}
   {% set list_prefix = "Your" %}
+  {% set breadcrumb = [] %}
 {% else %}
   {% set page_prefix = "User:" %}
   {% set list_prefix = "User's" %}
+  {% set breadcrumb = [{name: "User: " + user.name}] %}
 {% endif %}
 
 {% set page_title = [page_prefix, user.name] | join(" ") %}
@@ -17,6 +19,9 @@
 {% block content %}
 
 <main id="content" role="main">
+
+  {% set crumbs = breadcrumb %}
+  {% include "includes/breadcrumbs.html" %}
 
   <h1 class="heading-large">
     {{ page_title }}
