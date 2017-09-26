@@ -105,6 +105,26 @@ var datasourceTools = {
 
     return true;
   },
+  removeDatasourceUser: function(datasourceId, userId) {
+    var user = _.find(users, {'id': parseInt(userId, 10)}),
+      userIndex = _.findIndex(users, {'id': parseInt(userId, 10)}),
+      datasources = user.userDatasources;
+
+    datasources = _.pull(datasources, parseInt(datasourceId, 10));
+    users[userIndex].userDatasources = datasources;
+
+    return true;
+  },
+  removeDatasourceApp: function(datasourceId, appId) {
+    var app = _.find(apps, {'id': parseInt(appId, 10)}),
+      appIndex = _.findIndex(apps, {'id': parseInt(appId, 10)}),
+      datasources = app.datasources;
+
+    datasources = _.pull(datasources, parseInt(datasourceId, 10));
+    apps[appIndex].datasources = datasources;
+
+    return true;
+  },
   deleteDatasource: function(datasourceId) {
     var self = this,
       datasourceApps = self.getDatasourceApps(datasourceId),
