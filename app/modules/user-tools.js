@@ -66,7 +66,7 @@ var userTools = {
       datasourcesNotAvailableToUser = [];
 
     for (x = 0; x < datasources.length; x += 1) {
-      if(_.indexOf(userDatasources, x) === -1) {
+      if (_.indexOf(userDatasources, x) === -1) {
         datasourcesNotAvailableToUser.push(datasources[x]);
       }
     }
