@@ -85,5 +85,21 @@ module.exports = function(router, _, appTools, datasources, constants) {
       res.send('create new app failed');
     }
   });
+  router.get('/apps/remove-datasource/:appId/:datasourceId', function (req, res) {
+    if(appTools.removeAppDatasource(req.params.appId, req.params.datasourceId)) {
+      res.redirect('/apps/manage/' + req.params.appId);
+    } else {
+      console.log('remove app datasource failed');
+      res.send('remove app datasource failed');
+    }
+  });
+  router.post('/apps/add-datasource/:appId', function (req, res) {
+    if(appTools.addAppDatasource(req.params.appId, req.body)) {
+      res.redirect('/apps/manage/' + req.params.appId);
+    } else {
+      console.log('add app datasource failed');
+      res.send('add app datasource failed');
+    }
+  });
 }
 
