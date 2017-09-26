@@ -12,7 +12,7 @@
 <main id="content" role="main">
 
   {% set crumbs = [{name: 'Users', url: '/admin/users/list'}, {name: user.name, url: '/admin/users/show/' + user.id}, {name: page_title}] %}
-  {% include "includes/page_top.html" %}
+  {% include "includes/breadcrumbs.html" %}
   <h1 class="heading-large">
     {{ page_title }}
   </h1>
