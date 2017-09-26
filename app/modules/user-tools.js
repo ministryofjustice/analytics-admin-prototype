@@ -45,7 +45,7 @@ var userTools = {
       x,
       datasource;
 
-    if (user.userDatasources.length) {
+    if (user && user.userDatasources.length) {
       for (x = 0; x < user.userDatasources.length; x += 1) {
         datasource = _.find(datasources, {'id': parseInt(user.userDatasources[x], 10)});
 
