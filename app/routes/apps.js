@@ -1,4 +1,4 @@
-module.exports = function(router, _, appTools, datasources, constants) {
+module.exports = function(router, _, constants, datasources, appTools) {
   router.get('/apps/show/:appId', function (req, res) {
     var app = appTools.getApp(req.params.appId),
       appGroup = appTools.getAppGroup(req.params.appId),

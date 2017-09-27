@@ -31,7 +31,7 @@
         <div class="panel panel-border-narrow js-hidden" id="new-app-datasource-create-new-source">
           <p>This can be populated with data later.</p>
           <label class="form-label" for="new-datasource-name">
-            Datasource (bucket) name
+            App data source (bucket) name
             <span class="form-hint">60 chars max, only lowercase letters, numbers, periods and hyphens, auto-prefixed with "{{ prefix }}"</span>
           </label>
           <input class="form-control" name="new-datasource-name" type="text" id="new-datasource-name" value="{{ prefix }}" data-prefix="{{ prefix }}" pattern="[a-z0-9.-]{1,60}">
@@ -39,10 +39,10 @@
 
         <div class="multiple-choice" data-target="new-app-datasource-existing-source">
           <input type="radio" id="new-app-datasource-select" name="new-app-datasource" value="select">
-          <label for="new-app-datasource-select">Attach an existing datasource</label>
+          <label for="new-app-datasource-select">Attach an existing app data source</label>
         </div>
         <div class="panel panel-border-narrow js-hidden" id="new-app-datasource-existing-source">
-          <label class="form-label" for="select-existing-datasource">Select datasource</label>
+          <label class="form-label" for="select-existing-datasource">Select app data source</label>
           <select name="select-existing-datasource" id="select-existing-datasource" class="form-control">
             <option value="">Select</option>
             {% for datasource in datasources %}

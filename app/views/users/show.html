@@ -74,17 +74,52 @@
     {% endif %}
   </div>
 
+  <div class="form-group">
+    <h2>{{ list_prefix }} app data sources</h2>
+    {% if userDatasources.length %}
+      <table class="form-group">
+        <thead>
+          <tr>
+            <th>Data source name</th>
+            <th>Admin</th>
+            {% if signedInUser %}
+              <td>&nbsp;</td>
+            {% endif %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for datasource in userDatasources %}
+            <tr>
+              <td>
+                <a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a>
+              </td>
+              <td>
+                {% if datasource.role == 0 %}
+                  Yes
+                {% else %}
+                  No
+                {% endif %}
+              </td>
+              {% if signedInUser %}
+                <td class="align-right">
+                  {% if app.role == 0 %}
+                    <a class="button button-secondary" href="/datasources/manage/{{ datasource.id }}">Manage app data source</a>
+                    <a class="button button-secondary js-confirm" href="/datasources/delete/{{ datasource.id }}/{{ user.id }}">Delete app data source</a>
+                  {% endif %}
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>None</p>
+    {% endif %}
 
-  <h2>{{ list_prefix }} app data sources</h2>
-  {% if userDatasources.length %}
-    <ul class="list list-bullet">
-      {% for datasource in userDatasources %}
-        <li><a href="/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></li>
-      {% endfor %}
-    </ul>
-  {% else %}
-    <p>None</p>
-  {% endif %}
+    {% if signedInUser %}
+      <p><a class="button button-secondary" href="/datasources/new">Create new app data source</a></p>
+    {% endif %}
+  </div>
 
 </main>
 
