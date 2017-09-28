@@ -32,7 +32,12 @@
   {% if datasourceUsers.length %}
     <ul class="list list-bullet">
       {% for user in datasourceUsers %}
-        <li><a href="/users/show/{{ user.id }}">{{ user.name }}</a></li>
+        <li>
+          <a href="/users/show/{{ user.id }}">{{ user.name }}</a>
+          {% if user.role == 0 %}
+            (Admin)
+          {% endif %}
+        </li>
       {% endfor %}
     </ul>
   {% else %}

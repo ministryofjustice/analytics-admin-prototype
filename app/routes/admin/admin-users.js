@@ -70,6 +70,14 @@ module.exports = function(router, _, constants, users, userTools) {
       res.send('remove datasource from user failed');
     }
   });
+  router.get('/admin/users/toggle-datasource-admin-role/:datasourceId/:userId', function (req, res) {
+    if(userTools.toggleDatasourceAdminRole(req.params.datasourceId, req.params.userId)) {
+      res.redirect('/admin/users/edit/' + req.params.userId);
+    } else {
+      console.log('toggle datasource admin role failed');
+      res.send('toggle datasource admin role failed');
+    }
+  });
   router.post('/admin/users/add', function (req, res) {
     if(userTools.newUser(req.body)) {
       res.redirect('/admin/users/list');
@@ -86,5 +94,4 @@ module.exports = function(router, _, constants, users, userTools) {
       res.send('delete user failed - that user may be the only admin in a group');
     }
   });
-
 }

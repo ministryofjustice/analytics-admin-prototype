@@ -7,7 +7,7 @@ var randomTools = {
     return item;
   },
   percentageChance: function(percentage) {
-    return (Math.floor(Math.random() > (parseInt(percentage, 10) / 100)) ? false : true);
+    return (Math.round(Math.random() > (parseInt(percentage, 10) / 100)) ? false : true);
   },
   getRandom: function(range) {
     return Math.floor(Math.random() * range);
