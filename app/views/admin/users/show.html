@@ -49,6 +49,9 @@
       {% for datasource in userDatasources %}
         <li>
           <a href="/admin/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a>
+          {% if datasource.role == 0 %}
+            (Admin)
+          {% endif %}
         </li>
       {% endfor %}
     </ul>

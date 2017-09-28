@@ -21,13 +21,18 @@ var datasourceTools = {
 
     return datasourceApps;
   },
-  getDatasourceUsers: function(id) {
+  getDatasourceUsers: function(datasourceId) {
     var datasourceUsers = [],
-      x;
+      x,
+      match,
+      matchedUser;
 
     for (x = 0; x < users.length; x += 1) {
-      if (users[x].userDatasources.indexOf(parseInt(id, 10)) !== -1) {
-        datasourceUsers.push(users[x]);
+      match = _.find(users[x].userDatasources, {'id': parseInt(datasourceId, 10)});
+      if (match) {
+        matchedUser = users[x];
+        matchedUser.role = match.role;
+        datasourceUsers.push(matchedUser);
       }
     }
 
@@ -93,14 +98,18 @@ var datasourceTools = {
 
     return true;
   },
-  addDatasourceToUser: function(datasourceId, formData) {
+  addDatasourceToUser: function(datasourceId, formData, makeAdmin) {
     var userId = parseInt(formData['add-datasource-to-user'], 10),
       user = _.find(users, {'id': userId}),
       userIndex = _.findIndex(users, {'id': userId}),
-      datasources = user.userDatasources;
+      datasources = user.userDatasources,
+      role = (makeAdmin ? 0 : 1);
 
-    datasources.push(parseInt(datasourceId, 10));
-    datasources = arrayTools.sort(datasources);
+    datasources.push({
+      id: parseInt(datasourceId, 10),
+      role: role
+    });
+    datasources = _.sortBy(datasources, 'id');
     users[userIndex].userDatasources = datasources;
 
     return true;

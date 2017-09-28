@@ -102,7 +102,7 @@
               </td>
               {% if signedInUser %}
                 <td class="align-right">
-                  {% if app.role == 0 %}
+                  {% if datasource.role == 0 %}
                     <a class="button button-secondary" href="/datasources/manage/{{ datasource.id }}">Manage app data source</a>
                     <a class="button button-secondary js-confirm" href="/datasources/delete/{{ datasource.id }}/{{ user.id }}">Delete app data source</a>
                   {% endif %}

@@ -1,7 +1,6 @@
 'use strict';
 
 var _ = require('lodash'),
-  arrayTools = require('../modules/array-tools.js'),
   users = require('../assets/data/dummy-users.json'),
   apps = require('../assets/data/dummy-apps.json'),
   datasources = require('../assets/data/dummy-datasources.json');
@@ -47,10 +46,11 @@ var userTools = {
 
     if (user && user.userDatasources.length) {
       for (x = 0; x < user.userDatasources.length; x += 1) {
-        datasource = _.find(datasources, {'id': parseInt(user.userDatasources[x], 10)});
+        datasource = _.find(datasources, {'id': parseInt(user.userDatasources[x].id, 10)});
 
         userDatasources.push({
           id: datasource.id,
+          role: user.userDatasources[x].role,
           bucket_name: datasource.bucket_name
         });
       }
@@ -66,7 +66,7 @@ var userTools = {
       datasourcesNotAvailableToUser = [];
 
     for (x = 0; x < datasources.length; x += 1) {
-      if (_.indexOf(userDatasources, x) === -1) {
+      if (!_.find(userDatasources, {'id': parseInt(datasources[x].id, 10)})) {
         datasourcesNotAvailableToUser.push(datasources[x]);
       }
     }
@@ -131,8 +131,11 @@ var userTools = {
       userIndex = _.findIndex(users, {'id': parseInt(userId, 10)}),
       datasources = user.userDatasources;
 
-    datasources.push(datasourceId);
-    users[userIndex].userDatasources = _.uniq(arrayTools.sort(datasources));
+    datasources.push({
+      id: datasourceId,
+      role: 1
+    });
+    users[userIndex].userDatasources = _.sortBy(datasources, 'id');
 
     return true;
   },
@@ -140,10 +143,24 @@ var userTools = {
     var self = this,
       user = self.getUser(userId),
       userIndex = _.findIndex(users, {'id': parseInt(userId, 10)}),
-      datasources = user.userDatasources;
+      userDatasources = user.userDatasources;
 
-    datasources = _.pull(datasources, parseInt(datasourceId, 10));
-    users[userIndex].datasources = datasources;
+    userDatasources = _.reject(userDatasources, {'id': parseInt(datasourceId, 10)});
+    users[userIndex].userDatasources = userDatasources;
+
+    return true;
+  },
+  toggleDatasourceAdminRole: function(datasourceId, userId) {
+    var self = this,
+      user = self.getUser(userId),
+      userIndex = _.findIndex(users, {'id': parseInt(userId, 10)}),
+      userDatasources = user.userDatasources,
+      userDatasourceEntry = _.find(userDatasources, {'id': parseInt(datasourceId, 10)}),
+      userDatasourceEntryIndex = _.findIndex(userDatasources, {'id': parseInt(datasourceId, 10)});
+
+    userDatasourceEntry.role = Math.abs(userDatasourceEntry.role - 1);
+    userDatasources[userDatasourceEntryIndex] = userDatasourceEntry;
+    users[userIndex].userDatasources = userDatasources;
 
     return true;
   }

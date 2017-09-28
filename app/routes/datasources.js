@@ -19,7 +19,7 @@ module.exports = function(router, constants, datasourceTools) {
     var newId = datasourceTools.newDatasource({'bucket_name': req.body['new-datasource-name']});
 
     if (newId) {
-      datasourceTools.addDatasourceToUser(newId, {'add-datasource-to-user': req.session.data.user_id});
+      datasourceTools.addDatasourceToUser(newId, {'add-datasource-to-user': req.session.data.user_id}, true);
       res.redirect('/datasources/show/' + newId);
     }
   });

@@ -1,348 +1,483 @@
 [
   {
     "id": 0,
-    "name": "Jaunita Greenfelder",
-    "email": "jaunita.greenfelder@prototype.gov.uk",
-    "github_username": "jaunita-greenfelder686",
+    "name": "Ashlynn Hermiston",
+    "email": "ashlynn.hermiston@prototype.gov.uk",
+    "github_username": "ashlynn-hermiston248",
     "userDatasources": [
-      12
+      {
+        "id": 23,
+        "role": 1
+      },
+      {
+        "id": 10,
+        "role": 0
+      }
     ]
   },
   {
     "id": 1,
-    "name": "Colleen Hegmann",
-    "email": "colleen.hegmann@prototype.gov.uk",
-    "github_username": "colleen-hegmann399",
+    "name": "Jordane Pfeffer",
+    "email": "jordane.pfeffer@prototype.gov.uk",
+    "github_username": "jordane-pfeffer670",
     "userDatasources": [
-      5
+      {
+        "id": 16,
+        "role": 0
+      },
+      {
+        "id": 10,
+        "role": 0
+      }
     ]
   },
   {
     "id": 2,
-    "name": "Jayson Crooks",
-    "email": "jayson.crooks@prototype.gov.uk",
-    "github_username": "jayson-crooks581",
+    "name": "Kyla Auer",
+    "email": "kyla.auer@prototype.gov.uk",
+    "github_username": "kyla-auer172",
     "userDatasources": [
-      15
+      {
+        "id": 1,
+        "role": 0
+      }
     ]
   },
   {
     "id": 3,
-    "name": "Alexandre Von",
-    "email": "alexandre.von@prototype.gov.uk",
-    "github_username": "alexandre-von560",
-    "userDatasources": [
-      17
-    ]
+    "name": "Saige Haag",
+    "email": "saige.haag@prototype.gov.uk",
+    "github_username": "saige-haag934",
+    "userDatasources": []
   },
   {
     "id": 4,
-    "name": "Rhea Schuster",
-    "email": "rhea.schuster@prototype.gov.uk",
-    "github_username": "rhea-schuster930",
-    "userDatasources": [
-      23
-    ]
+    "name": "Landen Cruickshank",
+    "email": "landen.cruickshank@prototype.gov.uk",
+    "github_username": "landen-cruickshank125",
+    "userDatasources": []
   },
   {
     "id": 5,
-    "name": "Bart Deckow",
-    "email": "bart.deckow@prototype.gov.uk",
-    "github_username": "bart-deckow546",
-    "userDatasources": []
+    "name": "Russell Zieme",
+    "email": "russell.zieme@prototype.gov.uk",
+    "github_username": "russell-zieme886",
+    "userDatasources": [
+      {
+        "id": 1,
+        "role": 1
+      }
+    ]
   },
   {
     "id": 6,
-    "name": "Brent Robel",
-    "email": "brent.robel@prototype.gov.uk",
-    "github_username": "brent-robel190",
-    "userDatasources": []
+    "name": "Shanelle Daniel",
+    "email": "shanelle.daniel@prototype.gov.uk",
+    "github_username": "shanelle-daniel511",
+    "userDatasources": [
+      {
+        "id": 23,
+        "role": 1
+      },
+      {
+        "id": 24,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 7,
-    "name": "Ulices Reinger",
-    "email": "ulices.reinger@prototype.gov.uk",
-    "github_username": "ulices-reinger37",
-    "userDatasources": []
+    "name": "Maryse Feest",
+    "email": "maryse.feest@prototype.gov.uk",
+    "github_username": "maryse-feest773",
+    "userDatasources": [
+      {
+        "id": 19,
+        "role": 1
+      }
+    ]
   },
   {
     "id": 8,
-    "name": "Jairo Wilkinson",
-    "email": "jairo.wilkinson@prototype.gov.uk",
-    "github_username": "jairo-wilkinson399",
+    "name": "Raoul Waelchi",
+    "email": "raoul.waelchi@prototype.gov.uk",
+    "github_username": "raoul-waelchi388",
     "userDatasources": [
-      3
+      {
+        "id": 23,
+        "role": 1
+      }
     ]
   },
   {
     "id": 9,
-    "name": "Mellie Stokes",
-    "email": "mellie.stokes@prototype.gov.uk",
-    "github_username": "mellie-stokes468",
-    "userDatasources": [
-      23
-    ]
+    "name": "Vivianne Hand",
+    "email": "vivianne.hand@prototype.gov.uk",
+    "github_username": "vivianne-hand540",
+    "userDatasources": []
   },
   {
     "id": 10,
-    "name": "Sonia Franecki",
-    "email": "sonia.franecki@prototype.gov.uk",
-    "github_username": "sonia-franecki985",
-    "userDatasources": [
-      10,
-      15
-    ]
+    "name": "Jannie Wolf",
+    "email": "jannie.wolf@prototype.gov.uk",
+    "github_username": "jannie-wolf22",
+    "userDatasources": []
   },
   {
     "id": 11,
-    "name": "Esther Fritsch",
-    "email": "esther.fritsch@prototype.gov.uk",
-    "github_username": "esther-fritsch62",
+    "name": "Samson Hintz",
+    "email": "samson.hintz@prototype.gov.uk",
+    "github_username": "samson-hintz168",
     "userDatasources": [
-      7
+      {
+        "id": 9,
+        "role": 1
+      }
     ]
   },
   {
     "id": 12,
-    "name": "Treva Gutmann",
-    "email": "treva.gutmann@prototype.gov.uk",
-    "github_username": "treva-gutmann258",
-    "userDatasources": []
+    "name": "Robbie Fahey",
+    "email": "robbie.fahey@prototype.gov.uk",
+    "github_username": "robbie-fahey422",
+    "userDatasources": [
+      {
+        "id": 13,
+        "role": 1
+      }
+    ]
   },
   {
     "id": 13,
-    "name": "Hulda Runolfsdottir",
-    "email": "hulda.runolfsdottir@prototype.gov.uk",
-    "github_username": "hulda-runolfsdottir877",
+    "name": "Hildegard Toy",
+    "email": "hildegard.toy@prototype.gov.uk",
+    "github_username": "hildegard-toy703",
     "userDatasources": [
-      14,
-      16
+      {
+        "id": 0,
+        "role": 1
+      },
+      {
+        "id": 8,
+        "role": 0
+      }
     ]
   },
   {
     "id": 14,
-    "name": "Myrna Feest",
-    "email": "myrna.feest@prototype.gov.uk",
-    "github_username": "myrna-feest919",
+    "name": "Nakia Windler",
+    "email": "nakia.windler@prototype.gov.uk",
+    "github_username": "nakia-windler33",
     "userDatasources": [
-      5
+      {
+        "id": 8,
+        "role": 1
+      },
+      {
+        "id": 15,
+        "role": 1
+      }
     ]
   },
   {
     "id": 15,
-    "name": "Arvilla Ryan",
-    "email": "arvilla.ryan@prototype.gov.uk",
-    "github_username": "arvilla-ryan392",
+    "name": "Shad Altenwerth",
+    "email": "shad.altenwerth@prototype.gov.uk",
+    "github_username": "shad-altenwerth762",
     "userDatasources": [
-      5
+      {
+        "id": 15,
+        "role": 1
+      },
+      {
+        "id": 5,
+        "role": 0
+      }
     ]
   },
   {
     "id": 16,
-    "name": "Emmy Reichel",
-    "email": "emmy.reichel@prototype.gov.uk",
-    "github_username": "emmy-reichel296",
+    "name": "Devan Kris",
+    "email": "devan.kris@prototype.gov.uk",
+    "github_username": "devan-kris909",
     "userDatasources": []
   },
   {
     "id": 17,
-    "name": "Margarette O'Connell",
-    "email": "margarette.o'connell@prototype.gov.uk",
-    "github_username": "margarette-o'connell401",
-    "userDatasources": []
-  },
-  {
-    "id": 18,
-    "name": "Stefan Denesik",
-    "email": "stefan.denesik@prototype.gov.uk",
-    "github_username": "stefan-denesik610",
+    "name": "Brook Mann",
+    "email": "brook.mann@prototype.gov.uk",
+    "github_username": "brook-mann559",
     "userDatasources": [
-      2,
-      16
+      {
+        "id": 22,
+        "role": 0
+      }
     ]
   },
   {
+    "id": 18,
+    "name": "Jewel Rowe",
+    "email": "jewel.rowe@prototype.gov.uk",
+    "github_username": "jewel-rowe318",
+    "userDatasources": []
+  },
+  {
     "id": 19,
-    "name": "Jeanne Torp",
-    "email": "jeanne.torp@prototype.gov.uk",
-    "github_username": "jeanne-torp723",
+    "name": "Letitia Kihn",
+    "email": "letitia.kihn@prototype.gov.uk",
+    "github_username": "letitia-kihn211",
     "userDatasources": [
-      1,
-      5
+      {
+        "id": 13,
+        "role": 0
+      },
+      {
+        "id": 4,
+        "role": 1
+      }
     ]
   },
   {
     "id": 20,
-    "name": "Nico Murazik",
-    "email": "nico.murazik@prototype.gov.uk",
-    "github_username": "nico-murazik120",
-    "userDatasources": []
+    "name": "Ben Mante",
+    "email": "ben.mante@prototype.gov.uk",
+    "github_username": "ben-mante929",
+    "userDatasources": [
+      {
+        "id": 10,
+        "role": 1
+      }
+    ]
   },
   {
     "id": 21,
-    "name": "Reyna Wolf",
-    "email": "reyna.wolf@prototype.gov.uk",
-    "github_username": "reyna-wolf756",
+    "name": "Fannie Turcotte",
+    "email": "fannie.turcotte@prototype.gov.uk",
+    "github_username": "fannie-turcotte129",
     "userDatasources": [
-      0
+      {
+        "id": 14,
+        "role": 0
+      }
     ]
   },
   {
     "id": 22,
-    "name": "Monserrat Robel",
-    "email": "monserrat.robel@prototype.gov.uk",
-    "github_username": "monserrat-robel928",
-    "userDatasources": []
+    "name": "Omari Durgan",
+    "email": "omari.durgan@prototype.gov.uk",
+    "github_username": "omari-durgan109",
+    "userDatasources": [
+      {
+        "id": 6,
+        "role": 0
+      },
+      {
+        "id": 5,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 23,
-    "name": "Rodolfo Lubowitz",
-    "email": "rodolfo.lubowitz@prototype.gov.uk",
-    "github_username": "rodolfo-lubowitz570",
+    "name": "Isidro Runte",
+    "email": "isidro.runte@prototype.gov.uk",
+    "github_username": "isidro-runte237",
     "userDatasources": [
-      20
+      {
+        "id": 4,
+        "role": 1
+      }
     ]
   },
   {
     "id": 24,
-    "name": "Micah Reinger",
-    "email": "micah.reinger@prototype.gov.uk",
-    "github_username": "micah-reinger266",
-    "userDatasources": []
-  },
-  {
-    "id": 25,
-    "name": "Reva Dicki",
-    "email": "reva.dicki@prototype.gov.uk",
-    "github_username": "reva-dicki527",
+    "name": "Crystal Mante",
+    "email": "crystal.mante@prototype.gov.uk",
+    "github_username": "crystal-mante796",
     "userDatasources": [
-      10
+      {
+        "id": 3,
+        "role": 1
+      }
     ]
   },
   {
-    "id": 26,
-    "name": "Jamal Fisher",
-    "email": "jamal.fisher@prototype.gov.uk",
-    "github_username": "jamal-fisher925",
+    "id": 25,
+    "name": "Citlalli Renner",
+    "email": "citlalli.renner@prototype.gov.uk",
+    "github_username": "citlalli-renner102",
     "userDatasources": []
   },
   {
-    "id": 27,
-    "name": "Lyda Mills",
-    "email": "lyda.mills@prototype.gov.uk",
-    "github_username": "lyda-mills741",
+    "id": 26,
+    "name": "Sasha Brakus",
+    "email": "sasha.brakus@prototype.gov.uk",
+    "github_username": "sasha-brakus266",
     "userDatasources": [
-      23
+      {
+        "id": 21,
+        "role": 0
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "name": "Ernesto Wisoky",
+    "email": "ernesto.wisoky@prototype.gov.uk",
+    "github_username": "ernesto-wisoky336",
+    "userDatasources": [
+      {
+        "id": 9,
+        "role": 0
+      }
     ]
   },
   {
     "id": 28,
-    "name": "Kristoffer Rempel",
-    "email": "kristoffer.rempel@prototype.gov.uk",
-    "github_username": "kristoffer-rempel891",
+    "name": "Chester Rippin",
+    "email": "chester.rippin@prototype.gov.uk",
+    "github_username": "chester-rippin852",
     "userDatasources": [
-      7,
-      12
+      {
+        "id": 20,
+        "role": 0
+      }
     ]
   },
   {
     "id": 29,
-    "name": "Yoshiko Dare",
-    "email": "yoshiko.dare@prototype.gov.uk",
-    "github_username": "yoshiko-dare124",
+    "name": "Andy Towne",
+    "email": "andy.towne@prototype.gov.uk",
+    "github_username": "andy-towne911",
     "userDatasources": [
-      24,
-      14
+      {
+        "id": 16,
+        "role": 1
+      }
     ]
   },
   {
     "id": 30,
-    "name": "Jacquelyn Lynch",
-    "email": "jacquelyn.lynch@prototype.gov.uk",
-    "github_username": "jacquelyn-lynch568",
+    "name": "Pink Kshlerin",
+    "email": "pink.kshlerin@prototype.gov.uk",
+    "github_username": "pink-kshlerin187",
     "userDatasources": [
-      17
+      {
+        "id": 24,
+        "role": 0
+      }
     ]
   },
   {
     "id": 31,
-    "name": "Rey Lockman",
-    "email": "rey.lockman@prototype.gov.uk",
-    "github_username": "rey-lockman613",
+    "name": "Leonor Schuppe",
+    "email": "leonor.schuppe@prototype.gov.uk",
+    "github_username": "leonor-schuppe606",
     "userDatasources": [
-      4,
-      2
+      {
+        "id": 16,
+        "role": 1
+      }
     ]
   },
   {
     "id": 32,
-    "name": "Joanne Cummerata",
-    "email": "joanne.cummerata@prototype.gov.uk",
-    "github_username": "joanne-cummerata369",
+    "name": "Jordyn Shanahan",
+    "email": "jordyn.shanahan@prototype.gov.uk",
+    "github_username": "jordyn-shanahan445",
     "userDatasources": [
-      20
+      {
+        "id": 16,
+        "role": 0
+      }
     ]
   },
   {
     "id": 33,
-    "name": "Therese Gutkowski",
-    "email": "therese.gutkowski@prototype.gov.uk",
-    "github_username": "therese-gutkowski257",
-    "userDatasources": []
+    "name": "Cornell Krajcik",
+    "email": "cornell.krajcik@prototype.gov.uk",
+    "github_username": "cornell-krajcik367",
+    "userDatasources": [
+      {
+        "id": 3,
+        "role": 0
+      }
+    ]
   },
   {
     "id": 34,
-    "name": "Antonette Runte",
-    "email": "antonette.runte@prototype.gov.uk",
-    "github_username": "antonette-runte636",
+    "name": "Zackary Orn",
+    "email": "zackary.orn@prototype.gov.uk",
+    "github_username": "zackary-orn344",
     "userDatasources": [
-      15
+      {
+        "id": 7,
+        "role": 1
+      }
     ]
   },
   {
     "id": 35,
-    "name": "Idella Waelchi",
-    "email": "idella.waelchi@prototype.gov.uk",
-    "github_username": "idella-waelchi531",
+    "name": "Monserrat Schuppe",
+    "email": "monserrat.schuppe@prototype.gov.uk",
+    "github_username": "monserrat-schuppe232",
     "userDatasources": [
-      22
+      {
+        "id": 15,
+        "role": 0
+      }
     ]
   },
   {
     "id": 36,
-    "name": "Sophia Towne",
-    "email": "sophia.towne@prototype.gov.uk",
-    "github_username": "sophia-towne531",
+    "name": "Gage Rolfson",
+    "email": "gage.rolfson@prototype.gov.uk",
+    "github_username": "gage-rolfson177",
     "userDatasources": [
-      16
+      {
+        "id": 1,
+        "role": 1
+      }
     ]
   },
   {
     "id": 37,
-    "name": "Deion Toy",
-    "email": "deion.toy@prototype.gov.uk",
-    "github_username": "deion-toy177",
+    "name": "Gracie Huel",
+    "email": "gracie.huel@prototype.gov.uk",
+    "github_username": "gracie-huel826",
     "userDatasources": [
-      4
+      {
+        "id": 15,
+        "role": 1
+      }
     ]
   },
   {
     "id": 38,
-    "name": "Kitty Mraz",
-    "email": "kitty.mraz@prototype.gov.uk",
-    "github_username": "kitty-mraz519",
+    "name": "Alejandra Kautzer",
+    "email": "alejandra.kautzer@prototype.gov.uk",
+    "github_username": "alejandra-kautzer604",
     "userDatasources": [
-      11,
-      14
+      {
+        "id": 8,
+        "role": 0
+      }
     ]
   },
   {
     "id": 39,
-    "name": "Cortney McClure",
-    "email": "cortney.mcclure@prototype.gov.uk",
-    "github_username": "cortney-mcclure606",
+    "name": "Brant Morar",
+    "email": "brant.morar@prototype.gov.uk",
+    "github_username": "brant-morar82",
     "userDatasources": [
-      5
+      {
+        "id": 9,
+        "role": 0
+      },
+      {
+        "id": 24,
+        "role": 0
+      }
     ]
   }
 ]

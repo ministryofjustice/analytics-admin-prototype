@@ -82,6 +82,7 @@
             <tr>
               <td><a href="/admin/datasources/show/{{ datasource.id }}">{{ datasource.bucket_name }}</a></td>
               <td class="align-right">
+                <a class="button button-secondary" href="/admin/users/toggle-datasource-admin-role/{{ datasource.id }}/{{ user.id }}">{{ "Remove" if datasource.role == 0 else "Grant" }} admin access</a>
                 <a class="button button-secondary" href="/admin/users/remove-datasource-from-user/{{ datasource.id }}/{{ user.id}}">Revoke user access to this datasource</a>
               </td>
             </tr>
