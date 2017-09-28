@@ -10,8 +10,6 @@ module.exports = function(router, userTools) {
       signedInUser = (parseInt(data.user_id, 10) === parseInt(req.params.userId, 10) ? true : false);
     }
 
-console.log(userDatasources);
-
     res.render('users/show', {
       user: user,
       userApps: userApps,
