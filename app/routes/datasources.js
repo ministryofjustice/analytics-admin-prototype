@@ -23,4 +23,9 @@ module.exports = function(router, constants, datasourceTools) {
       res.redirect('/datasources/show/' + newId);
     }
   });
+  router.get('/datasources/delete/:datasourceId/:userId', function (req, res) {
+    if (datasourceTools.deleteDatasource(req.params.datasourceId)) {
+      res.redirect('/users/show/' + req.params.userId);
+    }
+  });
 }
