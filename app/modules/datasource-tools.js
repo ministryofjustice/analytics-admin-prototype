@@ -137,10 +137,14 @@ var datasourceTools = {
   deleteDatasource: function(datasourceId) {
     var self = this,
       datasourceApps = self.getDatasourceApps(datasourceId),
+      datasourceUsers = self.getDatasourceUsers(datasourceId),
       x,
       app,
       appIndex,
-      appDatasources;
+      appDatasources,
+      user,
+      userIndex,
+      userDatasources;
 
     _.remove(datasources, {'id': parseInt(datasourceId, 10)});
 
@@ -150,6 +154,14 @@ var datasourceTools = {
       appDatasources = app.datasources;
       _.pull(appDatasources, parseInt(datasourceId, 10));
       apps[appIndex].datasources = appDatasources;
+    }
+
+    for (x = 0; x < datasourceUsers.length; x += 1) {
+      user = _.find(users, {'id': parseInt(datasourceUsers[x].id, 10)});
+      userIndex = _.findIndex(users, {'id': parseInt(datasourceUsers[x].id, 10)});
+      userDatasources = user.userDatasources;
+      userDatasources = _.reject(userDatasources, {'id': parseInt(datasourceId, 10)});
+      users[userIndex].userDatasources = userDatasources;
     }
 
     return true;
