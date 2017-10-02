@@ -21,14 +21,18 @@ var datasourceTools = {
 
     return datasourceApps;
   },
-  getDatasourceUsers: function(datasourceId) {
+  getDatasourceUsers: function(datasourceId, invert) {
     var datasourceUsers = [],
       x,
       match,
-      matchedUser;
+      matchedUser,
+      invertMatch = invert || false;
 
     for (x = 0; x < users.length; x += 1) {
       match = _.find(users[x].userDatasources, {'id': parseInt(datasourceId, 10)});
+      if (invertMatch) {
+        match = !match;
+      }
       if (match) {
         matchedUser = users[x];
         matchedUser.role = match.role;
@@ -72,19 +76,10 @@ var datasourceTools = {
     return appsWithoutDatasource;
   },
   getUsersWithoutDatasource: function(datasourceId) {
-    var usersWithoutDatasource = [],
-      x;
+    var self = this,
+      appsWithoutDatasource = self.getDatasourceUsers(datasourceId, true);
 
-    for (x = 0; x < users.length; x += 1) {
-      if (!users[x].userDatasources.includes(parseInt(datasourceId, 10))) {
-        usersWithoutDatasource.push({
-          id: users[x].id,
-          name: users[x].name
-        });
-      }
-    }
-
-    return usersWithoutDatasource;
+    return appsWithoutDatasource;
   },
   addDatasourceToApp: function(datasourceId, formData) {
     var appId = parseInt(formData['add-datasource-to-app'], 10),
@@ -119,7 +114,7 @@ var datasourceTools = {
       userIndex = _.findIndex(users, {'id': parseInt(userId, 10)}),
       datasources = user.userDatasources;
 
-    datasources = _.pull(datasources, parseInt(datasourceId, 10));
+    datasources = _.reject(datasources, {'id': parseInt(datasourceId, 10)});
     users[userIndex].userDatasources = datasources;
 
     return true;

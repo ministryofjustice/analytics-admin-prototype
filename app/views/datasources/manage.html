@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% set page_title = "Manage app data source: " + datasource.bucket_name %}
+
+{% block page_title %}
+  {{ page_title }} | Analytics Platform Control Panel Prototype
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+  {% set crumbs = [{name: 'App data source: ' + datasource.bucket_name, url: '/datasources/show/' + datasource.id}, {name: 'Manage app data source'}] %}
+  {% include "includes/breadcrumbs.html" %}
+
+  <h1 class="heading-large">
+    {{ page_title }}
+  </h1>
+
+  <h2 class="heading-medium">Manage data</h2>
+  <p><a href="#" class="button button-secondary">Manage the data in this bucket</a></p>
+
+  <div class="form-group">
+    <h2 class="heading-medium">Apps with access to this app data source</h2>
+    {% if datasourceApps.length %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for app in datasourceApps %}
+            <tr>
+              <td><a href="/apps/show/{{ app.id }}">{{ app.name }}</a></td>
+              <td class="align-right">
+                <a class="button button-secondary" href="/datasources/remove-app/{{ datasource.id }}/{{ app.id}}">Revoke app access to app data source</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No apps with access to this app data source</p>
+    {% endif %}
+  </div>
+
+  <form action="/datasources/add-datasource-to-app/{{ datasource.id }}" method="post">
+    <div class="form-group">
+      <label class="form-label" for="add-datasource-to-app">Grant an app access to this app data source</label>
+      <select class="form-control form-control-3-4 no-blank" id="add-datasource-to-app" name="add-datasource-to-app">
+        <option value="">Select app</option>
+        {% for app in appsWithoutDataSource %}
+          <option value="{{ app.id }}">{{ app.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+  <div class="form-group">
+    <h2 class="heading-medium">Users with access to this app data source</h2>
+    {% if datasourceUsers.length %}
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Admin</th>
+            <td>&nbsp;</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in datasourceUsers %}
+            <tr>
+              <td>
+                <a href="/users/show/{{ user.id }}">{{ user.name }}</a>
+              </td>
+              <td>
+                {{ "Yes" if user.role == 0 else "No" }}
+              </td>
+              <td class="align-right">
+                <a class="button button-secondary" href="/datasources/toggle-datasource-admin-role/{{ datasource.id }}/{{ user.id }}">{{ "Remove" if user.role == 0 else "Grant" }} admin access</a>
+                <a class="button button-secondary" href="/datasources/remove-user/{{ datasource.id }}/{{ user.id }}">Revoke data source access for this user</a>
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No users with access to this app data source</p>
+    {% endif %}
+  </div>
+
+  <form action="/datasources/add-datasource-to-user/{{ datasource.id }}" method="post">
+    <div class="form-group">
+      <label class="form-label" for="add-datasource-to-user">Grant a user access to this app data source</label>
+      <select class="form-control form-control-3-4 no-blank" id="add-datasource-to-user" name="add-datasource-to-user">
+        <option value="">Select user</option>
+        {% for user in usersWithoutDataSource %}
+          <option value="{{ user.id }}">{{ user.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <input type="submit" class="button button-secondary" value="Add">
+    </div>
+  </form>
+
+</main>
+
+{% endblock %}
