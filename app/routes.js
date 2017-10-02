@@ -51,7 +51,7 @@ require('./routes/users.js') (router, userTools);
 // apps
 require('./routes/apps.js') (router, _, constants, datasources, appTools);
 //datasources
-require('./routes/datasources.js') (router, constants, datasourceTools);
+require('./routes/datasources.js') (router, constants, datasourceTools, userTools);
 
 
 module.exports = router;

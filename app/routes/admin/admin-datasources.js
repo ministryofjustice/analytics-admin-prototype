@@ -74,8 +74,8 @@ module.exports = function(router, constants, datasources, datasourceTools) {
     if(datasourceTools.removeDatasourceApp(req.params.datasourceId, req.params.appId)) {
       res.redirect('/admin/datasources/edit/' + req.params.datasourceId);
     } else {
-      console.log('add datasource to app failed');
-      res.send('add datasource to app failed');
+      console.log('remove app from datasource failed');
+      res.send('remove app from datasource failed');
     }
   });
   router.get('/admin/datasources/delete/:datasourceId', function (req, res) {
