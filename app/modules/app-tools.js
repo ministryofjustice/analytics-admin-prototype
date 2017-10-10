@@ -188,7 +188,7 @@ var appTools = {
           'add-datasource-to-user': parseInt(formData.user_id, 10)
         };
 
-        datasourceTools.addDatasourceToUser(newDatasourceId, addToUserObject);
+        datasourceTools.addDatasourceToUser(newDatasourceId, addToUserObject, 1);
 
         return [newDatasourceId];
       case 'select':
