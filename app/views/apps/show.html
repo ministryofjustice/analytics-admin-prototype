@@ -27,6 +27,15 @@
     {{ app.description if app.description else "None" }}
   </p>
 
+  <h2 class="heading-medium">Repo</h2>
+  <p>
+    {% if app.repoUrl %}
+      <a href="{{ app.repoUrl }}">{{ app.repoUrl }}</a>
+    {% else %}
+      None
+    {% endif %}
+  </p>
+
   <h2 class="heading-medium">App users</h2>
   {% if appGroup.length %}
     <ul class="list list-bullet">
